@@ -5,7 +5,7 @@ import Footer from '../footer/footer';
 import {BrowserRouter, Route} from 'react-router-dom';
 import HomePage from '../../pages/home-page';
 import BuyPage from '../../pages/buy-page';
-import SellPage from '../../pages/sell-page';
+import SellPage from '../../pages/sell-page/sell-page';
 import RentPage from '../../pages/rent-page';
 import AboutPage from '../../pages/about-page';
 import ContactPage from '../../pages/contact-page';

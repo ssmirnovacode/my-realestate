@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const Navigation =() => {
     return(
         <nav className="navbar navbar-dark bg-dark">
-                <Link className="nav-link" to="/">My Real Estate</Link>               
+                <Link className="nav-link" to="/"><h1>My Real Estate</h1></Link>               
 
                 <ul className="nav nav-pills ml-auto">
                     <li className="nav-item active">
