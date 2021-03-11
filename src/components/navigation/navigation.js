@@ -1,29 +1,30 @@
 import React from 'react';
 import './navigation.scss';
+import {Link} from 'react-router-dom';
 
 const Navigation =() => {
     return(
         <nav className="navbar navbar-dark bg-dark">
-                <a className="navbar-brand" href="#">My Real Estate</a>               
+                <Link className="nav-link" to="/">My Real Estate</Link>               
 
-                <ul className="nav ml-auto">
+                <ul className="nav nav-pills ml-auto">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        <Link className="nav-link" to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Buy</a>
+                        <Link className="nav-link" to="/buy" >Buy</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Sell</a>
+                        <Link className="nav-link" to="/sell" >Sell</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Rent</a>
+                        <Link className="nav-link"  to="/rent">Rent</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">About us</a>
+                        <Link className="nav-link" to="/about" >About us</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Contact us</a>
+                        <Link className="nav-link" to="/contact" >Contact us</Link>
                     </li>                   
                 </ul>
 
@@ -34,22 +35,22 @@ const Navigation =() => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                            <Link className="nav-link"  to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Buy</a>
+                            <Link className="nav-link"  to="/buy">Buy</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Sell</a>
+                            <Link className="nav-link" to="/sell" >Sell</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Rent</a>
+                            <Link className="nav-link" to="/rent" >Rent</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">About us</a>
+                            <Link className="nav-link" to="/about" >About us</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Contact us</a>
+                            <Link className="nav-link" to="/contact" >Contact us</Link>
                         </li>                   
                     </ul>
                 </div>
