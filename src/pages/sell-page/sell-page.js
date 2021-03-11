@@ -1,5 +1,6 @@
 import React from 'react';
 import './sell-page.scss';
+import YourProperty from '../../components/your-property/your-property';
 
 const SellPage = () => {
 
@@ -17,40 +18,7 @@ const SellPage = () => {
                 <p>At Aproperties we take care of the entire counseling process in the sale or rental of your property. From the first moment we offer you all our experience through a professional, committed and efficient team. We offer a comprehensive service so that the sale or rental of your property is a success.</p>
             </section>
 
-            <section className="sell_forms">
-                <div className="sell_forms_property">
-                    <h3>Property information</h3>
-                    <form>
-                        <div class="input-group mb-3">
-                            <input className="mr-2 form-control" type="text" name="street" placeholder="Street and number" />
-                            <input className="door form-control" type="text" name="door" placeholder="Building, apartment, door" />
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input className="mr-2 form-control" type="text" name="zipcode" placeholder="Postal code"/>                       
-                            <select class="custom-select" id="inputGroupSelect01">
-                                <option value="0" selected disabled>Province</option>
-                                <option value="1">Barcelona</option>
-                                <option value="2">Tarragona</option>
-                                <option value="3">Lleida</option>
-                                <option value="3">Girona</option>
-                            </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <select class="custom-select" id="inputGroupSelect02">
-                                <option value="0">I'd like to sell my property</option>
-                                <option value="1">I'd like to rent my property</option>                              
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div className="sell_forms_contact">
-                    <h3>Contact information</h3>
-                    <form>
-                        
-                    </form>
-                </div>
-            </section>
+            <YourProperty />
         </div>
     )
 }
