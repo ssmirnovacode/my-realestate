@@ -8,7 +8,7 @@ import BuyPage from '../../pages/buy-page';
 import SellPage from '../../pages/sell-page/sell-page';
 import RentPage from '../../pages/rent-page';
 import AboutPage from '../../pages/about-page';
-import ContactPage from '../../pages/contact-page';
+import ContactPage from '../../pages/contact-page/contact-page';
 
 const App = () => {
     return(

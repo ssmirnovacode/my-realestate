@@ -50,15 +50,10 @@ const YourProperty = () => {
                                 <textarea className="form-control" name="comments" placeholder="Comments "/>
                             </div>
 
-                            <div class="input-group-text">
-                                <input id="privpolicy" type="checkbox" aria-label="Checkbox for following text input" />
-                                <label className="form-check-label ml-2" htmlFor="privpolicy">I have read and accept the <Link>privacy policy</Link></label>
+                            <div class="form-check">
+                                <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+                                <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link>privacy policy</Link></label>
                             </div>
-
-                            {/* <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                                <label class="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                            </div> */}
                     </div>
 
                     <button type="submit" className="btn btn-primary mt-3">Submit</button>
