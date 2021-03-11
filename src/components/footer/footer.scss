@@ -1,0 +1,26 @@
+@import '../../assets/variables.scss';
+
+.footer {
+    background-color: $dark;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    & h2 a {
+        font-size: 1.1rem;
+        color: $white;
+    }
+    &_nav {
+        list-style-type: none;
+        margin-left: -3rem;
+    } 
+    & .nav-link:hover {
+        text-decoration: underline;
+        background-color: $dark;
+        color: $white;
+    } 
+    & .footer_col {
+        color: $white;
+    }
+}
+
