@@ -1,6 +1,21 @@
-/* .card {
-    max-width: 20%;
-} */
-.card-img-top {
-    max-width: 100%;
+.card {
+    &-img-top {
+        max-width: 100%;
+    }
+    &-subheader-top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-weight: bold;
+    }
+    &-type {
+        font-style: italic;
+    }
+    &-geo {
+        font-weight: bold;
+    }
+    &-space {
+        
+        font-size: 80%;
+    }
 }
