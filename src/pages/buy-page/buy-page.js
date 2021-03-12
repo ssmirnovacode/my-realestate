@@ -151,8 +151,6 @@ const BuyPage = (props) => {
         }
     ]
 
-    
-
     return(
         <>         
             <SearchForm type="sale" />

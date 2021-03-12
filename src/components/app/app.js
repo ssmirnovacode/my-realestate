@@ -21,6 +21,7 @@ const App = () => {
                 <Route path='/rent' component={RentPage} />
                 <Route path='/about' component={AboutPage} />
                 <Route path='/contact' component={ContactPage} />
+                {/* add property-details route */}
                 <Footer /> 
             </BrowserRouter>
         </>

@@ -5,10 +5,12 @@ const SearchForm = (props) => {
 
     const {type} = props;
 
-    const comarcasBarcelona = ['Alto Penedés', 'Anoia', 'Bages'],
-        comarcasTarragona = ['Alto Penedés', 'Anoia', 'Bages'], // fill in
-        comarcasLleida = ['Alto Penedés', 'Anoia', 'Bages'], // fill in
-        comarcasGirona = ['Alto Penedés', 'Anoia', 'Bages']; // fill in
+    const comarcasBarcelona = ['Alto Penedés', 'Anoia', 'Bages', 'Baix Llobregat', 'Barcelonés', 'Bergadá', 
+                   'El Maresme', 'Garraf', 'Moyanés', 'Osona', 'Selva', 'Vallés Occidental', 'Vallés Oriental'],
+        comarcasTarragona = ['Alto Campo', 'Bajo Campo', 'Bajo Ebro', 'Bajo Penedés', 'Cuenca de Barberá',
+                    'Montsiá', 'Priorato', 'Ribera de Ebro', 'Tarragonés', 'Tierra Alta' ],
+        comarcasLleida = ['Alto Penedés', 'Anoia', 'Bages'], // maybe just the existing ones in the base ?..
+        comarcasGirona = ['Alto Penedés', 'Anoia', 'Bages']; // maybe just the existing ones in the base ?..
 
     let index = 1;
 
@@ -25,19 +27,6 @@ const SearchForm = (props) => {
                             )
                         })
                     }
-                    {/* <option value="1">Alto Penedés</option>
-                    <option value="2">Anoia</option>
-                    <option value="3">Bages</option>
-                    <option value="4">Baix Llobregat</option>
-                    <option value="5">Barcelonés</option>
-                    <option value="6">Bergadá</option>
-                    <option value="7">El Maresme</option>
-                    <option value="8">Garraf</option>
-                    <option value="9">Moyanés</option>
-                    <option value="10">Osona</option>
-                    <option value="11">Selva</option>
-                    <option value="12">Vallés Occidental</option>
-                    <option value="13">Vallés Oriental</option> */}
                     </>
                 );
             case 2:
@@ -51,16 +40,6 @@ const SearchForm = (props) => {
                             )
                         })
                     }
-                    {/* <option value="1">Alto Campo</option>
-                    <option value="2">Bajo Campo</option>
-                    <option value="3">Bajo Ebro</option>
-                    <option value="4">Bajo Penedés</option>
-                    <option value="5">Cuenca de Barberá</option>
-                    <option value="6">Montsiá</option>
-                    <option value="7">Priorato</option>
-                    <option value="8">Ribera de Ebro</option>
-                    <option value="9">Tarragonés</option>
-                    <option value="10">Tierra Alta</option> */}
                     </>
                 );
             case 3:

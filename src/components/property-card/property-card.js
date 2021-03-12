@@ -8,7 +8,7 @@ const PropertyCard = (props) => {
 
     return(
         <div className="card mb-5" >
-            <img className="card-img-top" src={img} alt={title} />
+            <Link to={`properties/{id}`}><img className="card-img-top" src={img} alt={title} /></Link>
             <div className="card-body">
                 <div className="card-subheader-top">
                     <div className="card-id">{id}</div>
@@ -19,7 +19,7 @@ const PropertyCard = (props) => {
                 <div className="card-type">{type}</div>
                 <div className="card-geo">{province} | {comarca} | {city} </div>
                 <div className="card-space">{surface} m<sup>2</sup> | {bedrooms} bedrooms | {bathrooms} bathrooms</div>
-                <Link to="#" className="btn btn-primary mt-2">Request information</Link>
+                <Link to={`properties/{id}`} className="btn btn-primary mt-2">Request information</Link>
             </div>
         </div>
     )
