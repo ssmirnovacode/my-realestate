@@ -3,11 +3,11 @@ import './app.scss';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import {BrowserRouter, Route} from 'react-router-dom';
-import HomePage from '../../pages/home-page';
-import BuyPage from '../../pages/buy-page';
+import HomePage from '../../pages/home-page/home-page';
+import BuyPage from '../../pages/buy-page/buy-page';
 import SellPage from '../../pages/sell-page/sell-page';
-import RentPage from '../../pages/rent-page';
-import AboutPage from '../../pages/about-page';
+import RentPage from '../../pages/rent-page/rent-page';
+import AboutPage from '../../pages/about-page/about-page';
 import ContactPage from '../../pages/contact-page/contact-page';
 
 const App = () => {
