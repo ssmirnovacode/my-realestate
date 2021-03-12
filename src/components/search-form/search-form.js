@@ -111,7 +111,7 @@ const SearchForm = (props) => {
                         {comarca}
                         
                     </select>
-                    <input type="text" className="form-control" name="city" placeholder="City" />
+                    <input type="text" className="form-control mr-1" name="city" placeholder="City" />
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </div>
             </form>
