@@ -7,15 +7,24 @@ import {itemsLoaded, itemsRequested, itemsError} from '../../redux/actions';
 import baseURL from '../../assets/baseURL';
 import ItemsView from '../../components/items-view/items-view';
 
-
 const reqService = new RequestService();
 
+/* const additionalURL = 'sale-items';
+const dealType = "sale"; */
+
 class BuyPage extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.additionalURL = 'sale-items';
+        this.dealType = "sale";
+    }
 
     componentDidMount() {
         this.props.itemsRequested();
 
-        reqService.getItems(baseURL + 'sale-items')
+        reqService.getItems(baseURL + this.additionalURL)
         .then(res => this.props.itemsLoaded(res))
         .catch( () => this.props.itemsError());
     }
@@ -26,7 +35,7 @@ class BuyPage extends Component {
 
         return(
             <div className="container buy">         
-                <SearchForm type="sale" history={this.props.history} />
+                <SearchForm type={this.dealType} history={this.props.history} />
 
                 <section>
                     <hr/>

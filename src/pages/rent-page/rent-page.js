@@ -1,181 +1,60 @@
-import React from 'react';
+import React, {Component} from 'react';
 import '../buy-page/buy-page.scss';
 import SearchForm from '../../components/search-form/search-form';
-import PropertyCard from '../../components/property-card/property-card';
+import RequestService from '../../services/requests';
+import {connect} from 'react-redux';
+import {itemsLoaded, itemsRequested, itemsError} from '../../redux/actions';
+import baseURL from '../../assets/baseURL';
+import ItemsView from '../../components/items-view/items-view';
 
-const RentPage = () => {
+const reqService = new RequestService();
 
-    const items = [
-        {
-            id: 1,
-            title: 'Flat1',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 78,
-            price: 150000,
-            bedrooms: 3,
-            bathrooms: 2,
-            images: []
-        },
-        {
-            id: 2,
-            title: 'Flat2',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 738,
-            price: 450000,
-            bedrooms: 6,
-            bathrooms: 3,
-            images: []
-        },
-        {
-            id: 3,
-            title: 'Flat3',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 178,
-            price: 250000,
-            bedrooms: 4,
-            bathrooms: 2,
-            images: []
-        },
-        {
-            id: 4,
-            title: 'Flat1',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 78,
-            price: 150000,
-            bedrooms: 3,
-            bathrooms: 2,
-            images: []
-        },
-        {
-            id: 5,
-            title: 'Flat2',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 738,
-            price: 450000,
-            bedrooms: 6,
-            bathrooms: 3,
-            images: []
-        },
-        {
-            id: 6,
-            title: 'Flat3',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 178,
-            price: 250000,
-            bedrooms: 4,
-            bathrooms: 2,
-            images: []
-        },
-        {
-            id: 7,
-            title: 'Flat1',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 78,
-            price: 150000,
-            bedrooms: 3,
-            bathrooms: 2,
-            images: []
-        },
-        {
-            id: 8,
-            title: 'Flat2',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 738,
-            price: 450000,
-            bedrooms: 6,
-            bathrooms: 3,
-            images: []
-        },
-        {
-            id: 9,
-            title: 'Flat3',
-            text: 'Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla',
-            deal: 'sale',
-            img: "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
-            province: 'Barcelona',
-            comarca: 'Barcelonés',
-            city: 'Cornella de Llobregat', //on filter - not strict match, but contains
-            type: 'apartment',
-            surface: 178,
-            price: 250000,
-            bedrooms: 4,
-            bathrooms: 2,
-            images: []
-        }
-    ];
+//differences with BuyPage
+// - additionalURL
+// - SearchForm type="rent"
 
-    return(
-        <div className="container buy"> 
-            
-            <SearchForm type="rent" />
+class RentPage extends Component {
 
-            <section>
-                <hr/>
-                <div className="container">
-                    <div className="row">
-                    {
-                        items.map(item => {
-                            const {...itemProps} = item;
-                            return(
-                                <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-                                    <PropertyCard key={item.id} {...itemProps} />
-                                </div>
-                            )   
-                        })
-                    }
+    componentDidMount() {
+        this.props.itemsRequested();
+
+        reqService.getItems(baseURL + 'rent-items')
+        .then(res => this.props.itemsLoaded(res))
+        .catch( () => this.props.itemsError());
+    }
+
+    render() {
+        const {items, loading, error} = this.props;
+    
+        return(
+            <div className="container buy"> 
+                
+                <SearchForm type="rent" history={this.props.history} />
+    
+                <section>
+                    <hr/>
+                    <div className="container">
+                        <div className="row">
+                            <ItemsView items={items} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3"/>
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
-    )
+                </section>
+            </div>
+        )
+    }
+    
 }
 
-export default RentPage;
+const mapStateToProps = (state) => ({
+    items: state.items,
+    loading: state.loading,
+    error: state.error
+});
+
+const mapDispatchToProps = {
+    itemsLoaded,
+    itemsRequested,
+    itemsError
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RentPage);
