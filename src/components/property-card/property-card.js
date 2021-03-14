@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const PropertyCard = (props) => {
 
-    const {id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms} = props;
+    const {id, img, title, province, comarca, city, type, surface, price, bedrooms, bathrooms} = props;
 
     return(
         <div className="card mb-5" >

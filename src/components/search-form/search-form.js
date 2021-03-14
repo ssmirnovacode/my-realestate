@@ -5,7 +5,7 @@ const SearchForm = (props) => {
 
     const {type} = props;
 
-    const comarcasBarcelona = ['Alto Penedés', 'Anoia', 'Bages', 'Baix Llobregat', 'Barcelonés', 'Bergadá', 
+    /* const comarcasBarcelona = ['Alto Penedés', 'Anoia', 'Bages', 'Baix Llobregat', 'Barcelonés', 'Bergadá', 
                    'El Maresme', 'Garraf', 'Moyanés', 'Osona', 'Selva', 'Vallés Occidental', 'Vallés Oriental'],
         comarcasTarragona = ['Alto Campo', 'Bajo Campo', 'Bajo Ebro', 'Bajo Penedés', 'Cuenca de Barberá',
                     'Montsiá', 'Priorato', 'Ribera de Ebro', 'Tarragonés', 'Tierra Alta' ],
@@ -14,64 +14,7 @@ const SearchForm = (props) => {
 
     let index = 1;
 
-    const comarca = () => {
-        switch (document.getElementById('selectProvince').value) {
-            case 1:
-                return (
-                    <>
-                    {
-                        comarcasBarcelona.map(item => {
-                            index++;
-                            return(
-                                <option value={index}>{item}</option>
-                            )
-                        })
-                    }
-                    </>
-                );
-            case 2:
-                return (
-                    <>
-                    {
-                        comarcasTarragona.map(item => {
-                            index++;
-                            return(
-                                <option value={index}>{item}</option>
-                            )
-                        })
-                    }
-                    </>
-                );
-            case 3:
-                return (
-                    <>
-                    {
-                        comarcasLleida.map(item => {
-                            index++;
-                            return(
-                                <option value={index}>{item}</option>
-                            )
-                        })
-                    }
-                    </>
-                );
-            case 4:
-                return (
-                    <>
-                    {
-                        comarcasGirona.map(item => {
-                            index++;
-                            return(
-                                <option value={index}>{item}</option>
-                            )
-                        })
-                    }
-                    </>
-                );
-            default:
-                return null;
-        }
-    }
+    const comarcas = null; //to be fetched from server depending on province */
 
     return(
         <div className="container mt-2 mb-2">
@@ -87,7 +30,7 @@ const SearchForm = (props) => {
                     </select>
                     <select defaultValue="0" className="custom-select mr-1" id="selectComarca">
                         <option value="0" disabled>Area/Comarca</option>
-                        {comarca}
+                        {/* {comarca} */}
                         
                     </select>
                     <input type="text" className="form-control mr-1" name="city" placeholder="City" />
