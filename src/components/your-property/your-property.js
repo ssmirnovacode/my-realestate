@@ -1,6 +1,6 @@
 import React from 'react';
 import './your-property.scss';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 
 const YourProperty = () => {
 
@@ -10,15 +10,15 @@ const YourProperty = () => {
                     <div className="sell_forms_property">
                         <h3>Property information</h3>
                         
-                            <div class="input-group mb-3">
+                            <div className="input-group mb-3">
                                 <input className="mr-2 form-control" type="text" name="street" placeholder="Street and number" />
                                 <input className="door form-control" type="text" name="door" placeholder="Building, apartment, door" />
                             </div>
 
-                            <div class="input-group mb-3">
+                            <div className="input-group mb-3">
                                 <input className="mr-2 form-control" type="text" name="zipcode" placeholder="Postal code"/>                       
-                                <select className="custom-select" id="inputGroupSelect01">
-                                    <option value="0" selected disabled>Province</option>
+                                <select defaultValue="Province" className="custom-select" id="inputGroupSelect01">
+                                    <option value="0" disabled>Province</option>
                                     <option value="1">Barcelona</option>
                                     <option value="2">Tarragona</option>
                                     <option value="3">Lleida</option>
@@ -36,23 +36,23 @@ const YourProperty = () => {
                     <div className="sell_forms_contact">
                         <h3>Contact information</h3>
                         
-                            <div class="input-group mb-3">
+                            <div className="input-group mb-3">
                                 <input className="mr-2 form-control" type="text" name="name" placeholder="Name" />
                                 <input className="door form-control" type="text" name="lastname" placeholder="Last name" />
                             </div>
 
-                            <div class="input-group mb-3">
+                            <div className="input-group mb-3">
                                 <input className="mr-2 form-control" type="text" name="phone" placeholder="Phone number" />
                                 <input className="door form-control" type="email" name="email" placeholder="Email" />
                             </div>
 
-                            <div class="input-group mb-3">
+                            <div className="input-group mb-3">
                                 <textarea className="form-control" name="comments" placeholder="Comments "/>
                             </div>
 
-                            <div class="form-check">
+                            <div className="form-check">
                                 <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-                                <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link>privacy policy</Link></label>
+                                <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <span >privacy policy</span></label>
                             </div>
                     </div>
 

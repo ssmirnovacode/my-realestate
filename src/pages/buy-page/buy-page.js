@@ -37,8 +37,8 @@ class BuyPage extends Component {
                 items.map(item => {
                     const {...itemProps} = item;
                     return(
-                        <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <PropertyCard key={item.id} {...itemProps} />
+                        <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <PropertyCard {...itemProps} />
                         </div>
                     )   
                 })

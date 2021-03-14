@@ -78,15 +78,15 @@ const SearchForm = (props) => {
             <h2>Luxury homes for {type}</h2>
             <form>
                 <div className="input-group mb-3">
-                    <select className="custom-select mr-1" id="selectProvince">
-                        <option value="0" selected disabled>Province</option>
+                    <select defaultValue="Province" className="custom-select mr-1" id="selectProvince">
+                        <option value="0" disabled>Province</option>
                         <option value="1">Barcelona</option>
                         <option value="2">Tarragona</option>
                         <option value="3">Lleida</option>
                         <option value="4">Girona</option>
                     </select>
-                    <select className="custom-select mr-1" id="selectComarca">
-                        <option value="0" selected disabled>Area/Comarca</option>
+                    <select defaultValue="Area/Comarca" className="custom-select mr-1" id="selectComarca">
+                        <option value="0" disabled>Area/Comarca</option>
                         {comarca}
                         
                     </select>
