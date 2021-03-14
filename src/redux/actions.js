@@ -17,4 +17,11 @@ const itemsError = () => {
     };
 };
 
-export {itemsError, itemsLoaded, itemsRequested};
+const setDeal = (dealType) => {
+    return {
+        type: 'SET_DEAL',
+        payload: dealType
+    };
+}
+
+export {itemsError, itemsLoaded, itemsRequested, setDeal};

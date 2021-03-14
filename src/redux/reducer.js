@@ -1,7 +1,8 @@
 const initialState = {
     loading: true,
     error: false,
-    items: []
+    items: [],
+    deal: ''
 };
 
 const reducer = (state=initialState, action) => {
@@ -23,6 +24,11 @@ const reducer = (state=initialState, action) => {
                     loading: false,
                     error: true
                 };
+        case 'SET_DEAL':
+            return {
+                ...state,
+                deal: action.payload
+            };
         default:
             return state;
         }   
