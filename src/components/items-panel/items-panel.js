@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import './items-panel.scss';
-import PropertyCard from '../../components/property-card/property-card';
 import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError} from '../../redux/actions';
 import baseURL from '../../assets/baseURL';
-import Loading from '../../components/loading/loading';
-import Error from '../../components/error/error';
+import ItemsView from '../../components/items-view/items-view';
 
 const reqService = new RequestService();
 
@@ -22,29 +20,10 @@ class ItemsPanel extends Component {
 
     render() {
 
-        const classnames = 'horizontal';
-
         const {items, loading, error} = this.props;
-        
 
         return(
-            <div>
-                {/* <div className="container">
-                        <div className="row"> */}
-                        {
-                            items.map(item => {
-                                const {...itemProps} = item;
-                                return(
-                                    <div key={item.id} /* className="col-12" */>
-                                        <PropertyCard {...itemProps} classnames={classnames}/>
-                                    </div>
-                                )   
-                            })
-                        }
-                        {/* </div>
-                    </div> */}
-                
-            </div>
+            <ItemsView items={items} loading={loading} error={error} grid="" classnames="horizontal"/>
         )
     }
 }

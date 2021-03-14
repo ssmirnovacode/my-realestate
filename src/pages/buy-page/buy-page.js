@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 import './buy-page.scss';
 import SearchForm from '../../components/search-form/search-form';
-import PropertyCard from '../../components/property-card/property-card';
 import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError} from '../../redux/actions';
 import baseURL from '../../assets/baseURL';
-import Loading from '../../components/loading/loading';
-import Error from '../../components/error/error';
 import ItemsView from '../../components/items-view/items-view';
 
 
@@ -35,7 +32,7 @@ class BuyPage extends Component {
                     <hr/>
                     <div className="container">
                         <div className="row">
-                            <ItemsView items={items} loading={loading} error={error}/>
+                            <ItemsView items={items} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3"/>
                         </div>
                     </div>
                 </section>
