@@ -5,7 +5,7 @@ import YourProperty from '../../components/your-property/your-property';
 const SellPage = () => {
 
     return(
-        <div className="sell">
+        <div className="container sell">
             <h2>Sell or rent my property</h2>
             <section className="sell_text">
                 <p>You will have an expert real estate consultant in your area who will accompany you throughout the process of selling your property, from the valuation to accompanying the signature in the notary.</p>

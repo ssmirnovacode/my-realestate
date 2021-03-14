@@ -1,6 +1,7 @@
 @import '../../assets/variables.scss';
 
 .footer {
+    font-family: $heading-font;
     background-color: $dark;
     display: flex;
     justify-content: space-around;
@@ -14,11 +15,15 @@
         list-style-type: none;
         margin-left: -3rem;
     } 
-    & .nav-link:hover {
-        text-decoration: underline;
-        background-color: $dark;
-        color: $white;
-    } 
+    &.nav-link {
+        text-align: left;
+        &:hover {
+            text-decoration: underline;
+            background-color: $dark;
+            color: $white;
+        } 
+    }
+    
     & .footer_col {
         color: $white;
     }

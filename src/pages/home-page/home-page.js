@@ -1,9 +1,10 @@
 import React from 'react';
+import './home-page.scss';
 
 const HomePage = () => {
 
     return(
-        <div className="home">
+        <div className="container home">
             <h2>Our company</h2>
             <p>
             aProperties is a real estate agency specializing in the renting and selling of exclusive properties in the best areas. It boasts a broad portfolio of properties as well as a team of highly qualified professionals with extensive experience in the real estate sector.

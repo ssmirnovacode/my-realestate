@@ -1,5 +1,12 @@
+@import '../../assets/variables.scss';
 
 .sell {
-    padding: 2rem;
+    @include wrapper;
+    &_text {
+        margin-bottom: 2rem;
+    }
+    &>h2 {
+        margin-bottom: 1rem;
+    }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import './buy-page.scss';
 import SearchForm from '../../components/search-form/search-form';
 import PropertyCard from '../../components/property-card/property-card';
 
@@ -152,7 +153,7 @@ const BuyPage = (props) => {
     ]
 
     return(
-        <>         
+        <div className="container buy">         
             <SearchForm type="sale" />
 
             <section>
@@ -172,7 +173,7 @@ const BuyPage = (props) => {
                     </div>
                 </div>
             </section>
-            </>
+            </div>
     )
 }
 
