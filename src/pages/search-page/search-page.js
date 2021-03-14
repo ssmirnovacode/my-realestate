@@ -4,7 +4,7 @@ import ItemsPanel from '../../components/items-panel/items-panel';
 
 class SearchPage extends Component {
 
-    render() {
+    render() {;
         //variables to be passed as props:
         // deal type
         // Province - ideally - the most accurate filter value (if no city - comarca, if no comarca - province)
@@ -16,11 +16,11 @@ class SearchPage extends Component {
                     <div className="search-page_subheader"> -N- options found </div>
                 
                 <div className="row">
-                    <div className="col-12 col-sm-2">
+                    <div className="col-sm-12 col-md-2">
                         <div>filter panel</div>
                         {/* <FilterPanel /> */}
                     </div>
-                    <div className="col-12 col-sm-10">
+                    <div className="col-sm-12 col-md-10">
                         <ItemsPanel />
                     </div>
                 </div>

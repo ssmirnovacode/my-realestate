@@ -25,24 +25,24 @@ class ItemsPanel extends Component {
         const classnames = 'horizontal';
 
         const {items, loading, error} = this.props;
-        console.log(items);
+        
 
         return(
             <div>
-                <div className="container">
-                        <div className="row">
+                {/* <div className="container">
+                        <div className="row"> */}
                         {
                             items.map(item => {
                                 const {...itemProps} = item;
                                 return(
-                                    <div key={item.id} className="col-12">
+                                    <div key={item.id} /* className="col-12" */>
                                         <PropertyCard {...itemProps} classnames={classnames}/>
                                     </div>
                                 )   
                             })
                         }
-                        </div>
-                    </div>
+                        {/* </div>
+                    </div> */}
                 
             </div>
         )

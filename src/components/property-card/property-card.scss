@@ -1,21 +1,9 @@
 .card {
-    &.horizontal {
-        /* display: flex;
-        flex-direction: row;
-        align-items: center; */
-        display: grid;
-        align-items: center;
-        grid-template-columns: 5fr 7fr;
-        @media only screen and (max-width: 990px) {
-            grid-template-columns: 6fr 6fr;
-        }
+    &-title {
+        font-size: 1.5rem;
     }
     &-img-top {
         max-width: 100%;
-        &.horizontal {
-            float: left;
-            max-width: 100%;
-        }
     }
     &-subheader-top {
         display: flex;
@@ -33,8 +21,14 @@
         
         font-size: 80%;
     }
+
     //horizontal version:
     &.horizontal {
-
+        display: grid;
+        align-items: center;
+        grid-template-columns: 5fr 7fr;
+        @media only screen and (max-width: 767px) {
+            display: flex;
+        }
     }
 }
