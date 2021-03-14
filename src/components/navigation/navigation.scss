@@ -7,4 +7,23 @@
         background-color: white;
         color: #343a40;
     }
+    &>h1 {
+        @media only screen and (max-width: 470px) {
+            font-size: 1.9rem;
+        }
+    }
+}
+
+.navbar-toggler {
+    display: none;
+    @media only screen and (max-width: 755px) {
+        display: inline-block;
+    }
+}
+
+.nav.nav-pills {
+    display: '';
+    @media only screen and (max-width: 755px) {
+        display: none;
+    }
 }
