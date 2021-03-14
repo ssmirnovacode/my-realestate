@@ -9,6 +9,7 @@ import SellPage from '../../pages/sell-page/sell-page';
 import RentPage from '../../pages/rent-page/rent-page';
 import AboutPage from '../../pages/about-page/about-page';
 import ContactPage from '../../pages/contact-page/contact-page';
+import SearchPage from '../../pages/search-page/search-page';
 
 const App = () => {
     return(
@@ -17,6 +18,7 @@ const App = () => {
                 <Header />                  
                 <Route path='/' exact component={HomePage} />
                 <Route path='/buy' component={BuyPage} />
+                <Route path='/search' component={SearchPage}/>
                 <Route path='/sell' component={SellPage} />
                 <Route path='/rent' component={RentPage} />
                 <Route path='/about' component={AboutPage} />

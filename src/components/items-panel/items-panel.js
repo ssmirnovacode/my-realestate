@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import './buy-page.scss';
-import SearchForm from '../../components/search-form/search-form';
+import './items-panel.scss';
 import PropertyCard from '../../components/property-card/property-card';
 import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
@@ -8,12 +7,10 @@ import {itemsLoaded, itemsRequested, itemsError} from '../../redux/actions';
 import baseURL from '../../assets/baseURL';
 import Loading from '../../components/loading/loading';
 import Error from '../../components/error/error';
-import ItemsView from '../../components/items-view/items-view';
-
 
 const reqService = new RequestService();
 
-class BuyPage extends Component {
+class ItemsPanel extends Component {
 
     componentDidMount() {
         this.props.itemsRequested();
@@ -26,23 +23,29 @@ class BuyPage extends Component {
     render() {
 
         const {items, loading, error} = this.props;
+        console.log(items);
 
         return(
-            <div className="container buy">         
-                <SearchForm type="sale" history={this.props.history} />
-
-                <section>
-                    <hr/>
-                    <div className="container">
+            <div>
+                <div className="container">
                         <div className="row">
-                            <ItemsView items={items} loading={loading} error={error}/>
+                        {
+                            items.map(item => {
+                                const {...itemProps} = item;
+                                return(
+                                    <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <PropertyCard {...itemProps} />
+                                    </div>
+                                )   
+                            })
+                        }
                         </div>
                     </div>
-                </section>
+                
             </div>
         )
-    }  
-};
+    }
+}
 
 const mapStateToProps = (state) => ({
     items: state.items,
@@ -56,4 +59,4 @@ const mapDispatchToProps = {
     itemsError
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BuyPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemsPanel);

@@ -1,0 +1,9 @@
+@import '../../assets/variables.scss';
+
+
+.search-page {
+    @include wrapper;
+    &_subheader{
+        display: block;
+    }
+}
