@@ -17,7 +17,7 @@ const YourProperty = () => {
 
                             <div className="input-group mb-3">
                                 <input className="mr-2 form-control" type="text" name="zipcode" placeholder="Postal code"/>                       
-                                <select defaultValue="Province" className="custom-select" id="inputGroupSelect01">
+                                <select defaultValue="0" className="custom-select" id="inputGroupSelect01">
                                     <option value="0" disabled>Province</option>
                                     <option value="1">Barcelona</option>
                                     <option value="2">Tarragona</option>
