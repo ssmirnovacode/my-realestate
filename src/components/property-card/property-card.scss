@@ -31,7 +31,7 @@
             display: flex;
         }
     }
-    &.detail {
-        
+    &.detail .btn-primary {
+        display: none;
     }
 }

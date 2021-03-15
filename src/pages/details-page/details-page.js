@@ -3,6 +3,7 @@ import './details-page.scss';
 import PropertyCard from '../../components/property-card/property-card';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal} from '../../redux/actions';
+import RequestInfo from '../../components/request-info/request-info';
 
 class DetailsPage extends Component {
 
@@ -19,7 +20,7 @@ class DetailsPage extends Component {
                         <PropertyCard {...itemProps} classnames="detail"/>
                     </div>
                     <div className="col-12 col-md-3">
-                        {/* <RequestInfo /> */}
+                        <RequestInfo itemId={itemId}/>
                     </div>
                 </div>
             </div>
