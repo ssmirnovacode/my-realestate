@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './search-page.scss';
 import ItemsPanel from '../../components/items-panel/items-panel';
+import FilterPanel from '../../components/filter-panel/filter-panel';
 
 class SearchPage extends Component {
 
@@ -17,8 +18,7 @@ class SearchPage extends Component {
                 
                 <div className="row">
                     <div className="col-sm-12 col-md-2">
-                        <div>filter panel</div>
-                        {/* <FilterPanel /> */}
+                        <FilterPanel />
                     </div>
                     <div className="col-sm-12 col-md-10">
                         <ItemsPanel />
