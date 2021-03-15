@@ -2,9 +2,13 @@ import React from 'react';
 import './contact-form.scss';
 import {Link} from 'react-router-dom';
 import { useFormik } from 'formik';
+import RequestService from '../../services/requests';
+import baseURL from '../../assets/baseURL';
+
+const reqService = new RequestService();
 
 const ContactForm = ({itemId=''}) => {
-
+  
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -13,20 +17,37 @@ const ContactForm = ({itemId=''}) => {
             email: '',
             comments: ''
         },
-        onSubmit: (values, { resetForm }) => {
+        onSubmit: (values, { resetForm }, e) => {
 
             if (itemId) {
                 values.itemId = itemId;
             }
-            console.log(values);
-                 
+
+            /* const messageBlock = document.createElement('div');
+            e.target.parentNode.appendChild(messageBlock); */
+
+            reqService.postItems(baseURL + 'requests', values) 
+            .then(res => {
+                console.log(res);
+                /* messageBlock.innerHTML = 'Thank you! We will contact you soon';
+                messageBlock.classList.add = 'msg-success'; */
+            })
+            .catch( () => {
+                console.error('Could not POST data!');
+                /* messageBlock.innerHTML = 'You request was not sent. Please contact us by phone.';
+                messageBlock.classList.add = 'msg-error'; */
+            })
+            .finally(() => {
+                resetForm();  
+                //setTimeout( (() => messageBlock.remove()), 4000);   
+            })
         },
       });
 
     return(
         <section>
             <h3>Contact us</h3>
-            <form onSubmit={formik.handleSubmit}>
+            <form data-id={itemId} onSubmit={(e) => formik.handleSubmit(e)}>
                 <div className="form-group">
                     {itemId ? <input type="hidden" className="form-control" name="id" value={itemId} /> : null}    
                 </div>
@@ -55,7 +76,8 @@ const ContactForm = ({itemId=''}) => {
                     <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to="/">privacy policy</Link></label>
                 </div>
                 <button type="submit" className="btn btn-primary mt-3">Submit</button>
-            </form>
+            </form><br/>
+
         </section>
     )
 }
