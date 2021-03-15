@@ -18,7 +18,7 @@ const ContactPage = () => {
                 </div>
 
                 <div className="col-12 col-md-3">
-                    <ContactForm />
+                    <ContactForm formId="usual-feedback"/>
                 </div>
 
             </div>

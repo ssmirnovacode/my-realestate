@@ -20,7 +20,7 @@ class DetailsPage extends Component {
                         <PropertyCard {...itemProps} classnames="detail"/>
                     </div>
                     <div className="col-12 col-md-3">
-                        <RequestInfo itemId={itemId}/>
+                        <RequestInfo itemId={itemId} formId="request-info"/>
                     </div>
                 </div>
             </div>

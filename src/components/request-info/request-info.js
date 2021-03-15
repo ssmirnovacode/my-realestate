@@ -4,10 +4,10 @@ import ContactForm from  '../contact-form/contact-form';
 
 const RequestInfo = (props) => {
 
-    const {itemId} = props;
+    const {itemId, formId} = props;
 
     return(
-        <ContactForm itemId={itemId} />
+        <ContactForm itemId={itemId} formId={formId} />
     )
 }
 

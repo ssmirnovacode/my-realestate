@@ -7,7 +7,7 @@ import baseURL from '../../assets/baseURL';
 
 const reqService = new RequestService();
 
-const ContactForm = ({itemId=''}) => {
+const ContactForm = ({itemId='', formId}) => {
   
     const formik = useFormik({
         initialValues: {
@@ -23,23 +23,27 @@ const ContactForm = ({itemId=''}) => {
                 values.itemId = itemId;
             }
 
-            /* const messageBlock = document.createElement('div');
-            e.target.parentNode.appendChild(messageBlock); */
+            const messageBlock = document.createElement('div');
+            document.getElementById(formId).parentNode.appendChild(messageBlock);
+            messageBlock.style.fontSize = '.8rem';
+            messageBlock.style.fontWeight = 'bold';
 
             reqService.postItems(baseURL + 'requests', values) 
             .then(res => {
                 console.log(res);
-                /* messageBlock.innerHTML = 'Thank you! We will contact you soon';
-                messageBlock.classList.add = 'msg-success'; */
+                messageBlock.innerHTML = 'Thank you! We will contact you soon';
+                //messageBlock.classList.add = 'msg-success';
+                messageBlock.style.color = "green";
             })
             .catch( () => {
                 console.error('Could not POST data!');
-                /* messageBlock.innerHTML = 'You request was not sent. Please contact us by phone.';
-                messageBlock.classList.add = 'msg-error'; */
+                messageBlock.innerHTML = 'You request was not sent. Please contact us by phone.';
+                //messageBlock.classList.add = 'msg-error';
+                messageBlock.style.color = "red";
             })
             .finally(() => {
                 resetForm();  
-                //setTimeout( (() => messageBlock.remove()), 4000);   
+                setTimeout( (() => messageBlock.remove()), 4000);   
             })
         },
       });
@@ -47,7 +51,7 @@ const ContactForm = ({itemId=''}) => {
     return(
         <section>
             <h3>Contact us</h3>
-            <form data-id={itemId} onSubmit={(e) => formik.handleSubmit(e)}>
+            <form id={formId} onSubmit={(e) => formik.handleSubmit(e)}>
                 <div className="form-group">
                     {itemId ? <input type="hidden" className="form-control" name="id" value={itemId} /> : null}    
                 </div>
