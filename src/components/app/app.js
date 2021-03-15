@@ -10,6 +10,7 @@ import RentPage from '../../pages/rent-page/rent-page';
 import AboutPage from '../../pages/about-page/about-page';
 import ContactPage from '../../pages/contact-page/contact-page';
 import SearchPage from '../../pages/search-page/search-page';
+import DetailsPage from '../../pages/details-page/details-page';
 
 const App = () => {
     return(
@@ -23,7 +24,10 @@ const App = () => {
                 <Route path='/rent' component={RentPage} />
                 <Route path='/about' component={AboutPage} />
                 <Route path='/contact' component={ContactPage} />
-                {/* add property-details route */}
+                <Route path={`/properties/:id`} render={ ({match}) => {
+                    const {id} = match.params;
+                    return <DetailsPage itemId={+id}/>
+                }}/>
                 <Footer /> 
             </BrowserRouter>
         </>
