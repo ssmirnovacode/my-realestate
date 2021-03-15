@@ -17,9 +17,12 @@ class DetailsPage extends Component {
             <div className="container details">
                 <div className="row">
                     <div className="col-12 col-md-9">
+                        <div className="details-prop-header mb-2">Luxury {targetItem.type} for {this.props.deal}</div>
+                        <div className="details-prop-basicdata mb-2">{targetItem.price} &#8364; | {targetItem.surface} m<sup>2</sup> | {targetItem.bedrooms} bedrooms | {targetItem.bathrooms} bathrooms</div>
                         <PropertyCard {...itemProps} classnames="detail"/>
                     </div>
                     <div className="col-12 col-md-3">
+                        <h2>{targetItem.title}</h2>
                         <RequestInfo itemId={itemId} formId="request-info"/>
                     </div>
                 </div>

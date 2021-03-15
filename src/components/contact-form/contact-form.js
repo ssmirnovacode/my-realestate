@@ -50,7 +50,7 @@ const ContactForm = ({itemId='', formId}) => {
 
     return(
         <section>
-            <h3>Contact us</h3>
+            <div className="form-title">{formId === 'usual-feedback' ? 'Contact us' : 'Request more info'}</div>
             <form id={formId} onSubmit={(e) => formik.handleSubmit(e)}>
                 <div className="form-group">
                     {itemId ? <input type="hidden" className="form-control" name="id" value={itemId} /> : null}    
