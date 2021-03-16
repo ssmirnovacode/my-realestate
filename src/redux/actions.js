@@ -24,4 +24,11 @@ const setDeal = (dealType) => {
     };
 }
 
-export {itemsError, itemsLoaded, itemsRequested, setDeal};
+const setPropTypes = (values) => {
+    return {
+        type: 'SET_PROP_TYPES',
+        payload: values
+    }
+}
+
+export {itemsError, itemsLoaded, itemsRequested, setDeal, setPropTypes };

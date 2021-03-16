@@ -2,7 +2,16 @@ const initialState = {
     loading: true,
     error: false,
     items: [],
-    deal: ''
+    deal: '',
+    activeFilters: {
+        type: [],
+        province: '',
+        comarca: '',
+        city: '',
+        bedrooms: null,
+        bathrooms: null,
+        surface: null
+    }
 };
 
 const reducer = (state=initialState, action) => {
@@ -29,6 +38,15 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 deal: action.payload
             };
+        case 'SET_PROP_TYPES':
+
+            return {
+                ...state,
+                activeFilters: {
+                    ...state.activeFilters,
+                    type: [...action.payload, ...state.activeFilters.type]
+                }
+            }
         default:
             return state;
         }   
