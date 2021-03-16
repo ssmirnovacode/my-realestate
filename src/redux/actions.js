@@ -24,10 +24,10 @@ const setDeal = (dealType) => {
     };
 }
 
-const setPropTypes = (values) => {
+const setPropTypes = (filtersObj) => {
     return {
         type: 'SET_PROP_TYPES',
-        payload: values
+        payload: filtersObj
     }
 }
 

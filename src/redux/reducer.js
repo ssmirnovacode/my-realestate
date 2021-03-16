@@ -4,13 +4,18 @@ const initialState = {
     items: [],
     deal: '',
     activeFilters: {
-        type: [],
+        /* type: [], */
+        apartment: true,
+        flat: true,
+        house: true,
+        duplex: true,
         province: '',
         comarca: '',
         city: '',
-        bedrooms: null,
-        bathrooms: null,
-        surface: null
+        bedroomsMin: null,
+        bathroomsMax: null,
+        surfaceMin: null,
+        surfaceMax: null
     }
 };
 
@@ -42,10 +47,10 @@ const reducer = (state=initialState, action) => {
 
             return {
                 ...state,
-                activeFilters: {
+                activeFilters: action.payload/* {
                     ...state.activeFilters,
                     type: [...action.payload, ...state.activeFilters.type]
-                }
+                } */
             }
         default:
             return state;

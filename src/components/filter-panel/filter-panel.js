@@ -15,13 +15,20 @@ class FilterPanel extends Component {
         city: ''
     }
     
-    handlePropChange = (name) => {
-        this.setState((state) => ({
+    handlePropChange = async (name) => {
+        await this.setState((state) => ({
             [name]: !state[name]
         }));
         console.log(this.state);
-
     }
+
+    handleZoneChange = async (name, value) => {
+         await this.setState((state) => ({
+            [name]: value
+        }));
+        console.log(this.state);
+    }
+
     render() {
         return(
             <div className="filter-panel">
@@ -50,11 +57,13 @@ class FilterPanel extends Component {
                 </div>
     
                 <div className="filter-panel zone mt-2">
-                    <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect011">
+                    <select value={this.state.province} className="custom-select mb-2" name="province"
+                        onChange={(e) => this.handleZoneChange(e.target.name, e.target.value)}>
                         <option value="0" disabled>Province</option>
-                        <option value="1">Barcelona</option>
-                        <option value="2">Tarragona</option>
-                        <option value="3">Lleida</option>
+                        <option value="Barcelona">Barcelona</option>
+                        <option value="Tarragona">Tarragona</option>
+                        <option value="Lleida">Lleida</option>
+                        <option value="Girona">Girona</option>
                     </select>
                     <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect012">
                         <option value="0" disabled>Area/Comarca</option>
