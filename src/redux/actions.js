@@ -31,4 +31,5 @@ const setFilters = (filtersObj) => {
     }
 }
 
+
 export {itemsError, itemsLoaded, itemsRequested, setDeal, setFilters };
