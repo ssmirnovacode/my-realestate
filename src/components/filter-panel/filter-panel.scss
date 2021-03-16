@@ -1,0 +1,27 @@
+@import '../../assets//variables.scss';
+
+.filter-panel {
+    @media only screen and (max-width: 767px) {
+        display: none;
+    }
+    font-size: 0.8rem;
+    &.form-check {
+        line-height: 2rem;
+    } 
+    &.header {
+        font-size: 1rem;
+    }
+    &.qty {
+        display: inline-block;
+        padding: 0.5rem;
+        border: 1px solid #6c757d;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        border-radius: 2px;
+        cursor: pointer;
+        &:hover, .chosen {
+            background-color: #6c757d;
+            color: white;
+        }
+    }
+}

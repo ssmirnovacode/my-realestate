@@ -4,7 +4,8 @@ $white: whitesmoke;
 $heading-font: 'Merriweather', Helvetica, Verdana, Arial, sans-serif;
 
 @mixin wrapper {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    /* margin-top: 2rem;
+    margin-bottom: 2rem; */
+    margin: 2rem;
     font-family: $heading-font;
 }

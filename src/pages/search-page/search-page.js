@@ -18,9 +18,23 @@ class SearchPage extends Component {
                 
                 <div className="row">
                     <div className="col-sm-12 col-md-2">
+                        
                         <FilterPanel />
                     </div>
                     <div className="col-sm-12 col-md-10">
+                        <div className="input-group mb-3">
+                                <div className="input-group-prepend">
+                                    <label className="input-group-text" htmlFor="inputGroupSelect019">Order by: </label>
+                                </div>
+                                <select className="custom-select" id="inputGroupSelect01">
+                                    <option value="0">Newest</option>
+                                    <option value="1">Lowest price</option>
+                                    <option value="2">Highest price</option>
+                                    <option value="3">Most sqm</option>
+                                    <option value="3">Least sqm</option>
+                                </select>
+                        </div>
+
                         <ItemsPanel />
                     </div>
                 </div>
