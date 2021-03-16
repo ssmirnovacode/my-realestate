@@ -43,7 +43,7 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 deal: action.payload
             };
-        case 'SET_PROP_TYPES':
+        case 'SET_FILTERS':
 
             return {
                 ...state,

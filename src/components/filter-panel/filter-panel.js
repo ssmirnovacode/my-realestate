@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './filter-panel.scss';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal, setPropTypes} from '../../redux/actions';
+import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 
 class FilterPanel extends Component {
 
@@ -10,9 +10,9 @@ class FilterPanel extends Component {
         flat: true,
         house: true,
         duplex: true,
-        province: '',
-        comarca: '',
-        city: ''
+        province: 'Barcelona',
+        comarca: 'Two',
+        city: 'Three'
     }
     
     handlePropChange = async (name) => {
@@ -20,6 +20,8 @@ class FilterPanel extends Component {
             [name]: !state[name]
         }));
         console.log(this.state);
+        this.props.setFilters(this.state);
+        console.log(this.props.activeFilters);
     }
 
     handleZoneChange = async (name, value) => {
@@ -27,6 +29,8 @@ class FilterPanel extends Component {
             [name]: value
         }));
         console.log(this.state);
+        this.props.setFilters(this.state);
+        console.log(this.props.activeFilters);
     }
 
     render() {
@@ -65,13 +69,15 @@ class FilterPanel extends Component {
                         <option value="Lleida">Lleida</option>
                         <option value="Girona">Girona</option>
                     </select>
-                    <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect012">
+                    <select value={this.state.comarca} className="custom-select mb-2" name="comarca"
+                        onChange={(e) => this.handleZoneChange(e.target.name, e.target.value)}>
                         <option value="0" disabled>Area/Comarca</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
-                    <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect013">
+                    <select value={this.state.city} className="custom-select mb-2" name="city"
+                        onChange={(e) => this.handleZoneChange(e.target.name, e.target.value)}>
                         <option value="0" disabled>City/Municipio</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -168,7 +174,7 @@ const mapDispatchToProps = {
     itemsRequested,
     itemsError, 
     setDeal,
-    setPropTypes
+    setFilters
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterPanel);

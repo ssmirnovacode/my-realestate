@@ -24,11 +24,11 @@ const setDeal = (dealType) => {
     };
 }
 
-const setPropTypes = (filtersObj) => {
+const setFilters = (filtersObj) => {
     return {
-        type: 'SET_PROP_TYPES',
+        type: 'SET_FILTERS',
         payload: filtersObj
     }
 }
 
-export {itemsError, itemsLoaded, itemsRequested, setDeal, setPropTypes };
+export {itemsError, itemsLoaded, itemsRequested, setDeal, setFilters };
