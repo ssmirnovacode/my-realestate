@@ -22,11 +22,11 @@ class ItemsPanel extends Component {
     componentDidMount() {
         this.props.itemsRequested();
         console.log(this.props.activeFilters);
-        console.log(this.props.deal); //this is null on refresh - debug
+        //console.log(this.props.deal); //this is null on refresh - debug
         reqService.getItems(baseURL + this.props.deal + '-items') //debug on refesh page
         .then(res => this.props.itemsLoaded(res))
         .catch( () => this.props.itemsError());
-        console.log(this.props.items)
+        //console.log(this.props.items)
     }
 
     componentDidUpdate(prevProps) {
@@ -37,7 +37,7 @@ class ItemsPanel extends Component {
             prevProps.activeFilters.flat !== this.props.activeFilters.flat ||
             prevProps.activeFilters.house !== this.props.activeFilters.house ||
             prevProps.activeFilters.duplex !== this.props.activeFilters.duplex  ) {
-            console.log('updated');
+            //console.log('updated');
             console.log(this.props.activeFilters);
             reqService.getItems(baseURL + this.props.deal + '-items') //debug on refesh page
             .then(res => this.props.itemsLoaded(res))
