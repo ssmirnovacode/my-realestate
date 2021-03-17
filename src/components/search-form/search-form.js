@@ -63,7 +63,7 @@ const SearchForm = (props) => {
                         
                     </select>
                     {/* <input type="text" className="form-control mr-1" name="city" placeholder="City" /> */}
-                    <select defaultValue='' className="custom-select mr-1" name="city"
+                    <select className="custom-select mr-1" name="city"
                     onChange={(e) => handleChange(e.target.name, e.target.value)}>
                         {
                             cities.map( city => {

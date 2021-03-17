@@ -1,163 +1,156 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 
-class FilterPanel extends Component {
+const FilterPanel = (props) => {
 
-    state = {
-        apartment: true,
-        flat: true,
-        house: true,
-        duplex: true,
-        province: 'Barcelona',
-        comarca: 'Two',
-        city: 'Three'
-    }
+    const {items} = props;  //find a way to keep rendering on refresh
+    console.log(items);
+
+    const {apartment, flat, house, duplex, province, comarca, city} = props.activeFilters;
+
+    let filtersObj = {...props.activeFilters};
+    console.log(filtersObj);
     
-    handlePropChange = async (name) => {
-        await this.setState((state) => ({
-            [name]: !state[name]
-        }));
-        console.log(this.state);
-        this.props.setFilters(this.state);
-        console.log(this.props.activeFilters);
+    const handlePropChange = (name) => {
+        filtersObj[name]= !filtersObj[name];
+        console.log(filtersObj);
+        props.setFilters(filtersObj);
+        console.log(props.activeFilters);
     }
 
-    handleZoneChange = async (name, value) => {
-         await this.setState((state) => ({
-            [name]: value
-        }));
-        console.log(this.state);
-        this.props.setFilters(this.state);
-        console.log(this.props.activeFilters);
+    const handleZoneChange = (name, value) => {
+        filtersObj[name]= value;
+        console.log(filtersObj);
+        props.setFilters(filtersObj);
+        console.log(props.activeFilters);
     }
 
-    render() {
-        return(
-            <div className="filter-panel">
-    
-                <div className="filter-panel property-types mt-3 mb-3">
-                    <div className="form-check mb-1">
-                        <input className="form-check-input" type="checkbox" checked={this.state.apartment} name="apartment" 
-                            onChange={(e) => this.handlePropChange(e.target.name)} />
-                        <label className="form-check-label ml-1" htmlFor="apartment">Studio</label>
-                    </div>
-                    <div className="form-check mb-1">
-                        <input className="form-check-input" type="checkbox" checked={this.state.flat} name="flat" 
-                        onChange={(e) => this.handlePropChange(e.target.name)}/>
-                        <label className="form-check-label ml-1" htmlFor="flat">Flat</label>
-                    </div>
-                    <div className="form-check mb-1">
-                        <input className="form-check-input" type="checkbox" checked={this.state.house} name="house" 
-                        onChange={(e) => this.handlePropChange(e.target.name)}/>
-                        <label className="form-check-label ml-1" htmlFor="house">House</label>
-                    </div>
-                    <div className="form-check mb-1">
-                        <input className="form-check-input" type="checkbox" checked={this.state.duplex} name="duplex" 
-                        onChange={(e) => this.handlePropChange(e.target.name)}/>
-                        <label className="form-check-label ml-1" htmlFor="duplex">Duplex</label>
-                    </div>
+    return(
+        <div className="filter-panel">
+
+            <div className="filter-panel property-types mt-3 mb-3">
+                <div className="form-check mb-1">
+                    <input className="form-check-input" type="checkbox" checked={apartment} name="apartment" 
+                        onChange={(e) => handlePropChange(e.target.name)} />
+                    <label className="form-check-label ml-1" htmlFor="apartment">Studio</label>
                 </div>
-    
-                <div className="filter-panel zone mt-2">
-                    <select value={this.state.province} className="custom-select mb-2" name="province"
-                        onChange={(e) => this.handleZoneChange(e.target.name, e.target.value)}>
-                        <option value="0" disabled>Province</option>
-                        <option value="Barcelona">Barcelona</option>
-                        <option value="Tarragona">Tarragona</option>
-                        <option value="Lleida">Lleida</option>
-                        <option value="Girona">Girona</option>
-                    </select>
-                    <select value={this.state.comarca} className="custom-select mb-2" name="comarca"
-                        onChange={(e) => this.handleZoneChange(e.target.name, e.target.value)}>
-                        <option value="0" disabled>Area/Comarca</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <select value={this.state.city} className="custom-select mb-2" name="city"
-                        onChange={(e) => this.handleZoneChange(e.target.name, e.target.value)}>
-                        <option value="0" disabled>City/Municipio</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    
+                <div className="form-check mb-1">
+                    <input className="form-check-input" type="checkbox" checked={flat} name="flat" 
+                    onChange={(e) => handlePropChange(e.target.name)}/>
+                    <label className="form-check-label ml-1" htmlFor="flat">Flat</label>
                 </div>
-    
-                <div className="filter-panel price-range mt-3">
-                    <div className="filter-panel price-range-header mb-2">Price</div>
-                    <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect0121">
-                        <option value="0" disabled>From</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect0132">
-                        <option value="0" disabled>To</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                <div className="form-check mb-1">
+                    <input className="form-check-input" type="checkbox" checked={house} name="house" 
+                    onChange={(e) => handlePropChange(e.target.name)}/>
+                    <label className="form-check-label ml-1" htmlFor="house">House</label>
                 </div>
-    
-                <div className="filter-panel bed mt-3">
-                    <div className="filter-panel bed header mt-3 mb-2">Bedrooms</div>
-                    <div className="filter-panel bed qty">0+</div>
-                    <div className="filter-panel bed qty">1+</div>
-                    <div className="filter-panel bed qty">2+</div>
-                    <div className="filter-panel bed qty">3+</div>
-                    <div className="filter-panel bed qty">4+</div>
+                <div className="form-check mb-1">
+                    <input className="form-check-input" type="checkbox" checked={duplex} name="duplex" 
+                    onChange={(e) => handlePropChange(e.target.name)}/>
+                    <label className="form-check-label ml-1" htmlFor="duplex">Duplex</label>
                 </div>
-    
-                <div className="filter-panel bath mt-3">
-                    <div className="filter-panel bath header mt-3 mb-2">Bathrooms</div>
-                    <div className="filter-panel bath qty">1+</div>
-                    <div className="filter-panel bath qty">2+</div>
-                    <div className="filter-panel bath qty">3+</div>
-                </div>
-    
-                <div className="filter-panel surface-range mt-3">
-                    <div className="filter-panel surface-range-header mb-2">Surface</div>
-                    <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect01211">
-                        <option value="0" disabled>From</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect01322">
-                        <option value="0" disabled>To</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-    
-                {/* to be used when the db is further suctomised */}
-    
-                {/* <div className="filter-panel extras mt-3 mb-3">
-                    <div className="form-check mb-1">
-                        <input className="form-check-input" type="checkbox" value="" name="pool" />
-                        <label className="form-check-label ml-1" htmlFor="pool">Swimming-pool</label>
-                    </div>
-                    <div className="form-check mb-1">
-                        <input className="form-check-input" type="checkbox" value="" name="terrace" />
-                        <label className="form-check-label ml-1" htmlFor="terrace">Terrace</label>
-                    </div>
-                    <div className="form-check mb-1">
-                        <input className="form-check-input" type="checkbox" value="" name="lift" />
-                        <label className="form-check-label ml-1" htmlFor="lift">Lift</label>
-                    </div>
-                    <div className="form-check mb-1">
-                        <input className="form-check-input" type="checkbox" value="" name="parking" />
-                        <label className="form-check-label ml-1" htmlFor="parking">Parking</label>
-                    </div>
-                </div> */}
-    
             </div>
-        )
-    }
+
+            <div className="filter-panel zone mt-2">
+                <select value={province} className="custom-select mb-2" name="province"
+                    onChange={(e) => handleZoneChange(e.target.name, e.target.value)}>
+                    <option value="0" disabled>Province</option>
+                    <option value="Barcelona">Barcelona</option>
+                    <option value="Tarragona">Tarragona</option>
+                    <option value="Lleida">Lleida</option>
+                    <option value="Girona">Girona</option>
+                </select>
+                <select value={comarca} className="custom-select mb-2" name="comarca"
+                    onChange={(e) => handleZoneChange(e.target.name, e.target.value)}>
+                    <option value="0" >Area/Comarca</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <select value={city} className="custom-select mb-2" name="city"
+                    onChange={(e) => handleZoneChange(e.target.name, e.target.value)}>
+                    <option value="0" >City/Municipio</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                
+            </div>
+
+            <div className="filter-panel price-range mt-3">
+                <div className="filter-panel price-range-header mb-2">Price</div>
+                <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect0121">
+                    <option value="0" disabled>From</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect0132">
+                    <option value="0" disabled>To</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+
+            <div className="filter-panel bed mt-3">
+                <div className="filter-panel bed header mt-3 mb-2">Bedrooms</div>
+                <div className="filter-panel bed qty">0+</div>
+                <div className="filter-panel bed qty">1+</div>
+                <div className="filter-panel bed qty">2+</div>
+                <div className="filter-panel bed qty">3+</div>
+                <div className="filter-panel bed qty">4+</div>
+            </div>
+
+            <div className="filter-panel bath mt-3">
+                <div className="filter-panel bath header mt-3 mb-2">Bathrooms</div>
+                <div className="filter-panel bath qty">1+</div>
+                <div className="filter-panel bath qty">2+</div>
+                <div className="filter-panel bath qty">3+</div>
+            </div>
+
+            <div className="filter-panel surface-range mt-3">
+                <div className="filter-panel surface-range-header mb-2">Surface</div>
+                <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect01211">
+                    <option value="0" disabled>From</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect01322">
+                    <option value="0" disabled>To</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+
+            {/* to be used when the db is further suctomised */}
+
+            {/* <div className="filter-panel extras mt-3 mb-3">
+                <div className="form-check mb-1">
+                    <input className="form-check-input" type="checkbox" value="" name="pool" />
+                    <label className="form-check-label ml-1" htmlFor="pool">Swimming-pool</label>
+                </div>
+                <div className="form-check mb-1">
+                    <input className="form-check-input" type="checkbox" value="" name="terrace" />
+                    <label className="form-check-label ml-1" htmlFor="terrace">Terrace</label>
+                </div>
+                <div className="form-check mb-1">
+                    <input className="form-check-input" type="checkbox" value="" name="lift" />
+                    <label className="form-check-label ml-1" htmlFor="lift">Lift</label>
+                </div>
+                <div className="form-check mb-1">
+                    <input className="form-check-input" type="checkbox" value="" name="parking" />
+                    <label className="form-check-label ml-1" htmlFor="parking">Parking</label>
+                </div>
+            </div> */}
+
+        </div>
+    )
+
     
 }
 
