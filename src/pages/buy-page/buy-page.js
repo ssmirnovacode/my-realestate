@@ -33,9 +33,10 @@ class BuyPage extends Component {
 
         const {items, loading, error} = this.props;
 
+
         return(
             <div className="container buy">         
-                <SearchForm type={this.dealType} history={this.props.history} />
+                <SearchForm type={this.dealType} history={this.props.history} items={items} />
 
                 <section>
                     <hr/>

@@ -12,7 +12,9 @@ const filterItems = (items, filters) => {
     return items.filter(item => (filters.apartment === true && item.type === 'apartment') || 
                         (filters.flat === true && item.type === 'flat') || (filters.house === true && item.type === 'house')
                         || (filters.duplex === true && item.type === 'duplex'))
-        .filter(item => item.province === filters.province);
+        .filter(item => item.province === filters.province)
+        /* .filter(item => item.comarca === filters.comarca )
+        .filter(item => item.city === filters.city) */;
 }
 
 class ItemsPanel extends Component {
@@ -28,6 +30,8 @@ class ItemsPanel extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.activeFilters.province !== this.props.activeFilters.province ||
+            prevProps.activeFilters.comarca !== this.props.activeFilters.comarca ||
+            prevProps.activeFilters.city !== this.props.activeFilters.city ||
             prevProps.activeFilters.apartment !== this.props.activeFilters.apartment ||
             prevProps.activeFilters.flat !== this.props.activeFilters.flat ||
             prevProps.activeFilters.house !== this.props.activeFilters.house ||

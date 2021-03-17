@@ -9,7 +9,7 @@ const initialState = {
         flat: true,
         house: true,
         duplex: true,
-        province: 'Tarragona',
+        province: 'Barcelona',
         comarca: '',
         city: '',
         bedroomsMin: null,

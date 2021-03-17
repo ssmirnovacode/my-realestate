@@ -10,7 +10,7 @@ class FilterPanel extends Component {
         flat: true,
         house: true,
         duplex: true,
-        province: 'Tarragona',
+        province: 'Barcelona',
         comarca: 'Two',
         city: 'Three'
     }
