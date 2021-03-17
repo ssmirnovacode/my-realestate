@@ -29,7 +29,7 @@ class RentPage extends Component {
         return(
             <div className="container buy"> 
                 
-                <SearchForm type="rent" history={this.props.history} />
+                <SearchForm type="rent" history={this.props.history} items={items}/>
     
                 <section>
                     <hr/>
