@@ -27,7 +27,11 @@ class ItemsPanel extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.activeFilters.province !== this.props.activeFilters.province ) {
+        if (prevProps.activeFilters.province !== this.props.activeFilters.province ||
+            prevProps.activeFilters.apartment !== this.props.activeFilters.apartment ||
+            prevProps.activeFilters.flat !== this.props.activeFilters.flat ||
+            prevProps.activeFilters.house !== this.props.activeFilters.house ||
+            prevProps.activeFilters.duplex !== this.props.activeFilters.duplex  ) {
             console.log('updated');
             reqService.getItems(baseURL + this.props.deal + '-items') //debug on refesh page
             .then(res => this.props.itemsLoaded(filterItems(res, this.props.activeFilters)))
