@@ -27,6 +27,21 @@ const FilterPanel = (props) => {
         console.log(props.activeFilters);
     }
 
+    //the following functions to be outsourced into a separate file
+    const getComarcas = (arr) => {
+        const totalArr = arr.filter(item => item.province === province).map(item => item.comarca);
+        let pureArr = [...new Set(totalArr)];
+        return pureArr;
+    }
+
+    const getCities = (arr) => {
+        const totalArr = arr.filter(item => item.comarca === comarca).map(item => item.city);
+        let pureArr = [...new Set(totalArr)];
+        return pureArr;
+    }
+    const comarcas = getComarcas(items);
+    const cities = getCities(items);
+
     return(
         <div className="filter-panel">
 
@@ -64,17 +79,23 @@ const FilterPanel = (props) => {
                 </select>
                 <select value={comarca} className="custom-select mb-2" name="comarca"
                     onChange={(e) => handleZoneChange(e.target.name, e.target.value)}>
-                    <option value="0" >Area/Comarca</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {
+                            comarcas.map( com => {
+                                return(
+                                    <option key={com} value={com} >{com}</option>
+                                )
+                            })
+                        }
                 </select>
                 <select value={city} className="custom-select mb-2" name="city"
                     onChange={(e) => handleZoneChange(e.target.name, e.target.value)}>
-                    <option value="0" >City/Municipio</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {
+                            cities.map( city => {
+                                return(
+                                    <option key={city} value={city} >{city}</option>
+                                )
+                            })
+                        }
                 </select>
                 
             </div>

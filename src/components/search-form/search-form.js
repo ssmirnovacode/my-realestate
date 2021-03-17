@@ -25,6 +25,7 @@ const SearchForm = (props) => {
         setFilters(filtersObj);
     }
 
+    //the following functions to be outsourced into a separate file
     const getComarcas = (arr) => {
         const totalArr = arr.filter(item => item.province === province).map(item => item.comarca);
         let pureArr = [...new Set(totalArr)];

@@ -2,6 +2,7 @@ const initialState = {
     loading: true,
     error: false,
     items: [],
+    filteredItems: [],
     deal: '',
     activeFilters: {
         /* type: [], */
@@ -51,6 +52,12 @@ const reducer = (state=initialState, action) => {
                     ...state.activeFilters,
                     type: [...action.payload, ...state.activeFilters.type]
                 } */
+            }
+        case 'FILTERED_ITEMS_LOADED':
+            return {
+                ...state,
+                loading: false,
+                filteredItems: action.payload
             }
         default:
             return state;
