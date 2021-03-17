@@ -30,7 +30,14 @@ const SearchForm = (props) => {
         let pureArr = [...new Set(totalArr)];
         return pureArr;
     }
+
+    const getCities = (arr) => {
+        const totalArr = arr.filter(item => item.comarca === comarca).map(item => item.city);
+        let pureArr = [...new Set(totalArr)];
+        return pureArr;
+    }
     const comarcas = getComarcas(items);
+    const cities = getCities(items);
 
     return(
         <div className="container mt-2 mb-2">
@@ -55,7 +62,18 @@ const SearchForm = (props) => {
                         }
                         
                     </select>
-                    <input type="text" className="form-control mr-1" name="city" placeholder="City" />
+                    {/* <input type="text" className="form-control mr-1" name="city" placeholder="City" /> */}
+                    <select defaultValue='' className="custom-select mr-1" name="city"
+                    onChange={(e) => handleChange(e.target.name, e.target.value)}>
+                        {
+                            cities.map( city => {
+                                return(
+                                    <option key={city} value={city} >{city}</option>
+                                )
+                            })
+                        }
+                        
+                    </select>
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </div>
             </form>
