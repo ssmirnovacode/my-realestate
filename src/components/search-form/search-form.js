@@ -15,8 +15,8 @@ const SearchForm = (props) => {
     //console.log(filtersObj);
 
     //the following functions to be outsourced into a separate file
-    const getComarcas = (arr) => {
-        const totalArr = arr.filter(item => item.province === province).map(item => item.comarca);
+    const getComarcas = (arr, prov=province) => {
+        const totalArr = arr.filter(item => item.province === prov).map(item => item.comarca);
         let pureArr = [...new Set(totalArr)];
         return pureArr;
     }
@@ -38,7 +38,7 @@ const SearchForm = (props) => {
 
     const handleProvinceChange = (value) => {
         filtersObj.province = value;
-        filtersObj.comarca = getComarcas(items)[0]; //getComarcas(items)
+        filtersObj.comarca = getComarcas(items, value)[0]; //getComarcas(items)
         handleComarcaChange(filtersObj.comarca);
         //console.log(filtersObj);
         //setFilters(filtersObj);
