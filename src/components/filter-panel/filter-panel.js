@@ -6,12 +6,12 @@ import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../.
 const FilterPanel = (props) => {
 
     const {items} = props;  //find a way to keep rendering on refresh
-    console.log(items);
+    //console.log(items);
 
     const {apartment, flat, house, duplex, province, comarca, city} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
-    console.log(filtersObj);
+    //console.log(filtersObj);
     
     const handlePropChange = (name) => {
         filtersObj[name]= !filtersObj[name];
@@ -39,8 +39,9 @@ const FilterPanel = (props) => {
         let pureArr = [...new Set(totalArr)];
         return pureArr;
     }
-    const comarcas = getComarcas(items);
-    const cities = getCities(items);
+    let comarcas = getComarcas(items);
+    let cities = getCities(items);
+    console.log(cities);
 
     return(
         <div className="filter-panel">

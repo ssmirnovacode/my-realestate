@@ -21,13 +21,13 @@ const SearchForm = (props) => {
         return pureArr;
     }
 
-    const getCities = (arr) => {
-        const totalArr = arr.filter(item => item.comarca === comarca).map(item => item.city);
+    const getCities = (arr, com=comarca) => {
+        const totalArr = arr.filter(item => item.comarca === com).map(item => item.city);
         let pureArr = [...new Set(totalArr)];
         return pureArr;
     }
     const comarcas = getComarcas(items);
-    const cities = getCities(items);
+    const cities = getCities(items); // fix to "Barcelona" or activeFilters.comarca
 
 //Event handlers
     const handleSubmit = (e) => {
@@ -36,26 +36,29 @@ const SearchForm = (props) => {
         setFilters(filtersObj);
     }
 
-    const handleProvinceChange = async (value) => {
+    const handleProvinceChange = (value) => {
         filtersObj.province = value;
-        filtersObj.comarca = handleComarcaChange(getComarcas(items)[0])
+        filtersObj.comarca = getComarcas(items)[0]; //getComarcas(items)
+        handleComarcaChange(filtersObj.comarca);
         //console.log(filtersObj);
-        await setFilters(filtersObj);
-        console.log(props.activeFilters);
+        //setFilters(filtersObj);
+        //console.log(props.activeFilters);
     }
 
-    const handleComarcaChange = async (value) => {
+    const handleComarcaChange = (value) => {
         filtersObj.comarca = value;
-        filtersObj.city = handleCityChange(getCities(items)[0]);
+        filtersObj.city = getCities(items, value)[0]; //getCities(items)
+        handleCityChange(filtersObj.city);
         //console.log(filtersObj);
-        await setFilters(filtersObj);
-        console.log(props.activeFilters);
+        //setFilters(filtersObj);
+        //console.log(props.activeFilters);
     }
 
-    const handleCityChange = async (value) => {
+    const handleCityChange = (value) => {
         filtersObj.city = value;
-        await setFilters(filtersObj);
-        console.log(props.activeFilters);
+        setFilters(filtersObj);
+        console.log(filtersObj);
+        //console.log(props.activeFilters);
     }
 
     
@@ -64,14 +67,14 @@ const SearchForm = (props) => {
             <h2>Luxury homes for {type}</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-group mb-3">
-                    <select className="custom-select mr-1" name="province"
+                    <select /* value={filtersObj.province}  */className="custom-select mr-1" name="province"
                     onChange={(e) => handleProvinceChange(e.target.value)}>
                         <option value="Barcelona">Barcelona</option>
                         <option value="Tarragona">Tarragona</option>
                         <option value="Lleida">Lleida</option>
                         <option value="Girona">Girona</option>
                     </select>
-                    <select className="custom-select mr-1" name="comarca"
+                    <select /* value={filtersObj.comarca}  */className="custom-select mr-1" name="comarca"
                     onChange={(e) => handleComarcaChange(e.target.value)}>
                         {
                             comarcas.map( com => {
@@ -82,13 +85,13 @@ const SearchForm = (props) => {
                         }
                         
                     </select>
-                    {/* <input type="text" className="form-control mr-1" name="city" placeholder="City" /> */}
-                    <select className="custom-select mr-1" name="city"
+                    
+                    <select /* value={filtersObj.city}  */className="custom-select mr-1" name="city"
                     onChange={(e) => handleCityChange(e.target.value)}>
                         {
-                            cities.map( city => {
+                            cities.map( item => {
                                 return(
-                                    <option key={city} value={city} >{city}</option>
+                                    <option key={item} value={item} >{item}</option>
                                 )
                             })
                         }
