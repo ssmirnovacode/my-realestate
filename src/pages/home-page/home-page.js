@@ -1,9 +1,11 @@
 import React from 'react';
 import './home-page.scss';
+//import ItemsView from '../../components/items-view/items-view';
 
 const HomePage = () => {
 
     return(
+        <>
         <div className="container home">
             <h2>Our company</h2>
             <p>
@@ -19,6 +21,15 @@ const HomePage = () => {
             </p>
 
         </div>
+        {/* <hr/>
+        Buy
+        <hr/>
+            <div className="container">
+                <div className="row">
+                    <ItemsView items={items} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3"/>
+                </div>
+            </div> */}
+        </>
     )
 }
 
