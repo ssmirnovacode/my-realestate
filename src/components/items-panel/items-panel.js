@@ -14,7 +14,7 @@ const filterItems = (items, filters) => {
                         || (filters.duplex === true && item.type === 'duplex') )
         .filter(item => item.province === filters.province)
         .filter(item => item.comarca === filters.comarca )
-        /* .filter(item => item.city === filters.city) */;
+        .filter(item => item.city === filters.city);
 }
 
 class ItemsPanel extends Component {
