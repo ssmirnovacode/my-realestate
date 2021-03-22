@@ -5,13 +5,30 @@ import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../.
 
 const FilterPanel = (props) => {
 
-    const {items} = props;  //find a way to keep rendering on refresh
+    const {items, setFilters} = props;  //find a way to keep rendering on refresh
     //console.log(items);
 
-    const {apartment, flat, house, duplex, province, comarca, city} = props.activeFilters;
+    const {apartment, flat, house, duplex, province, comarca} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
     //console.log(filtersObj);
+
+    console.log(props.activeFilters);
+
+    //the following functions to be outsourced into a separate file
+    const getComarcas = (arr, prov=province) => {
+        const totalArr = arr.filter(item => item.province === prov).map(item => item.comarca);
+        let pureArr = [...new Set(totalArr)];
+        return pureArr;
+    }
+
+    const getCities = (arr, com=comarca) => {
+        const totalArr = arr.filter(item => item.comarca === com).map(item => item.city);
+        let pureArr = [...new Set(totalArr)];
+        return pureArr;
+    }
+    const comarcas = getComarcas(items); //add 2nd parameter if outsourced
+    const cities = getCities(items); //add 2nd parameter if outsourced
     
     const handlePropChange = (name) => {
         filtersObj[name]= !filtersObj[name];
@@ -20,28 +37,23 @@ const FilterPanel = (props) => {
         console.log(props.activeFilters);
     }
 
-    const handleZoneChange = (name, value) => {
-        filtersObj[name]= value;
+    const handleProvinceChange = (value) => {
+        filtersObj.province = value;
+        filtersObj.comarca = getComarcas(items, value)[0]; 
+        handleComarcaChange(filtersObj.comarca);
+    }
+
+    const handleComarcaChange = (value) => {
+        filtersObj.comarca = value;
+        filtersObj.city = getCities(items, value)[0]; 
+        handleCityChange(filtersObj.city);
+    }
+
+    const handleCityChange = (value) => {
+        filtersObj.city = value;
+        setFilters(filtersObj);
         console.log(filtersObj);
-        props.setFilters(filtersObj);
-        console.log(props.activeFilters);
     }
-
-    //the following functions to be outsourced into a separate file
-    const getComarcas = (arr) => {
-        const totalArr = arr.filter(item => item.province === province).map(item => item.comarca);
-        let pureArr = [...new Set(totalArr)];
-        return pureArr;
-    }
-
-    const getCities = (arr) => {
-        const totalArr = arr.filter(item => item.comarca === comarca).map(item => item.city);
-        let pureArr = [...new Set(totalArr)];
-        return pureArr;
-    }
-    let comarcas = getComarcas(items);
-    let cities = getCities(items);
-    console.log(cities);
 
     return(
         <div className="filter-panel">
@@ -71,15 +83,14 @@ const FilterPanel = (props) => {
 
             <div className="filter-panel zone mt-2">
                 <select value={province} className="custom-select mb-2" name="province"
-                    onChange={(e) => handleZoneChange(e.target.name, e.target.value)}>
-                    <option value="0" disabled>Province</option>
+                    onChange={(e) => handleProvinceChange(e.target.value)}>
                     <option value="Barcelona">Barcelona</option>
                     <option value="Tarragona">Tarragona</option>
                     <option value="Lleida">Lleida</option>
                     <option value="Girona">Girona</option>
                 </select>
-                <select value={comarca} className="custom-select mb-2" name="comarca"
-                    onChange={(e) => handleZoneChange(e.target.name, e.target.value)}>
+                <select /* value={comarca}  */className="custom-select mb-2" name="comarca"
+                    onChange={(e) => handleComarcaChange(e.target.value)}>
                     {
                             comarcas.map( com => {
                                 return(
@@ -88,12 +99,12 @@ const FilterPanel = (props) => {
                             })
                         }
                 </select>
-                <select value={city} className="custom-select mb-2" name="city"
-                    onChange={(e) => handleZoneChange(e.target.name, e.target.value)}>
+                <select /* value={city}  */className="custom-select mb-2" name="city"
+                    onChange={(e) => handleCityChange(e.target.value)}>
                     {
-                            cities.map( city => {
+                            cities.map( item => {
                                 return(
-                                    <option key={city} value={city} >{city}</option>
+                                    <option key={item} value={item} >{item}</option>
                                 )
                             })
                         }

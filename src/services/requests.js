@@ -1,5 +1,3 @@
-import baseURL from '../assets/baseURL';
-
 export default class RequestService {
 
     async getItems(url) {

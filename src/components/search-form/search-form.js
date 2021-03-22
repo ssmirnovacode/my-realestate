@@ -9,7 +9,7 @@ const SearchForm = (props) => {
 
     const {type, items, setFilters} = props;
 
-    const {province, comarca, city} = props.activeFilters;
+    const {province, comarca} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
     //console.log(filtersObj);
@@ -26,8 +26,8 @@ const SearchForm = (props) => {
         let pureArr = [...new Set(totalArr)];
         return pureArr;
     }
-    const comarcas = getComarcas(items);
-    const cities = getCities(items); // fix to "Barcelona" or activeFilters.comarca
+    const comarcas = getComarcas(items); //add 2nd parameter if outsourced
+    const cities = getCities(items); //add 2nd parameter if outsourced
 
 //Event handlers
     const handleSubmit = (e) => {
@@ -38,27 +38,20 @@ const SearchForm = (props) => {
 
     const handleProvinceChange = (value) => {
         filtersObj.province = value;
-        filtersObj.comarca = getComarcas(items, value)[0]; //getComarcas(items)
+        filtersObj.comarca = getComarcas(items, value)[0]; 
         handleComarcaChange(filtersObj.comarca);
-        //console.log(filtersObj);
-        //setFilters(filtersObj);
-        //console.log(props.activeFilters);
     }
 
     const handleComarcaChange = (value) => {
         filtersObj.comarca = value;
-        filtersObj.city = getCities(items, value)[0]; //getCities(items)
+        filtersObj.city = getCities(items, value)[0]; 
         handleCityChange(filtersObj.city);
-        //console.log(filtersObj);
-        //setFilters(filtersObj);
-        //console.log(props.activeFilters);
     }
 
     const handleCityChange = (value) => {
         filtersObj.city = value;
         setFilters(filtersObj);
         console.log(filtersObj);
-        //console.log(props.activeFilters);
     }
 
     
@@ -67,7 +60,7 @@ const SearchForm = (props) => {
             <h2>Luxury homes for {type}</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-group mb-3">
-                    <select /* value={filtersObj.province}  */className="custom-select mr-1" name="province"
+                    <select value={filtersObj.province} className="custom-select mr-1" name="province"
                     onChange={(e) => handleProvinceChange(e.target.value)}>
                         <option value="Barcelona">Barcelona</option>
                         <option value="Tarragona">Tarragona</option>
