@@ -6,10 +6,10 @@ import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../.
 //import baseURL from '../../assets/baseURL';
 
 const SearchForm = (props) => {
-
+    console.log(props.activeFilters);
     const {type, items, setFilters} = props;
 
-    const {province, comarca} = props.activeFilters;
+    const {province, comarca, city} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
     //console.log(filtersObj);
@@ -60,14 +60,14 @@ const SearchForm = (props) => {
             <h2>Luxury homes for {type}</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="input-group mb-3">
-                    <select value={filtersObj.province} className="custom-select mr-1" name="province"
+                    <select value={province} className="custom-select mr-1" name="province"
                     onChange={(e) => handleProvinceChange(e.target.value)}>
                         <option value="Barcelona">Barcelona</option>
                         <option value="Tarragona">Tarragona</option>
                         <option value="Lleida">Lleida</option>
                         <option value="Girona">Girona</option>
                     </select>
-                    <select /* value={filtersObj.comarca}  */className="custom-select mr-1" name="comarca"
+                    <select value={comarca} className="custom-select mr-1" name="comarca"
                     onChange={(e) => handleComarcaChange(e.target.value)}>
                         {
                             comarcas.map( com => {
@@ -79,7 +79,7 @@ const SearchForm = (props) => {
                         
                     </select>
                     
-                    <select /* value={filtersObj.city}  */className="custom-select mr-1" name="city"
+                    <select value={city} className="custom-select mr-1" name="city"
                     onChange={(e) => handleCityChange(e.target.value)}>
                         {
                             cities.map( item => {

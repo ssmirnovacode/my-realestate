@@ -5,15 +5,16 @@ import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../.
 
 const FilterPanel = (props) => {
 
+    console.log(props.activeFilters);
     const {items, setFilters} = props;  //find a way to keep rendering on refresh
     //console.log(items);
 
-    const {apartment, flat, house, duplex, province, comarca} = props.activeFilters;
+    const {apartment, flat, house, duplex, province, comarca, city} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
     //console.log(filtersObj);
 
-    console.log(props.activeFilters);
+   
 
     //the following functions to be outsourced into a separate file
     const getComarcas = (arr, prov=province) => {
@@ -89,7 +90,7 @@ const FilterPanel = (props) => {
                     <option value="Lleida">Lleida</option>
                     <option value="Girona">Girona</option>
                 </select>
-                <select /* value={comarca}  */className="custom-select mb-2" name="comarca"
+                <select value={comarca} className="custom-select mb-2" name="comarca"
                     onChange={(e) => handleComarcaChange(e.target.value)}>
                     {
                             comarcas.map( com => {
@@ -99,7 +100,7 @@ const FilterPanel = (props) => {
                             })
                         }
                 </select>
-                <select /* value={city}  */className="custom-select mb-2" name="city"
+                <select value={city} className="custom-select mb-2" name="city"
                     onChange={(e) => handleCityChange(e.target.value)}>
                     {
                             cities.map( item => {
