@@ -1,12 +1,13 @@
 import React from 'react';
 import './property-card.scss';
 import {Link} from 'react-router-dom';
+import Carousel from '../carousel/carousel';
 
 const PropertyCard = (props) => {
 
-    const {id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms, classnames, slider} = props;
+    const {id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms, classnames, slider, images} = props;
 
-    const imgBlock = slider ? <div>Slider</div> : <Link to={`properties/${id}`}><img className="card-img-top" src={img} alt={title} /></Link>;
+    const imgBlock = slider ? <Carousel images={images} title={title} /> : <Link to={`properties/${id}`}><img className="card-img-top" src={img} alt={title} /></Link>;
     
     return(
         <div className={"card mb-5 " + classnames} >
