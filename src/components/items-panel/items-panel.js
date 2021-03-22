@@ -8,15 +8,6 @@ import ItemsView from '../../components/items-view/items-view';
 
 const reqService = new RequestService();
 
-const filterItems = (items, filters) => {
-    return items.filter(item => (filters.apartment === true && item.type === 'apartment') || 
-                        (filters.flat === true && item.type === 'flat') || (filters.house === true && item.type === 'house')
-                        || (filters.duplex === true && item.type === 'duplex') )
-        .filter(item => item.province === filters.province)
-        .filter(item => item.comarca === filters.comarca )
-        .filter(item => item.city === filters.city);
-}
-
 class ItemsPanel extends Component {
 
     componentDidMount() {
@@ -48,12 +39,12 @@ class ItemsPanel extends Component {
 
     render() {
 
-        const {items, loading, error} = this.props;
+        const {/* items,  */loading, error} = this.props;
 
-        const filteredItems = filterItems(items, this.props.activeFilters);
+        //const filteredItems = filterItems(items, this.props.activeFilters);
 
         return(
-            <ItemsView items={filteredItems} loading={loading} error={error} grid="" classnames="horizontal"/>
+            <ItemsView items={this.props.filteredItems} loading={loading} error={error} grid="" classnames="horizontal"/>
         )
     }
 }

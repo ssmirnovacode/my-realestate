@@ -2,7 +2,6 @@ const initialState = {
     loading: true,
     error: false,
     items: [],
-    filteredItems: [],
     deal: '',
     activeFilters: {
         /* type: [], */
