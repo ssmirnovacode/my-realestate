@@ -31,12 +31,5 @@ const setFilters = (filtersObj) => {
     }
 }
 
-const filteredItemsLoaded = (items) => {
-    return {
-        type: 'FILTERED_ITEMS_LOADED',
-        payload: items
-    };
-};
 
-
-export {itemsError, itemsLoaded, itemsRequested, setDeal, setFilters, filteredItemsLoaded };
+export {itemsError, itemsLoaded, itemsRequested, setDeal, setFilters};

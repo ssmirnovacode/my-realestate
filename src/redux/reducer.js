@@ -48,17 +48,8 @@ const reducer = (state=initialState, action) => {
 
             return {
                 ...state,
-                activeFilters: action.payload/* {
-                    ...state.activeFilters,
-                    type: [...action.payload, ...state.activeFilters.type]
-                } */
-            }
-        case 'FILTERED_ITEMS_LOADED':
-            return {
-                ...state,
-                loading: false,
-                filteredItems: action.payload
-            }
+                activeFilters: action.payload
+            };
         default:
             return state;
         }   

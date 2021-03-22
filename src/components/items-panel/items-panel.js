@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './items-panel.scss';
 import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal, filteredItemsLoaded} from '../../redux/actions';
+import {itemsLoaded, itemsRequested, itemsError, setDeal} from '../../redux/actions';
 import baseURL from '../../assets/baseURL';
 import ItemsView from '../../components/items-view/items-view';
 
@@ -70,8 +70,7 @@ const mapDispatchToProps = {
     itemsLoaded,
     itemsRequested,
     itemsError,
-    setDeal,
-    filteredItemsLoaded
+    setDeal
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemsPanel);
