@@ -4,11 +4,13 @@ import {Link} from 'react-router-dom';
 
 const PropertyCard = (props) => {
 
-    const {id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms, classnames} = props;
+    const {id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms, classnames, slider} = props;
 
+    const imgBlock = slider ? <div>Slider</div> : <Link to={`properties/${id}`}><img className="card-img-top" src={img} alt={title} /></Link>;
+    
     return(
         <div className={"card mb-5 " + classnames} >
-            <Link to={`properties/${id}`}><img className="card-img-top" src={img} alt={title} /></Link>
+            {imgBlock}
             <div className="card-body">
                 <div className="card-subheader-top">
                     <div className="card-id">{id}</div>

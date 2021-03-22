@@ -5,7 +5,7 @@ import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../.
 
 const FilterPanel = (props) => {
 
-    console.log(props.activeFilters);
+    //console.log(props.activeFilters);
     const {items, setFilters} = props;  //find a way to keep rendering on refresh
     //console.log(items);
 
