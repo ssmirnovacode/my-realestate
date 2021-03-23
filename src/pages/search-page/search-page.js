@@ -44,11 +44,11 @@ const SearchPage = (props) => {
                                 <label className="input-group-text" htmlFor="inputGroupSelect019">Order by: </label>
                             </div>
                             <select className="custom-select" id="inputGroupSelect01">
-                                <option value="0">Newest</option>
-                                <option value="1">Lowest price</option>
-                                <option value="2">Highest price</option>
-                                <option value="3">Most sqm</option>
-                                <option value="3">Least sqm</option>
+                                <option value="Newest">Newest</option>
+                                <option value="Lowest price">Lowest price</option>
+                                <option value="Highest price">Highest price</option>
+                                <option value="Most sqm">Most sqm</option>
+                                <option value="Least sqm">Least sqm</option>
                             </select>
                     </div>
 

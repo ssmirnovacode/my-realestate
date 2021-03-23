@@ -1058,6 +1058,49 @@
         "email": "smth@foo.com",
         "comments": "testing"
       }
+    },
+    {
+      "id": 9,
+      "request": {
+        "name": "Lana",
+        "lastname": "Smthson",
+        "phone": "1112233",
+        "email": "foobar@exampleasasa.com",
+        "comments": "Testing request info flat",
+        "itemId": 176678678
+      }
+    },
+    {
+      "id": 10,
+      "request": {
+        "streetnum": "Calle Mayor 17",
+        "door": "1, 202",
+        "zipcode": "43400",
+        "province": "Lleida",
+        "deal": "rent",
+        "name": "Lana",
+        "lastname": "TestLana",
+        "phone": "1112233",
+        "email": "smth@foo.com",
+        "comments": "testing checkbox",
+        "privacy": true
+      }
+    },
+    {
+      "id": 11,
+      "request": {
+        "streetnum": "Calle Mayor 17",
+        "door": "1, 202",
+        "zipcode": "43400",
+        "province": "Lleida",
+        "deal": "sale",
+        "name": "Lana",
+        "lastname": "Banana",
+        "phone": "1112233",
+        "email": "smth@foo.com",
+        "comments": "asdas",
+        "privacy": true
+      }
     }
   ]
 }

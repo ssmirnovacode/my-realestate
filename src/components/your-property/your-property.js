@@ -22,7 +22,8 @@ const YourProperty = (props) => {
             lastname: '',
             phone: '',
             email: '',
-            comments: ''
+            comments: ''/* ,
+            privacy: '' */
         },
         onSubmit: (values, { resetForm }, e) => {
 
@@ -102,7 +103,8 @@ const YourProperty = (props) => {
                             </div>
 
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+                                <input className="form-check-input" type="checkbox" name="privacy" required 
+                                   /* onChange={formik.handleChange} value={formik.values.privacy} */ />
                                 <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to="/privacy" >privacy policy</Link></label>
                             </div>
                     </div>
