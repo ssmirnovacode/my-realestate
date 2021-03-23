@@ -7,6 +7,14 @@ $heading-font: 'Merriweather', Helvetica, Verdana, Arial, sans-serif;
 @mixin wrapper {
     /* margin-top: 2rem;
     margin-bottom: 2rem; */
-    margin: 2rem;
+    margin: 2rem 1rem;
+    //font-family: $heading-font;
+}
+
+h1, h2, h3, h4, h5 {
     font-family: $heading-font;
+}
+
+p, div {
+    font-family: 'Lato', sans-serif;
 }

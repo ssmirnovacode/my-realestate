@@ -13,7 +13,16 @@
             font-size: 1.5rem;
             color: whitesmoke;
             font-weight: bold;
+            text-shadow: 2px 2px $dark;
         }
+        & img {
+            width: 100%;
+        }
+    }
+    &.aboutus {
+        border: 1px solid $light-grey;
+        border-radius: 2px;
+        padding: 2rem;
         & img {
             width: 100%;
         }

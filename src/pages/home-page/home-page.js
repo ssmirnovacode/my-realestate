@@ -26,11 +26,13 @@ class HomePage extends Component {
             <div className="container">
                 <div className="row home">
                     <div className="col-12">
-                        <h2>Luxury Real Estate</h2>
-                        <h3>Barcelona · Tarragona · Lleida · Girona</h3>
+                        <h2 className="mb-3">Luxury Real Estate</h2>
+                        <h5 className="mb-3">Four catalan provinces</h5>
                         <p>
-                        aProperties has an extensive portfolio of properties in the very best locations in the city of Barcelona, Madrid and Valencia.
+                        aProperties has an extensive portfolio of properties in the very best locations in the provinces of Barcelona, Tarragona, Lleida and Girona.
+                        
                         </p>
+                        <p>Best real estate at the most convenient prices only a click away!</p>
                     </div>
                 </div>
 
@@ -64,6 +66,25 @@ class HomePage extends Component {
                 <div className="row home featured">
                     <div className="col-12 mb-3"><h3>Featured properties</h3><hr/></div>
                     <ItemsView items={items} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4" lastItem="5"/>
+                </div>
+
+                <div className="row home aboutus">
+                    <div className="col-12 col-md-6 mb-3">
+                        <img src="https://www.erco.com/projects/focus/report/real-estate-agency-engel-voelkers-metropolitan-market-center-madrid-6167/images/eur-erco-real-estate-agency-engel-voelkers-metropolitan-market-center-madrid-report-11-2.jpg" alt="my real estate" />
+                    </div>
+                    <div className="col-12 col-md-6">
+                        <h4>myRealEstate</h4>
+                        <p>
+                        aProperties is an estate agency specialized in the marketing of exclusive properties in the best areas of Barcelona, Madrid and Valencia. The brand also has a division specializing in the marketing of offices in prime areas of Barcelona and Madrid.
+
+                        As an expert consultancy, the firm has a wide portfolio of properties and a sales team made up of highly qualified, specialized professionals with extensive experience in the industry.
+
+                        aProperties offers a close-at-hand and high-quality service, where its customers can closely follow the entire process required in the purchase, sale or rental of property. 
+
+                        
+                        </p>
+                        <div>Facebook Instagram Twitter Linkedin</div>
+                    </div>
                 </div>
 
             </div>
