@@ -2,4 +2,19 @@
 
 .home {
     @include wrapper;
+    &.provinces-block_item {
+        padding: 0;
+        //position: relative;
+        &_title {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            font-size: 1.5rem;
+            color: whitesmoke;
+            font-weight: bold;
+        }
+        & img {
+            width: 100%;
+        }
+    }
 }

@@ -1,35 +1,52 @@
 import React from 'react';
 import './home-page.scss';
-//import ItemsView from '../../components/items-view/items-view';
+import {Link} from 'react-router-dom';
 
 const HomePage = () => {
 
     return(
-        <>
-        <div className="container home">
-            <h2>Our company</h2>
-            <p>
-            aProperties is a real estate agency specializing in the renting and selling of exclusive properties in the best areas. It boasts a broad portfolio of properties as well as a team of highly qualified professionals with extensive experience in the real estate sector.
+        <div className="container">
+            <div className="home row">
+                <div className="col">
+                    <h2>Luxury Real Estate</h2>
+                    <h3>Barcelona · Tarragona · Lleida · Girona</h3>
+                    <p>
+                    aProperties has an extensive portfolio of properties in the very best locations in the city of Barcelona, Madrid and Valencia.
+                    </p>
+                </div>
+            </div>
 
-            aProperties offers service whereby its clients can follow each step of the entire process that the purchasing, selling or renting of a property requires. Also, a personal agent attends to any doubts that may arise throughout the process of any of these operations.
+            <div className="row">
+                <div className="home provinces-block_item col-12 col-md-6">
+                    <Link to="/buy">
+                        <img src="https://cw-gbl-gws-prod.azureedge.net/-/media/cw/emea/spain/offices/hero-image-emea-offices-barcelona-small-750x480.jpg?rev=52c4d652a22845d6a53f001f0f16218e" alt="Barcelona"/>
+                        <div className="home provinces-block_item_title">Barcelona</div>
+                    </Link>
+                </div>
+                <div className="home provinces-block_item col-12 col-md-6">
+                    <Link to="/buy">
+                        <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/12/a6/3d.jpg" alt="Tarragona" />
+                        <div className="home provinces-block_item_title">Tarragona</div>
+                    </Link>
+                </div>
+            </div>
 
-            As of 2019, aProperties has had a new business unit, aProperties Offices, which is specialized in renting and selling exclusive offices in the prime areas inBarcelona and Madrid.
-
-            This brand was born with the purpose of offering an intimate, personalized and efficient service for those companies that need new spaces to develop their business as well as helping those property owners who want to get the most out of their office space assets.
-
-            With its broad portfolio of properties in the main Business Center Districts in Madrid and Barcelona, aProperties Offices and its specialized and highly qualified agents have extensive experience in this sector.
-            </p>
+            <div className="row">
+                <div className="home provinces-block_item col-12 col-md-6">
+                    <Link to="/buy">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lleida_-_panoramio_-_Jorge_Franganillo.jpg" alt="Lleida" />
+                        <div className="home provinces-block_item_title">Lleida</div>
+                    </Link>
+                </div>
+                <div className="home provinces-block_item col-12 col-md-6">
+                    <Link to="/buy">
+                        <img src="https://cdn.britannica.com/35/190035-050-C44235DF/Girona-Spain-Onar-River.jpg" alt="Girona" />
+                        <div className="home provinces-block_item_title">Girona</div>
+                    </Link>
+                </div>
+            </div>
 
         </div>
-        {/* <hr/>
-        Buy
-        <hr/>
-            <div className="container">
-                <div className="row">
-                    <ItemsView items={items} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3"/>
-                </div>
-            </div> */}
-        </>
     )
 }
 
