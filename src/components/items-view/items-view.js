@@ -3,7 +3,7 @@ import PropertyCard from '../../components/property-card/property-card';
 import Loading from '../../components/loading/loading';
 import Error from '../../components/error/error';
 
-const ItemsView = ({loading, error, items, grid=null, classnames=''}) => {
+const ItemsView = ({loading, error, items, grid=null, classnames='', lastItem=10000}) => {
 
     if (loading) {
         return <Loading />
@@ -12,13 +12,16 @@ const ItemsView = ({loading, error, items, grid=null, classnames=''}) => {
         return <Error />
     }
     else return (
-        items.map(item => {
+        items.map((item,i) => {
             const {...itemProps} = item;
-            return(
-                <div key={item.id} className={grid}>
-                    <PropertyCard {...itemProps} classnames={classnames}/>
-                </div>
-            )   
+            if (i <= lastItem) {
+                return(
+                    <div key={item.id} className={grid}>
+                        <PropertyCard {...itemProps} classnames={classnames}/>
+                    </div>
+                )   
+            }
+            else return null;
         })
     )
 }
