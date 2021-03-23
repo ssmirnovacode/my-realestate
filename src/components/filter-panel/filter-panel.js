@@ -7,14 +7,10 @@ const FilterPanel = (props) => {
 
     //console.log(props.activeFilters);
     const {items, setFilters} = props;  //find a way to keep rendering on refresh
-    //console.log(items);
 
     const {apartment, flat, house, duplex, province, comarca, city} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
-    //console.log(filtersObj);
-
-   
 
     //the following functions to be outsourced into a separate file
     const getComarcas = (arr, prov=province) => {
@@ -40,20 +36,21 @@ const FilterPanel = (props) => {
 
     const handleProvinceChange = (value) => {
         filtersObj.province = value;
-        filtersObj.comarca = getComarcas(items, value)[0]; 
-        handleComarcaChange(filtersObj.comarca);
+        filtersObj.comarca = 'all'; 
+        filtersObj.city = 'all';
+        setFilters(filtersObj);
     }
 
     const handleComarcaChange = (value) => {
         filtersObj.comarca = value;
-        filtersObj.city = getCities(items, value)[0]; 
-        handleCityChange(filtersObj.city);
+        filtersObj.city = 'all';
+        setFilters(filtersObj);
     }
 
     const handleCityChange = (value) => {
         filtersObj.city = value;
         setFilters(filtersObj);
-        console.log(filtersObj);
+        //console.log(filtersObj);
     }
 
     return(
@@ -85,6 +82,7 @@ const FilterPanel = (props) => {
             <div className="filter-panel zone mt-2">
                 <select value={province} className="custom-select mb-2" name="province"
                     onChange={(e) => handleProvinceChange(e.target.value)}>
+                    <option value='all'>All</option>
                     <option value="Barcelona">Barcelona</option>
                     <option value="Tarragona">Tarragona</option>
                     <option value="Lleida">Lleida</option>
@@ -92,6 +90,7 @@ const FilterPanel = (props) => {
                 </select>
                 <select value={comarca} className="custom-select mb-2" name="comarca"
                     onChange={(e) => handleComarcaChange(e.target.value)}>
+                        <option value='all'>All</option>
                     {
                             comarcas.map( com => {
                                 return(
@@ -102,6 +101,7 @@ const FilterPanel = (props) => {
                 </select>
                 <select value={city} className="custom-select mb-2" name="city"
                     onChange={(e) => handleCityChange(e.target.value)}>
+                        <option value='all'>All</option>
                     {
                             cities.map( item => {
                                 return(

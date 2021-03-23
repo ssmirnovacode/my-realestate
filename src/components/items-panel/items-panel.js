@@ -28,20 +28,17 @@ class ItemsPanel extends Component {
             prevProps.activeFilters.flat !== this.props.activeFilters.flat ||
             prevProps.activeFilters.house !== this.props.activeFilters.house ||
             prevProps.activeFilters.duplex !== this.props.activeFilters.duplex  ) {
-            //console.log('updated');
+
             console.log(this.props.activeFilters);
             reqService.getItems(baseURL + this.props.deal + '-items') //debug on refesh page
             .then(res => this.props.itemsLoaded(res))
             .catch( () => this.props.itemsError());
         }
-        /* else console.log('same'); */
     }
 
     render() {
 
-        const {/* items,  */loading, error} = this.props;
-
-        //const filteredItems = filterItems(items, this.props.activeFilters);
+        const {loading, error} = this.props;
 
         return(
             <ItemsView items={this.props.filteredItems} loading={loading} error={error} grid="" classnames="horizontal"/>
