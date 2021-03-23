@@ -2,7 +2,7 @@
   "sale-items": [
     {
       "id": 1,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -22,7 +22,7 @@
     },
     {
       "id": 176678678,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -42,7 +42,7 @@
     },
     {
       "id": 2,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -62,7 +62,7 @@
     },
     {
       "id": 257567567,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -82,7 +82,7 @@
     },
     {
       "id": 22656,
-      "title": "Flat21",
+      "title": "Property21",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -102,7 +102,7 @@
     },
     {
       "id": 3,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -122,7 +122,7 @@
     },
     {
       "id": 3243234,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -142,7 +142,7 @@
     },
     {
       "id": 4,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -162,7 +162,7 @@
     },
     {
       "id": 423423478,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -182,7 +182,7 @@
     },
     {
       "id": 423313,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -202,7 +202,7 @@
     },
     {
       "id": 42331356545,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -222,7 +222,7 @@
     },
     {
       "id": 5345345,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -242,7 +242,7 @@
     },
     {
       "id": 555646,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -262,7 +262,7 @@
     },
     {
       "id": 52131,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -282,7 +282,7 @@
     },
     {
       "id": 521315746757,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -302,7 +302,7 @@
     },
     {
       "id": 6,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -322,7 +322,7 @@
     },
     {
       "id": 67686867868,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -342,7 +342,7 @@
     },
     {
       "id": 612321,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -362,7 +362,7 @@
     },
     {
       "id": 612321354353,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -382,7 +382,7 @@
     },
     {
       "id": 6121,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -402,7 +402,7 @@
     },
     {
       "id": 612451,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -422,7 +422,7 @@
     },
     {
       "id": 7,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Lleida",
@@ -442,7 +442,7 @@
     },
     {
       "id": 7123123,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Lleida",
@@ -462,7 +462,7 @@
     },
     {
       "id": 8,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Lleida",
@@ -482,7 +482,7 @@
     },
     {
       "id": 81231,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Lleida",
@@ -502,7 +502,7 @@
     },
     {
       "id": 9,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -524,7 +524,7 @@
   "rent-items": [
     {
       "id": 1343423,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -544,7 +544,7 @@
     },
     {
       "id": 256,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -564,7 +564,7 @@
     },
     {
       "id": 2565464564,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -584,7 +584,7 @@
     },
     {
       "id": 2263456,
-      "title": "Flat21",
+      "title": "Property21",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -604,7 +604,7 @@
     },
     {
       "id": 22634545346,
-      "title": "Flat21",
+      "title": "Property21",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
@@ -624,7 +624,7 @@
     },
     {
       "id": 367867,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -644,7 +644,7 @@
     },
     {
       "id": 3678675466546,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -664,7 +664,7 @@
     },
     {
       "id": 454546,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -684,7 +684,7 @@
     },
     {
       "id": 423313,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -704,7 +704,7 @@
     },
     {
       "id": 567868,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -724,7 +724,7 @@
     },
     {
       "id": 567868345345,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -744,7 +744,7 @@
     },
     {
       "id": 5213178,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -764,7 +764,7 @@
     },
     {
       "id": 52133453178,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Tarragona",
@@ -784,7 +784,7 @@
     },
     {
       "id": 6786786,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -804,7 +804,7 @@
     },
     {
       "id": 61232145654,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -824,7 +824,7 @@
     },
     {
       "id": 612157567,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -844,7 +844,7 @@
     },
     {
       "id": 612451678678,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Girona",
@@ -864,7 +864,7 @@
     },
     {
       "id": 7123123,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Lleida",
@@ -884,7 +884,7 @@
     },
     {
       "id": 712312323232,
-      "title": "Flat1",
+      "title": "Property1",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Lleida",
@@ -904,7 +904,7 @@
     },
     {
       "id": 82423423,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Lleida",
@@ -924,7 +924,7 @@
     },
     {
       "id": 81231768768,
-      "title": "Flat2",
+      "title": "Property2",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Lleida",
@@ -944,7 +944,7 @@
     },
     {
       "id": 9678678678677,
-      "title": "Flat3",
+      "title": "Property3",
       "text": "Some text blablabla ome text blablabla ome text blablabla ome text blablabla ome text blablabla",
       "img": "http://cdn.home-designing.com/wp-content/uploads/2019/01/Small-apartment-design.jpg",
       "province": "Barcelona",
