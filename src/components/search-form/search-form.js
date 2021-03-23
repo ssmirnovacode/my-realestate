@@ -1,12 +1,11 @@
 import React from 'react';
 import './search-form.scss';
-//import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 //import baseURL from '../../assets/baseURL';
 
 const SearchForm = (props) => {
-    //console.log(props.activeFilters);
+    console.log(props.activeFilters);
     const {type, items, setFilters} = props;
 
     const {province, comarca, city} = props.activeFilters;
@@ -38,20 +37,21 @@ const SearchForm = (props) => {
 
     const handleProvinceChange = (value) => {
         filtersObj.province = value;
-        filtersObj.comarca = getComarcas(items, value)[0]; 
-        handleComarcaChange(filtersObj.comarca);
+        filtersObj.comarca = 'all'; 
+        filtersObj.city = 'all';
+        setFilters(filtersObj);
     }
 
     const handleComarcaChange = (value) => {
         filtersObj.comarca = value;
-        filtersObj.city = getCities(items, value)[0]; 
-        handleCityChange(filtersObj.city);
+        filtersObj.city = 'all'; 
+        setFilters(filtersObj);
     }
 
     const handleCityChange = (value) => {
         filtersObj.city = value;
         setFilters(filtersObj);
-        console.log(filtersObj);
+        //console.log(filtersObj);
     }
 
     
@@ -62,6 +62,7 @@ const SearchForm = (props) => {
                 <div className="input-group mb-3">
                     <select value={province} className="custom-select mr-1" name="province"
                     onChange={(e) => handleProvinceChange(e.target.value)}>
+                        <option value='all'>All</option>
                         <option value="Barcelona">Barcelona</option>
                         <option value="Tarragona">Tarragona</option>
                         <option value="Lleida">Lleida</option>
@@ -69,6 +70,7 @@ const SearchForm = (props) => {
                     </select>
                     <select value={comarca} className="custom-select mr-1" name="comarca"
                     onChange={(e) => handleComarcaChange(e.target.value)}>
+                        <option value='all' >All</option>
                         {
                             comarcas.map( com => {
                                 return(
@@ -81,6 +83,7 @@ const SearchForm = (props) => {
                     
                     <select value={city} className="custom-select mr-1" name="city"
                     onChange={(e) => handleCityChange(e.target.value)}>
+                        <option value='all' >All</option>
                         {
                             cities.map( item => {
                                 return(

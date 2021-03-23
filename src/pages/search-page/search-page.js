@@ -14,19 +14,23 @@ const SearchPage = (props) => {
         return items.filter(item => (filters.apartment === true && item.type === 'apartment') || 
                             (filters.flat === true && item.type === 'flat') || (filters.house === true && item.type === 'house')
                             || (filters.duplex === true && item.type === 'duplex') )
-            .filter(item => item.province === filters.province)
-            .filter(item => item.comarca === filters.comarca )
-            .filter(item => item.city === filters.city);
+            .filter(item => filters.province === 'all' ? item : item.province === filters.province)
+            .filter(item => filters.comarca === 'all' ? item : item.comarca === filters.comarca )
+            .filter(item => filters.city === 'all' ? item : item.city === filters.city);
     };
 
     const filteredItems = filterItems(items, props.activeFilters);
 
     const count = filteredItems.length;
 
+    const citySelected = city === 'all' ? null : `${city},`;
+    const comarcaSelected = comarca === 'all' ? null : comarca;
+    const provinceSelected = province === 'all' ? 'Catalonia' : province.toUpperCase();
+
     return(
         <div className="container search-page">
             
-                <h2>Homes for {deal} in {city}, {comarca} ({province}) </h2>
+                <h2>Homes for {deal} in {citySelected} {comarcaSelected} {provinceSelected} </h2>
                 <div className="search-page_subheader"> {count} options found </div>
             
             <div className="row">
