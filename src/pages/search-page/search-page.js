@@ -18,7 +18,9 @@ const SearchPage = (props) => {
             .filter(item => filters.comarca === 'all' ? item : item.comarca === filters.comarca )
             .filter(item => filters.city === 'all' ? item : item.city === filters.city)
             .filter(item => +filters.priceFrom > 0 ? item.price >= +filters.priceFrom : item)
-            .filter(item => +filters.priceTo < 100000000 ? item.price <= +filters.priceTo : item);
+            .filter(item => +filters.priceTo < 100000000 ? item.price <= +filters.priceTo : item)
+            .filter(item => +filters.sqmFrom > 0 ? item.surface >= +filters.sqmFrom : item)
+            .filter(item => +filters.sqmTo < 100000000 ? item.surface <= +filters.sqmTo : item);
     };
 
     const filteredItems = filterItems(items, props.activeFilters);

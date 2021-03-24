@@ -9,7 +9,7 @@ const FilterPanel = (props) => {
     //console.log(props.activeFilters);
     const {items, setFilters, deal} = props;  //find a way to keep rendering on refresh
 
-    const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo} = props.activeFilters;
+    const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
 
@@ -18,7 +18,7 @@ const FilterPanel = (props) => {
     const priceRangeByDealFrom = deal === 'sale' ? <>
                                                 <option value="0">From</option>
                                                 <option value="50000">From 50 000</option>
-                                                <option value="100000">From 10 0000</option>
+                                                <option value="100000">From 100 000</option>
                                                 <option value="150000">From 150 000</option>
                                                 <option value="200000">From 200 000</option>
                                                 <option value="300000">From 300 000</option>
@@ -105,6 +105,17 @@ const FilterPanel = (props) => {
         setFilters(filtersObj);
         //console.log(filtersObj);
     }   
+
+    const handleSqmRangeChange = (e) => {
+        if (e.target.name === 'sqmFrom') {
+            filtersObj.sqmFrom = e.target.value;        
+        }
+        else {
+            filtersObj.sqmTo = e.target.value;
+        }
+        setFilters(filtersObj);
+        //console.log(filtersObj);
+    }  
 
     return(
         <div className="filter-panel">
@@ -196,26 +207,32 @@ const FilterPanel = (props) => {
 
             <div className="filter-panel surface-range mt-3">
                 <div className="filter-panel surface-range-header mb-2">Surface</div>
-                <select className="custom-select mb-2" name="sqmFrom">
+                <select value={sqmFrom} className="custom-select mb-2" name="sqmFrom"
+                    onChange={(e) => handleSqmRangeChange(e)}>
                     <option value="0" >From</option>
+                    <option value="50">From 50</option>
+                    <option value="100">From 100</option>
+                    <option value="150">From 150</option>
+                    <option value="200">From 200</option>
+                    <option value="300">From 300</option>
                     <option value="500">From 500</option>
                     <option value="1000">From 1000</option>
-                    <option value="1500">From 1500</option>
-                    <option value="2000">From 2000</option>
-                    <option value="3000">From 3000</option>
                 </select>
-                <select className="custom-select mb-2" name="sqmTo">
-                    <option value="10000000" >To</option>
+                <select value={sqmTo} className="custom-select mb-2" name="sqmTo"
+                    onChange={(e) => handleSqmRangeChange(e)}>
+                    <option value="100000" >To</option>
+                    <option value="50">To 50</option>
+                    <option value="100">To 100</option>
+                    <option value="150">To 150</option>
+                    <option value="200">To 200</option>
+                    <option value="300">To 300</option>
                     <option value="500">To 500</option>
                     <option value="1000">To 1000</option>
-                    <option value="1500">From 1500</option>
-                    <option value="2000">From 2000</option>
-                    <option value="3000">From 3000</option>
-                    <option value="5000">From 5000</option>
+                    <option value="5000">To 5000</option>
                 </select>
             </div>
 
-            {/* to be used when the db is further suctomised */}
+            {/* to be used when the db is further customised */}
 
             {/* <div className="filter-panel extras mt-3 mb-3">
                 <div className="form-check mb-1">

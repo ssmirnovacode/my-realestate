@@ -14,10 +14,10 @@ const initialState = {
         city: 'all',
         priceFrom: 0,
         priceTo: 100000000,
+        sqmFrom: 0,
+        sqmTo: 100000,
         bedroomsMin: null,
         bathroomsMax: null,
-        surfaceMin: null,
-        surfaceMax: null
     }
 };
 

@@ -24,6 +24,7 @@ class HomePage extends Component {
 
         return(
             <div className="container">
+                
                 <div className="row home">
                     <div className="col-12">
                         <h2 className="mb-3">Luxury Real Estate</h2>
