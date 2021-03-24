@@ -8,7 +8,7 @@ const FilterPanel = (props) => {
     //console.log(props.activeFilters);
     const {items, setFilters} = props;  //find a way to keep rendering on refresh
 
-    const {apartment, flat, house, duplex, province, comarca, city} = props.activeFilters;
+    const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
 
@@ -52,6 +52,17 @@ const FilterPanel = (props) => {
         setFilters(filtersObj);
         //console.log(filtersObj);
     }
+
+    const handlePriceRangeChange = (e) => {
+        if (e.target.name === 'priceFrom') {
+            filtersObj.priceFrom = e.target.value;        
+        }
+        else {
+            filtersObj.priceTo = e.target.value;
+        }
+        setFilters(filtersObj);
+        //console.log(filtersObj);
+    }   
 
     return(
         <div className="filter-panel">
@@ -115,17 +126,27 @@ const FilterPanel = (props) => {
 
             <div className="filter-panel price-range mt-3">
                 <div className="filter-panel price-range-header mb-2">Price</div>
-                <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect0121">
-                    <option value="0" disabled>From</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select value={priceFrom} className="custom-select mb-2" name="priceFrom"
+                    onChange={(e) => handlePriceRangeChange(e)}>
+                    <option value="0">From</option>
+                    <option value="50000">From 50 000</option>
+                    <option value="100000">From 10 0000</option>
+                    <option value="150000">From 150 000</option>
+                    <option value="200000">From 200 000</option>
+                    <option value="300000">From 300 000</option>
+                    <option value="500000">From 500 000</option>
                 </select>
-                <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect0132">
-                    <option value="0" disabled>To</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select value={priceTo} className="custom-select mb-2" name="priceTo"
+                 onChange={(e) => handlePriceRangeChange(e)}>
+                    <option value="100000000">To</option>
+                    <option value="50000">To 50 000</option>
+                    <option value="100000">To 100 000</option>
+                    <option value="150000">To 150 000</option>
+                    <option value="200000">To 200 000</option>
+                    <option value="300000">To 300 000</option>
+                    <option value="500000">To 500 000</option>
+                    <option value="1000000">To 1 000 000</option>
+                    <option value="5000000">To 5 000 000</option>
                 </select>
             </div>
 

@@ -16,7 +16,9 @@ const SearchPage = (props) => {
                             || (filters.duplex === true && item.type === 'duplex') )
             .filter(item => filters.province === 'all' ? item : item.province === filters.province)
             .filter(item => filters.comarca === 'all' ? item : item.comarca === filters.comarca )
-            .filter(item => filters.city === 'all' ? item : item.city === filters.city);
+            .filter(item => filters.city === 'all' ? item : item.city === filters.city)
+            .filter(item => +filters.priceFrom > 0 ? item.price >= +filters.priceFrom : item)
+            .filter(item => +filters.priceTo < 100000000 ? item.price <= +filters.priceTo : item);
     };
 
     const filteredItems = filterItems(items, props.activeFilters);

@@ -12,6 +12,8 @@ const initialState = {
         province: 'all',
         comarca: 'all',
         city: 'all',
+        priceFrom: 0,
+        priceTo: 100000000,
         bedroomsMin: null,
         bathroomsMax: null,
         surfaceMin: null,

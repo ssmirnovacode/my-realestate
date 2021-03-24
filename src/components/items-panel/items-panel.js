@@ -27,7 +27,9 @@ class ItemsPanel extends Component {
             prevProps.activeFilters.apartment !== this.props.activeFilters.apartment ||
             prevProps.activeFilters.flat !== this.props.activeFilters.flat ||
             prevProps.activeFilters.house !== this.props.activeFilters.house ||
-            prevProps.activeFilters.duplex !== this.props.activeFilters.duplex  ) {
+            prevProps.activeFilters.duplex !== this.props.activeFilters.duplex ||
+            prevProps.activeFilters.priceFrom !== this.props.activeFilters.priceFrom || 
+            prevProps.activeFilters.priceTo !== this.props.activeFilters.priceTo ) {
 
             console.log(this.props.activeFilters);
             reqService.getItems(baseURL + this.props.deal + '-items') //debug on refesh page
