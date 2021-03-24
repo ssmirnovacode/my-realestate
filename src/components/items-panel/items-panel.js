@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './items-panel.scss';
 import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal} from '../../redux/actions';
+import {itemsLoaded, itemsRequested, itemsError, setDeal, resetPriceFilters} from '../../redux/actions';
 import baseURL from '../../assets/baseURL';
 import ItemsView from '../../components/items-view/items-view';
 
@@ -12,6 +12,7 @@ class ItemsPanel extends Component {
 
     componentDidMount() {
         this.props.itemsRequested();
+        this.props.resetPriceFilters();
         //console.log(this.props.activeFilters);
         //console.log(this.props.deal); //this is null on refresh - debug
         reqService.getItems(baseURL + this.props.deal + '-items') //debug on refesh page
@@ -61,7 +62,8 @@ const mapDispatchToProps = {
     itemsLoaded,
     itemsRequested,
     itemsError,
-    setDeal
+    setDeal,
+    resetPriceFilters
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemsPanel);

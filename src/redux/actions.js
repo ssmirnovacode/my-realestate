@@ -31,5 +31,11 @@ const setFilters = (filtersObj) => {
     }
 }
 
+const resetPriceFilters = () => {
+    return {
+        type: 'RESET_PRICE_FILTERS'
+    }
+}
 
-export {itemsError, itemsLoaded, itemsRequested, setDeal, setFilters};
+
+export {itemsError, itemsLoaded, itemsRequested, setDeal, setFilters, resetPriceFilters};

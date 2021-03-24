@@ -51,6 +51,15 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 activeFilters: action.payload
             };
+        case 'RESET_PRICE_FILTERS':
+            return {
+                ...state,
+                activeFilters: {
+                    ...state.activeFilters,
+                    priceFrom: 0,
+                    priceTo: 100000000
+                }
+            }
         default:
             return state;
         }   

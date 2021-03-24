@@ -13,12 +13,6 @@ const FilterPanel = (props) => {
 
     let filtersObj = {...props.activeFilters};
 
-    //Resetting priceRange filters that depend on the deal type
-    /* if (priceFrom > 0 || priceTo < 10000000 ) {
-        filtersObj.priceFrom = 0;
-        filtersObj.priceTo = 10000000;
-        setFilters(filtersObj);
-    } */
     
 
     const priceRangeByDealFrom = deal === 'sale' ? <>
