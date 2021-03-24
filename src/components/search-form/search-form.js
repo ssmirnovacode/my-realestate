@@ -5,7 +5,7 @@ import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../.
 //import baseURL from '../../assets/baseURL';
 
 const SearchForm = (props) => {
-    console.log(props.activeFilters);
+    //console.log(props.activeFilters);
     const {type, items, setFilters} = props;
 
     const {province, comarca, city} = props.activeFilters;
