@@ -1,3 +1,15 @@
+const getComarcas = (arr, prov) => {
+    const totalArr = arr.filter(item => item.province === prov).map(item => item.comarca);
+    let pureArr = [...new Set(totalArr)];
+    return pureArr;
+}
+
+const getCities = (arr, com) => {
+    const totalArr = arr.filter(item => item.comarca === com).map(item => item.city);
+    let pureArr = [...new Set(totalArr)];
+    return pureArr;
+}
+ 
 const filterItems = (items, filters) => {
     return items.filter(item => (filters.apartment === true && item.type === 'apartment') || 
                         (filters.flat === true && item.type === 'flat') || (filters.house === true && item.type === 'house')
@@ -11,4 +23,4 @@ const filterItems = (items, filters) => {
         .filter(item => +filters.sqmTo < 100000000 ? item.surface <= +filters.sqmTo : item);
 };
 
-export default filterItems;
+export {getCities, getComarcas, filterItems};

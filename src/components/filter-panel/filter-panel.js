@@ -2,6 +2,7 @@ import React from 'react';
 import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
+import {getCities, getComarcas} from '../../services/filterFunctions';
 
 const FilterPanel = (props) => {
 
@@ -54,20 +55,8 @@ const FilterPanel = (props) => {
                                                 <option value="5000">From 5000</option>
                                             </> ;
 
-    //the following functions to be outsourced into a separate file
-    const getComarcas = (arr, prov=province) => {
-        const totalArr = arr.filter(item => item.province === prov).map(item => item.comarca);
-        let pureArr = [...new Set(totalArr)];
-        return pureArr;
-    }
-
-    const getCities = (arr, com=comarca) => {
-        const totalArr = arr.filter(item => item.comarca === com).map(item => item.city);
-        let pureArr = [...new Set(totalArr)];
-        return pureArr;
-    }
-    const comarcas = getComarcas(items); //add 2nd parameter if outsourced
-    const cities = getCities(items); //add 2nd parameter if outsourced
+    const comarcas = getComarcas(items, province); //add 2nd parameter if outsourced
+    const cities = getCities(items, comarca);
     
     const handlePropChange = (name) => {
         filtersObj[name]= !filtersObj[name];

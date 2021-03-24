@@ -3,7 +3,7 @@ import './search-page.scss';
 import ItemsPanel from '../../components/items-panel/items-panel';
 import FilterPanel from '../../components/filter-panel/filter-panel';
 import {connect} from 'react-redux';
-import filterItems from '../../services/filterItems';
+import {filterItems} from '../../services/filterFunctions';
 
 const SearchPage = (props) => {
 
