@@ -5,12 +5,60 @@ import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../.
 
 const FilterPanel = (props) => {
 
+    //console.log(props.deal);
     //console.log(props.activeFilters);
-    const {items, setFilters} = props;  //find a way to keep rendering on refresh
+    const {items, setFilters, deal} = props;  //find a way to keep rendering on refresh
 
     const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
+
+    //Resetting priceRange filters that depend on the deal type
+    /* if (priceFrom > 0 || priceTo < 10000000 ) {
+        filtersObj.priceFrom = 0;
+        filtersObj.priceTo = 10000000;
+        setFilters(filtersObj);
+    } */
+    
+
+    const priceRangeByDealFrom = deal === 'sale' ? <>
+                                                <option value="0">From</option>
+                                                <option value="50000">From 50 000</option>
+                                                <option value="100000">From 10 0000</option>
+                                                <option value="150000">From 150 000</option>
+                                                <option value="200000">From 200 000</option>
+                                                <option value="300000">From 300 000</option>
+                                                <option value="500000">From 500 000</option>
+                                            </> :
+                                                <>
+                                                <option value="0" >From</option>
+                                                <option value="500">From 500</option>
+                                                <option value="1000">From 1000</option>
+                                                <option value="1500">From 1500</option>
+                                                <option value="2000">From 2000</option>
+                                                <option value="3000">From 3000</option>
+                                            </> ;
+
+    const priceRangeByDealTo = deal === 'sale' ? <>
+                                                <option value="100000000">To</option>
+                                                <option value="50000">To 50 000</option>
+                                                <option value="100000">To 100 000</option>
+                                                <option value="150000">To 150 000</option>
+                                                <option value="200000">To 200 000</option>
+                                                <option value="300000">To 300 000</option>
+                                                <option value="500000">To 500 000</option>
+                                                <option value="1000000">To 1 000 000</option>
+                                                <option value="5000000">To 5 000 000</option>
+                                            </> :
+                                            <>
+                                                <option value="10000000" >To</option>
+                                                <option value="500">To 500</option>
+                                                <option value="1000">To 1000</option>
+                                                <option value="1500">From 1500</option>
+                                                <option value="2000">From 2000</option>
+                                                <option value="3000">From 3000</option>
+                                                <option value="5000">From 5000</option>
+                                            </> ;
 
     //the following functions to be outsourced into a separate file
     const getComarcas = (arr, prov=province) => {
@@ -128,25 +176,11 @@ const FilterPanel = (props) => {
                 <div className="filter-panel price-range-header mb-2">Price</div>
                 <select value={priceFrom} className="custom-select mb-2" name="priceFrom"
                     onChange={(e) => handlePriceRangeChange(e)}>
-                    <option value="0">From</option>
-                    <option value="50000">From 50 000</option>
-                    <option value="100000">From 10 0000</option>
-                    <option value="150000">From 150 000</option>
-                    <option value="200000">From 200 000</option>
-                    <option value="300000">From 300 000</option>
-                    <option value="500000">From 500 000</option>
+                    {priceRangeByDealFrom}
                 </select>
                 <select value={priceTo} className="custom-select mb-2" name="priceTo"
                  onChange={(e) => handlePriceRangeChange(e)}>
-                    <option value="100000000">To</option>
-                    <option value="50000">To 50 000</option>
-                    <option value="100000">To 100 000</option>
-                    <option value="150000">To 150 000</option>
-                    <option value="200000">To 200 000</option>
-                    <option value="300000">To 300 000</option>
-                    <option value="500000">To 500 000</option>
-                    <option value="1000000">To 1 000 000</option>
-                    <option value="5000000">To 5 000 000</option>
+                    {priceRangeByDealTo}
                 </select>
             </div>
 
@@ -168,17 +202,22 @@ const FilterPanel = (props) => {
 
             <div className="filter-panel surface-range mt-3">
                 <div className="filter-panel surface-range-header mb-2">Surface</div>
-                <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect01211">
-                    <option value="0" disabled>From</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select className="custom-select mb-2" name="sqmFrom">
+                    <option value="0" >From</option>
+                    <option value="500">From 500</option>
+                    <option value="1000">From 1000</option>
+                    <option value="1500">From 1500</option>
+                    <option value="2000">From 2000</option>
+                    <option value="3000">From 3000</option>
                 </select>
-                <select defaultValue="0" className="custom-select mb-2" id="inputGroupSelect01322">
-                    <option value="0" disabled>To</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select className="custom-select mb-2" name="sqmTo">
+                    <option value="10000000" >To</option>
+                    <option value="500">To 500</option>
+                    <option value="1000">To 1000</option>
+                    <option value="1500">From 1500</option>
+                    <option value="2000">From 2000</option>
+                    <option value="3000">From 3000</option>
+                    <option value="5000">From 5000</option>
                 </select>
             </div>
 
