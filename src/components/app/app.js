@@ -3,7 +3,7 @@ import './app.scss';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import {BrowserRouter, Route} from 'react-router-dom';
-import HomePage from '../../pages/home-page/home-page';
+import Home from '../../pages/home-page/home-page';
 import BuyPage from '../../pages/buy-page/buy-page';
 import SellPage from '../../pages/sell-page/sell-page';
 import RentPage from '../../pages/rent-page/rent-page';
@@ -17,7 +17,7 @@ const App = () => {
         <>
             <BrowserRouter>
                 <Header />                  
-                <Route path='/' exact component={HomePage} />
+                <Route path='/' exact component={Home} />
                 <Route path='/buy' component={BuyPage} />
                 <Route path='/search' component={SearchPage}/>
                 <Route path='/sell' component={SellPage} />

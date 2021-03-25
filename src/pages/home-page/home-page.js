@@ -9,7 +9,7 @@ import baseURL from '../../assets/baseURL';
 
 const reqService = new RequestService();
 
-class HomePage extends Component {
+class Home extends Component {
 
     componentDidMount() {
         this.props.itemsRequested();
@@ -107,4 +107,4 @@ const mapDispatchToProps = {
     setDeal
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
