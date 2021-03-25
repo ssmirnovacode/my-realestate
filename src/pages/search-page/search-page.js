@@ -4,6 +4,7 @@ import ItemsPanel from '../../components/items-panel/items-panel';
 import FilterPanel from '../../components/filter-panel/filter-panel';
 import {connect} from 'react-redux';
 import {filterItems} from '../../services/filterFunctions';
+import SortPanel from '../../components/sort-panel/sort-panel';
 
 const SearchPage = (props) => {
 
@@ -30,18 +31,7 @@ const SearchPage = (props) => {
                     <FilterPanel />
                 </div>
                 <div className="col-sm-12 col-md-10">
-                    <div className="input-group mb-3">
-                            <div className="input-group-prepend">
-                                <label className="input-group-text" htmlFor="inputGroupSelect019">Order by: </label>
-                            </div>
-                            <select className="custom-select" id="inputGroupSelect01">
-                                <option value="Newest">Newest</option>
-                                <option value="Lowest price">Lowest price</option>
-                                <option value="Highest price">Highest price</option>
-                                <option value="Most sqm">Most sqm</option>
-                                <option value="Least sqm">Least sqm</option>
-                            </select>
-                    </div>
+                    <SortPanel filteredItems={filteredItems} />
 
                     <ItemsPanel filteredItems={filteredItems}/>
                 </div>

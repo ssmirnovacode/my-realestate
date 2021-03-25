@@ -14,8 +14,6 @@ const FilterPanel = (props) => {
 
     let filtersObj = {...props.activeFilters};
 
-    
-
     const priceRangeByDealFrom = deal === 'sale' ? <>
                                                 <option value="0">From</option>
                                                 <option value="50000">From 50 000</option>
@@ -178,7 +176,7 @@ const FilterPanel = (props) => {
                 </select>
             </div>
 
-            <div className="filter-panel bed mt-3">
+            {/* <div className="filter-panel bed mt-3">
                 <div className="filter-panel bed header mt-3 mb-2">Bedrooms</div>
                 <div className="filter-panel bed qty">0+</div>
                 <div className="filter-panel bed qty">1+</div>
@@ -192,7 +190,7 @@ const FilterPanel = (props) => {
                 <div className="filter-panel bath qty">1+</div>
                 <div className="filter-panel bath qty">2+</div>
                 <div className="filter-panel bath qty">3+</div>
-            </div>
+            </div> */}
 
             <div className="filter-panel surface-range mt-3">
                 <div className="filter-panel surface-range-header mb-2">Surface</div>
@@ -243,9 +241,7 @@ const FilterPanel = (props) => {
             </div> */}
 
         </div>
-    )
-
-    
+    )  
 }
 
 const mapStateToProps = (state) => ({
