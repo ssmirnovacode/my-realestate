@@ -11,6 +11,7 @@ import AboutPage from '../../pages/about-page/about-page';
 import ContactPage from '../../pages/contact-page/contact-page';
 import SearchPage from '../../pages/search-page/search-page';
 import DetailsPage from '../../pages/details-page/details-page';
+import PrivacyPage from '../../pages/privacy-page/privacy-page';
 
 const App = () => {
     return(
@@ -28,6 +29,7 @@ const App = () => {
                     const {id} = match.params;
                     return <DetailsPage itemId={+id}/>
                 }}/>
+                <Route path='/privacy' component={PrivacyPage} />
                 <Footer /> 
             </BrowserRouter>
         </>

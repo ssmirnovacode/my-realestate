@@ -1,7 +1,7 @@
 {
   "name": "my-realestate",
   "version": "0.1.0",
-
+  "homepage": "http://ssmirnovacode.github.io/my-realestate",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
