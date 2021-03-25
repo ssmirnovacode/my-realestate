@@ -37,5 +37,12 @@ const resetPriceFilters = () => {
     }
 }
 
+const setSortType = (sortType) => {
+    return {
+        type: 'SET_SORT_TYPE',
+        payload: sortType
+    }
+}
 
-export {itemsError, itemsLoaded, itemsRequested, setDeal, setFilters, resetPriceFilters};
+
+export {itemsError, itemsLoaded, itemsRequested, setDeal, setFilters, resetPriceFilters, setSortType};

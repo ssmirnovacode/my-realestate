@@ -12,6 +12,7 @@ const SearchPage = (props) => {
     const {province, comarca, city} = props.activeFilters;
 
     const filteredItems = filterItems(items, props.activeFilters);
+    //const itemsToRender = sortFunc(filteredItems, sortType);
 
     const count = filteredItems.length;
 

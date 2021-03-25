@@ -18,7 +18,8 @@ const initialState = {
         sqmTo: 100000,
         bedroomsMin: null,
         bathroomsMax: null,
-    }
+    },
+    sortBy:''
 };
 
 const reducer = (state=initialState, action) => {
@@ -59,6 +60,11 @@ const reducer = (state=initialState, action) => {
                     priceFrom: 0,
                     priceTo: 100000000
                 }
+            }
+        case 'SET_SORT_TYPE':
+            return {
+                ...state,
+                sortBy: action.payload
             }
         default:
             return state;
