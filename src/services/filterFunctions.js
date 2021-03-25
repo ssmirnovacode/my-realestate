@@ -26,13 +26,15 @@ const filterItems = (items, filters) => {
 const sortItems = (arr, sortType) => {
     switch (sortType) {
         case 'highest price':
-            return arr.sort( (a,b) => a.price > b.price ? 1 : -1);
+            return arr.sort( (a,b) => a.price < b.price ? 1 : -1);
         case 'lowest price':
-            return arr.sort( (a,b) =>a.price < b.price ? 1 : -1);
+            return arr.sort( (a,b) =>a.price > b.price ? 1 : -1);
         case 'most sqm':
-            return arr.sort( (a,b) => a.surface > b.surface ? 1 : -1);
+            return arr.sort( (a,b) => a.surface < b.surface ? 1 : -1);
         case 'least sqm':
-            return arr.sort( (a,b) => a.surface < b.surface ? 1 : -1);    
+            return arr.sort( (a,b) => a.surface > b.surface ? 1 : -1);    
+        case 'newest':
+            return arr;
         default:
             return arr;
     }

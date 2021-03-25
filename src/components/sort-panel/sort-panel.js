@@ -5,8 +5,11 @@ import {setFilters, setSortType} from '../../redux/actions';
 
 const SortPanel = (props) => {
 
+    const {sortBy, setSortType} = props;
+
     const handleSort = (e) => {
         setSortType(e.target.value);
+        console.log(sortBy);
     }
 
     return(
@@ -14,7 +17,7 @@ const SortPanel = (props) => {
             <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="inputGroupSelect019">Order by: </label>
             </div>
-            <select value={props.sortBy} className="custom-select" id="inputGroupSelect01"
+            <select value={sortBy} className="custom-select" name="sortType"
                 onChange={(e) => handleSort(e)}>
                 <option value="newest">Newest</option>
                 <option value="lowest price">Lowest price</option>
