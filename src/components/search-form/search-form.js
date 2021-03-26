@@ -47,8 +47,9 @@ const SearchForm = (props) => {
         <div className="container mt-2 mb-2">
             <h2>Luxury homes for {type}</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <div className="input-group mb-3">
-                    <select value={province} className="custom-select mr-1" name="province"
+                <div className="row input-group mb-3">
+                    <div className="col-12 col-md-3 mb-2">
+                    <select value={province} className="custom-select" name="province"
                     onChange={(e) => handleProvinceChange(e.target.value)}>
                         <option value='all'>All</option>
                         <option value="Barcelona">Barcelona</option>
@@ -56,7 +57,10 @@ const SearchForm = (props) => {
                         <option value="Lleida">Lleida</option>
                         <option value="Girona">Girona</option>
                     </select>
-                    <select value={comarca} className="custom-select mr-1" name="comarca"
+                    </div>
+                    
+                    <div className="col-12 col-md-3 mb-2">
+                    <select value={comarca} className="custom-select" name="comarca"
                     onChange={(e) => handleComarcaChange(e.target.value)}>
                         <option value='all' >All</option>
                         {
@@ -68,8 +72,10 @@ const SearchForm = (props) => {
                         }
                         
                     </select>
+                    </div>
                     
-                    <select value={city} className="custom-select mr-1" name="city"
+                    <div className="col-12 col-md-3 mb-2">
+                    <select value={city} className="custom-select" name="city"
                     onChange={(e) => handleCityChange(e.target.value)}>
                         <option value='all' >All</option>
                         {
@@ -80,8 +86,10 @@ const SearchForm = (props) => {
                             })
                         }
                         
-                    </select>
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    </select>  
+                    </div>
+                    <div className="col-12 col-md-1"><button type="submit" className="btn btn-primary">Submit</button></div>
+                    
                 </div>
             </form>
         </div>
