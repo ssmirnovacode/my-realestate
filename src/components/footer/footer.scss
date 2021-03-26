@@ -5,28 +5,48 @@
     background-color: $dark;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
     gap: 0.7rem;
     margin-bottom: 0;
-    & h2 a {
-        font-size: 1.1rem;
+    color: $white;
+    @media only screen and (max-width:576px) {
+        font-size: 0.7rem;
+    }
+    &.headerlink a {
+        font-size: 1.2rem;
+        font-weight: bold;
+        //line-height: 0.8rem;
         color: $white;
+/*         @media only screen and (max-width:576px) {
+            font-size: .8rem;
+        } */
     }
     &_nav {
         list-style-type: none;
         margin-left: -3rem;
+        text-align: left;
     } 
     &.nav-link {
         text-align: left;
+        font-family: $text-font;
         &:hover {
             text-decoration: underline;
             background-color: $dark;
             color: $white;
         } 
+    }   
+}
+.footer_col {
+    //color: $white;
+    &.navmenu {
+        @media only screen and (max-width:576px) {
+            display: none;
+        }
     }
-    
-    & .footer_col {
+    & i {
         color: $white;
+        font-size: 2rem;
+        margin-right: 1rem;
     }
 }
 

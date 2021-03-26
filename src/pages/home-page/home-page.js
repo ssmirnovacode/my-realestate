@@ -91,7 +91,12 @@ class Home extends Component {
 
                         
                         </p>
-                        <div>Facebook Instagram Twitter Linkedin</div>
+                        <div className="mb-2">Find us on social media:</div>
+                            <div>
+                                <a href={'https://github.com/ssmirnovacode'} ><i className="fa fa-facebook-square"></i> </a>
+                                <a href={'https://github.com/ssmirnovacode'} ><i className="fa fa-linkedin-square"></i></a>
+                                <a href={'https://github.com/ssmirnovacode'} ><i className="fa fa-github-square"></i></a>
+                            </div>
                     </div>
                 </div>
 
