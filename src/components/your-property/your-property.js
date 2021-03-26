@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {useFormik} from 'formik';
 import RequestService from '../../services/requests';
 import baseURL from '../../assets/baseURL';
+import basePath from '../../assets/basePath';
 
 const reqService = new RequestService();
 
@@ -105,7 +106,7 @@ const YourProperty = (props) => {
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" name="privacy" required 
                                    /* onChange={formik.handleChange} value={formik.values.privacy} */ />
-                                <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to="/privacy" >privacy policy</Link></label>
+                                <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to={`${basePath}/privacy`} >privacy policy</Link></label>
                             </div>
                     </div>
 

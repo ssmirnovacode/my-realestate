@@ -12,24 +12,25 @@ import ContactPage from '../../pages/contact-page/contact-page';
 import SearchPage from '../../pages/search-page/search-page';
 import DetailsPage from '../../pages/details-page/details-page';
 import PrivacyPage from '../../pages/privacy-page/privacy-page';
+import basePath from '../../assets/basePath';
 
 const App = () => {
     return(
         <>
             <BrowserRouter>
                 <Header />                  
-                <Route path='/' exact component={Home} />
-                <Route path='/buy' component={BuyPage} />
-                <Route path='/search' component={SearchPage}/>
-                <Route path='/sell' component={SellPage} />
-                <Route path='/rent' component={RentPage} />
-                <Route path='/about' component={AboutPage} />
-                <Route path='/contact' component={ContactPage} />
-                <Route path={`/properties/:id`} render={ ({match}) => {
+                <Route path={`${basePath}/`} exact component={Home} />
+                <Route path={`${basePath}/buy`} component={BuyPage} />
+                <Route path={`${basePath}/search`} component={SearchPage}/>
+                <Route path={`${basePath}/sell`} component={SellPage} />
+                <Route path={`${basePath}/rent`} component={RentPage} />
+                <Route path={`${basePath}/about`} component={AboutPage} />
+                <Route path={`${basePath}/contact`} component={ContactPage} />
+                <Route path={`${basePath}/properties/:id`} render={ ({match}) => {
                     const {id} = match.params;
                     return <DetailsPage itemId={+id}/>
                 }}/>
-                <Route path='/privacy' component={PrivacyPage} />
+                <Route path={`${basePath}/privacy`} component={PrivacyPage} />
                 <Footer /> 
             </BrowserRouter>
         </>

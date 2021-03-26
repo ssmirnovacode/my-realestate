@@ -1,30 +1,31 @@
 import React from 'react';
 import './navigation.scss';
 import {Link} from 'react-router-dom';
+import basePath from '../../assets/basePath';
 
 const Navigation =() => {
     return(
         <nav className="navbar navbar-dark bg-dark">
-                <Link className="nav-link" to="/"><h1>My Real Estate</h1></Link>               
+                <Link className="nav-link" to={`${basePath}/`}><h1>My Real Estate</h1></Link>               
 
                 <ul className="nav nav-pills ml-auto">
                     <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home</Link>
+                        <Link className="nav-link" to={`${basePath}/`}>Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/buy" >Buy</Link>
+                        <Link className="nav-link" to={`${basePath}/buy`} >Buy</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/sell" >Sell</Link>
+                        <Link className="nav-link" to={`${basePath}/sell`} >Sell</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link"  to="/rent">Rent</Link>
+                        <Link className="nav-link"  to={`${basePath}/rent`}>Rent</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/about" >About us</Link>
+                        <Link className="nav-link" to={`${basePath}/about`} >About us</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/contact" >Contact us</Link>
+                        <Link className="nav-link" to={`${basePath}/contact`} >Contact us</Link>
                     </li>                   
                 </ul>
 
@@ -35,22 +36,22 @@ const Navigation =() => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <Link className="nav-link"  to="/">Home <span className="sr-only">(current)</span></Link>
+                            <Link className="nav-link"  to={`${basePath}/`}>Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link"  to="/buy">Buy</Link>
+                            <Link className="nav-link"  to={`${basePath}/buy`}>Buy</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/sell" >Sell</Link>
+                            <Link className="nav-link" to={`${basePath}/sell`} >Sell</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/rent" >Rent</Link>
+                            <Link className="nav-link" to={`${basePath}/rent`} >Rent</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/about" >About us</Link>
+                            <Link className="nav-link" to={`${basePath}/about`} >About us</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/contact" >Contact us</Link>
+                            <Link className="nav-link" to={`${basePath}/contact`} >Contact us</Link>
                         </li>                   
                     </ul>
                 </div>

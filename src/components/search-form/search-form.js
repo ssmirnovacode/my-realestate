@@ -3,6 +3,7 @@ import './search-form.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 import {getCities, getComarcas} from '../../services/filterFunctions';
+import basePath from '../../assets/basePath';
 
 const SearchForm = (props) => {
     //console.log(props.activeFilters);
@@ -18,7 +19,7 @@ const SearchForm = (props) => {
 //Event handlers
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.history.push('/search');
+        props.history.push(`${basePath}/search`);
         setFilters(filtersObj);
     }
 
