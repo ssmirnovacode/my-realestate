@@ -24,7 +24,12 @@ class RentPage extends Component {
     }
 
     render() {
-        const {items, loading, error} = this.props;
+        const {items, loading, error, deal} = this.props;
+
+        const bcnItems = items.filter(item => item.province === 'Barcelona'),
+            tgnItems = items.filter(item => item.province === 'Tarragona'),
+            lleidaItems = items.filter(item => item.province === 'Lleida'),
+            gironaItems = items.filter(item => item.province === 'Girona');
     
         return(
             <div className="container buy"> 
@@ -35,7 +40,39 @@ class RentPage extends Component {
                     <hr/>
                     <div className="container">
                         <div className="row">
-                            <ItemsView items={items} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3"/>
+                            <div className="col-12">
+                                <h3 className="mb-4">Properties for {deal} in Barcelona</h3>
+                            </div>
+                        </div>
+                        <div className="row">
+                        <ItemsView items={bcnItems} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3" lastItem ="3"/>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                            <div className="col-12">
+                                <h3 className="mb-4">Properties for {deal} in Tarragona</h3>
+                            </div>
+                            <div className="row">
+                                <ItemsView items={tgnItems} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3" lastItem ="3"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                            <div className="col-12">
+                                <h3 className="mb-4">Properties for {deal} in Lleida</h3>
+                            </div>
+                            <div className="row">
+                                <ItemsView items={lleidaItems} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3" lastItem ="3"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div className="row">
+                            <div className="col-12">
+                                <h3 className="mb-4">Properties for {deal} in Girona</h3>
+                            </div>
+                            <div className="row">
+                                <ItemsView items={gironaItems} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3" lastItem ="3"/>
+                            </div>
                         </div>
                     </div>
                 </section>
