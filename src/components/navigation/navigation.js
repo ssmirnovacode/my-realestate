@@ -4,6 +4,13 @@ import {Link} from 'react-router-dom';
 import basePath from '../../assets/basePath';
 
 const Navigation =() => {
+
+    const handleMenuItemClick = (e) => {
+        if (e.target.tagName === 'A') {
+            document.getElementById('menu-toggle-btn').click();
+        }
+    }
+
     return(
         <nav className="navbar navbar-dark bg-dark">
                 <Link className="nav-link" to={`${basePath}/`}><h1>My Real Estate</h1></Link>               
@@ -29,12 +36,12 @@ const Navigation =() => {
                     </li>                   
                 </ul>
 
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button id="menu-toggle-btn" className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav" onClick={(e) => handleMenuItemClick(e)}>
                         <li className="nav-item active">
                             <Link className="nav-link"  to={`${basePath}/`}>Home <span className="sr-only">(current)</span></Link>
                         </li>
