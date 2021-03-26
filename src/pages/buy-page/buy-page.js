@@ -47,7 +47,7 @@ class BuyPage extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
-                                <h3 className="mb-4">Properties for {deal} in Barcelona</h3>
+                                <h3 id="bcnSale" className="mb-4">Properties for {deal} in Barcelona</h3>
                             </div>
                         </div>
                         <div className="row">
@@ -56,7 +56,7 @@ class BuyPage extends Component {
                         <hr/>
                         <div className="row">
                             <div className="col-12">
-                                <h3 className="mb-4">Properties for {deal} in Tarragona</h3>
+                                <h3 id="tgnSale" className="mb-4">Properties for {deal} in Tarragona</h3>
                             </div>
                             <div className="row">
                                 <ItemsView items={tgnItems} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3" lastItem ="3"/>
@@ -65,7 +65,7 @@ class BuyPage extends Component {
                         <hr/>
                         <div className="row">
                             <div className="col-12">
-                                <h3 className="mb-4">Properties for {deal} in Lleida</h3>
+                                <h3 id="lleidaSale" className="mb-4">Properties for {deal} in Lleida</h3>
                             </div>
                             <div className="row">
                                 <ItemsView items={lleidaItems} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3" lastItem ="3"/>
@@ -74,7 +74,7 @@ class BuyPage extends Component {
                         <hr/>
                         <div className="row">
                             <div className="col-12">
-                                <h3 className="mb-4">Properties for {deal} in Girona</h3>
+                                <h3 id="girSale" className="mb-4">Properties for {deal} in Girona</h3>
                             </div>
                             <div className="row">
                                 <ItemsView items={gironaItems} loading={loading} error={error} grid="col-12 col-sm-6 col-md-4 col-lg-3" lastItem ="3"/>
