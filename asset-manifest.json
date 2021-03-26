@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/my-realestate/static/css/main.2df6455c.chunk.css",
-    "main.js": "/my-realestate/static/js/main.a3698d80.chunk.js",
-    "main.js.map": "/my-realestate/static/js/main.a3698d80.chunk.js.map",
+    "main.css": "/my-realestate/static/css/main.ecaa10db.chunk.css",
+    "main.js": "/my-realestate/static/js/main.199bc692.chunk.js",
+    "main.js.map": "/my-realestate/static/js/main.199bc692.chunk.js.map",
     "runtime-main.js": "/my-realestate/static/js/runtime-main.286b68c1.js",
     "runtime-main.js.map": "/my-realestate/static/js/runtime-main.286b68c1.js.map",
     "static/js/2.a38ab05a.chunk.js": "/my-realestate/static/js/2.a38ab05a.chunk.js",
     "static/js/2.a38ab05a.chunk.js.map": "/my-realestate/static/js/2.a38ab05a.chunk.js.map",
     "index.html": "/my-realestate/index.html",
-    "static/css/main.2df6455c.chunk.css.map": "/my-realestate/static/css/main.2df6455c.chunk.css.map",
+    "static/css/main.ecaa10db.chunk.css.map": "/my-realestate/static/css/main.ecaa10db.chunk.css.map",
     "static/js/2.a38ab05a.chunk.js.LICENSE.txt": "/my-realestate/static/js/2.a38ab05a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.286b68c1.js",
     "static/js/2.a38ab05a.chunk.js",
-    "static/css/main.2df6455c.chunk.css",
-    "static/js/main.a3698d80.chunk.js"
+    "static/css/main.ecaa10db.chunk.css",
+    "static/js/main.199bc692.chunk.js"
   ]
 }
