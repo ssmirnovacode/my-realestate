@@ -21,7 +21,22 @@ class Home extends Component {
     }
 
     handleImgLinkClick = (provName) => {
-        const filtersObj = {...this.props.activeFilters};
+        const filtersObj = this.props.activeFilters ? this.props.activeFilters : {
+            apartment: true,
+            flat: true,
+            house: true,
+            duplex: true,
+            province: 'all',
+            comarca: 'all',
+            city: 'all',
+            priceFrom: 0,
+            priceTo: 100000000,
+            sqmFrom: 0,
+            sqmTo: 100000,
+            bedroomsMin: null,
+            bathroomsMax: null
+        };
+        console.log(filtersObj);
         filtersObj.province = provName;
         this.props.setFilters(filtersObj);
     }
@@ -47,13 +62,13 @@ class Home extends Component {
                 <div className="row home">
                     <div className="col-12 col-md-6 col-xl-3 home provinces-block_item ">
                         <Link to={`${basePath}/buy`} onClick={() => this.handleImgLinkClick("Barcelona")}>
-                            <img src="https://b.radikal.ru/b38/2103/09/a5d19f76b108.jpg" alt="Barcelona"/>
+                            <img src="https://b.radikal.ru/b31/2103/5a/394765249676.jpg" alt="Barcelona"/>
                             <div className="home provinces-block_item_title">Barcelona</div>
                         </Link>
                     </div>
                     <div className="col-12 col-md-6 col-xl-3 home provinces-block_item ">
                         <Link to={`${basePath}/buy`} onClick={() => this.handleImgLinkClick("Tarragona")}>
-                            <img src="https://b.radikal.ru/b00/2103/56/7d9ffb5a917e.jpg" alt="Tarragona" />
+                            <img src="https://b.radikal.ru/b38/2103/09/a5d19f76b108.jpg" alt="Tarragona" />
                             <div className="home provinces-block_item_title">Tarragona</div>
                         </Link>
                     </div>
@@ -65,7 +80,7 @@ class Home extends Component {
                     </div>
                     <div className="col-12 col-md-6 col-xl-3 home provinces-block_item">
                         <Link to={`${basePath}/buy`} onClick={() => this.handleImgLinkClick("Girona")}>
-                            <img src="https://b.radikal.ru/b31/2103/5a/394765249676.jpg" alt="Girona" />
+                            <img src="https://b.radikal.ru/b00/2103/56/7d9ffb5a917e.jpg" alt="Girona" />
                             <div className="home provinces-block_item_title">Girona</div>
                         </Link>
                     </div>

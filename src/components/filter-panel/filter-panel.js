@@ -7,7 +7,7 @@ import {getCities, getComarcas} from '../../services/filterFunctions';
 const FilterPanel = (props) => {
 
     //console.log(props.deal);
-    //console.log(props.activeFilters);
+    console.log(props.activeFilters);
     const {items, setFilters, deal} = props;  //find a way to keep rendering on refresh
 
     const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
