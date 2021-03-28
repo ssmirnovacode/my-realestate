@@ -1,11 +1,11 @@
 const validate = (values) => {
     const errors = {};
   
-    if (values.name.length > 0 && !/[a-zA-Z]/ig.test(values.name)) {
+    if (values.name.length > 0 && !/^[A-Za-z]+$/ig.test(values.name)) {
         errors.name = 'Name can only contain letters';
       }
     
-      if (values.lastname.length > 0 && !/[a-zA-Z]/ig.test(values.lastname)) {
+      if (values.lastname.length > 0 && !/^[A-Za-z]+$/ig.test(values.lastname)) {
         errors.lastname = 'Last name can only contain letters';
       }
 
