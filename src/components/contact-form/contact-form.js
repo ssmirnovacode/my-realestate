@@ -8,6 +8,30 @@ import basePath from '../../assets/basePath';
 
 const reqService = new RequestService();
 
+const validate = (values) => {
+    const errors = {};
+  
+    if (values.name.length > 0 && !/[a-zA-Z]/g.test(values.name)) {
+        errors.name = 'Name can only contain letters';
+      }
+    
+      if (values.lastname.length > 0 && !/[a-zA-Z]/g.test(values.lastname)) {
+        errors.lastname = 'Name can only contain letters';
+      }
+
+    if (values.email.length > 0 && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+    }
+
+    /* if (!values.phone) {
+    errors.phone = 'Required';
+    } else */ if (values.phone.length > 0 && !/([+]\d{1,2}[.-\s]?)?(\d{3}[.-]?){2}\d{4}/i.test(values.phone)) {
+    errors.phone = 'Invalid phone number';
+    }
+  
+    return errors;
+  };
+
 const ContactForm = ({itemId='', formId}) => {
   
     const formik = useFormik({
@@ -18,6 +42,7 @@ const ContactForm = ({itemId='', formId}) => {
             email: '',
             comments: ''
         },
+        validate,
         onSubmit: (values, { resetForm }, e) => {
 
             if (itemId) {
@@ -59,18 +84,22 @@ const ContactForm = ({itemId='', formId}) => {
                 <div className="form-group">
                     <input type="text" className="form-control" name="name" placeholder="Name" required
                         onChange={formik.handleChange} value={formik.values.name} />
+                        {formik.errors.name ? <div className="errMess">{formik.errors.name}</div> : null}
                 </div>
                 <div className="form-group">
                     <input type="text" className="form-control" name="lastname" placeholder="Last name" 
                         onChange={formik.handleChange} value={formik.values.lastname} />
+                        {formik.errors.lastname ? <div className="errMess">{formik.errors.lastname}</div> : null}
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" name="phone" placeholder="Phone"
+                    <input type="text" className="form-control" name="phone" placeholder="+34XXXXXXXXX"
                         onChange={formik.handleChange} value={formik.values.phone} />
+                        {formik.errors.phone ? <div className="errMess">{formik.errors.phone}</div> : null}
                 </div>
                 <div className="form-group">
-                    <input type="text" className="form-control" name="email" placeholder="Email"  required
+                    <input type="text" className="form-control" name="email" placeholder="Email" required
                         onChange={formik.handleChange} value={formik.values.email} />
+                        {formik.errors.email ? <div className="errMess">{formik.errors.email}</div> : null}
                 </div>
                 <div className="form-group">
                     <textarea className="form-control" name="comments" placeholder="Comments "
