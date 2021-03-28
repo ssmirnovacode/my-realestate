@@ -5,6 +5,7 @@ import {useFormik} from 'formik';
 import RequestService from '../../services/requests';
 import baseURL from '../../assets/baseURL';
 import basePath from '../../assets/basePath';
+import validate from '../../services/validation';
 
 const reqService = new RequestService();
 
@@ -26,6 +27,7 @@ const YourProperty = (props) => {
             comments: ''/* ,
             privacy: '' */
         },
+        validate,
         onSubmit: (values, { resetForm }, e) => {
 
             const messageBlock = document.createElement('div');
@@ -90,14 +92,19 @@ const YourProperty = (props) => {
                         <h3>Contact information</h3>
                         
                             <div className="input-group mb-3">
-                                <input className="mr-2 form-control" type="text" name="name" placeholder="Name"  onChange={formik.handleChange} value={formik.values.name} />
-                                <input className="door form-control" type="text" name="lastname" placeholder="Last name" onChange={formik.handleChange} value={formik.values.lastname} />
+                                <input className="mr-2 form-control" type="text" name="name" placeholder="Name" required onChange={formik.handleChange} value={formik.values.name} />
+                                <input className="door form-control" type="text" name="lastname" placeholder="Last name" onChange={formik.handleChange} value={formik.values.lastname} />                     
                             </div>
+                            {formik.errors.name ? <div className="errMess">{formik.errors.name}</div> : null}
+                            {formik.errors.lastname ? <div className="errMess">{formik.errors.lastname}</div> : null}
 
                             <div className="input-group mb-3">
                                 <input className="mr-2 form-control" type="text" name="phone" placeholder="Phone number"  onChange={formik.handleChange} value={formik.values.phone}/>
-                                <input className="door form-control" type="email" name="email" placeholder="Email"  onChange={formik.handleChange} value={formik.values.email}/>
+                                <input className="door form-control" type="email" name="email" placeholder="Email" required onChange={formik.handleChange} value={formik.values.email}/>
+                                
                             </div>
+                            {formik.errors.email ? <div className="errMess">{formik.errors.email}</div> : null}
+                            {formik.errors.phone ? <div className="errMess">{formik.errors.phone}</div> : null}
 
                             <div className="input-group mb-3">
                                 <textarea className="form-control" name="comments" placeholder="Comments "  onChange={formik.handleChange} value={formik.values.comments}/>
