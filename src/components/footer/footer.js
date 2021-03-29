@@ -17,7 +17,7 @@ const Footer = () => {
                 </ul>
             </div>
             <div className="footer_col">
-                <address>Gran Vía, 100,<br/> 44455, Barcelona, Spain</address>
+                <address>Passeig de Gracia, 15,<br/> 08007, Barcelona, Spain</address>
                 <div>Tel: +34 999 111 22 33</div>
             </div>
             <div className="footer_col">
