@@ -8,7 +8,7 @@ import basePath from '../../assets/basePath';
 const SearchForm = (props) => {
     //console.log(props.activeFilters);
     const {type, items, setFilters} = props;
-
+    
     const {province, comarca, city} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};

@@ -13,9 +13,7 @@ class ItemsPanel extends Component {
     componentDidMount() {
         this.props.itemsRequested();
         this.props.resetPriceFilters();
-        //console.log(this.props.activeFilters);
-        //console.log(this.props.deal); //this is null on refresh - debug
-        reqService.getItems(baseURL + this.props.deal + '-items') //debug on refesh page
+        reqService.getItems(baseURL + (this.props.deal ? this.props.deal : 'sale') + '-items') 
         .then(res => this.props.itemsLoaded(res))
         .catch( () => this.props.itemsError());
         //console.log(this.props.items)

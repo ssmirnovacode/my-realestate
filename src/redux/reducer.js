@@ -19,7 +19,7 @@ const initialState = {
         bedroomsMin: null,
         bathroomsMax: null,
     },
-    sortBy:''
+    sortBy:'newest'
 };
 
 const reducer = (state=initialState, action) => {

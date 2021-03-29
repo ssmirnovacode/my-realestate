@@ -9,6 +9,12 @@ import SortPanel from '../../components/sort-panel/sort-panel';
 const SearchPage = (props) => {
 
     const {deal, items, sortBy} = props;
+    /* const items = props.items ? props.items : JSON.parse(localStorage.getItem('items'));
+    const deal = props.deal ? props.deal : JSON.parse(localStorage.getItem('deal'));
+    const sortBy = props.sortBy ? props.sortBy : JSON.parse(localStorage.getItem('sortBy'));
+    localStorage.setItem('items', JSON.stringify(items));
+    localStorage.setItem('deal', JSON.stringify(deal));
+    localStorage.setItem('sortBy', JSON.stringify(sortBy)); */
     const {province, comarca, city} = props.activeFilters;
 
     const filteredItems = filterItems(items, props.activeFilters);
