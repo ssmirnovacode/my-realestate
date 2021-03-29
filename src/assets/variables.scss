@@ -25,3 +25,23 @@ p, div {
     font-weight: bold;
     font-size: 0.9rem;
 }
+
+.mapouter {
+    /* position:relative;
+    text-align:right; */
+    /* height:500px;
+    width:600px; */
+    height: auto;
+    width: auto;
+    margin: 2rem 0;
+    padding-top: 2rem;
+}
+
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    /* height:500px;
+    width:600px; */
+    height: auto;
+    width: auto;
+}
