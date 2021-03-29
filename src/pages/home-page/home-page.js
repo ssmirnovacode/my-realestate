@@ -17,6 +17,7 @@ class Home extends Component {
         //this.props.setDeal('sale');
         reqService.getItems(baseURL + 'sale-items')
         .then(res => this.props.itemsLoaded(res))
+        /* .then(() => localStorage.setItem('items', this.props.items)) */
         .catch( () => this.props.itemsError());
     }
 
