@@ -9,22 +9,12 @@ import ItemsView from '../items-view/items-view';
 
 const reqService = new RequestService();
 
-/* const additionalURL = 'sale-items';
-const dealType = "sale"; */
-
 class DealSearch extends Component {
-
-    constructor(props) {
-        super(props);
-        
-        this.additionalURL = 'sale-items';
-        this.dealType = "sale";
-    }
 
     componentDidMount() {
         this.props.itemsRequested();
-        this.props.setDeal(this.dealType);
-        reqService.getItems(baseURL + this.additionalURL)
+        this.props.setDeal(this.props.dealType);
+        reqService.getItems(baseURL + this.props.additionalURL)
         .then(res => this.props.itemsLoaded(res))
         .catch( () => this.props.itemsError());
     }
@@ -40,7 +30,7 @@ class DealSearch extends Component {
 
         return(
             <div className="container buy">         
-                <SearchForm type={this.dealType} history={this.props.history} items={items} />
+                <SearchForm type={this.props.dealType} history={this.props.history} items={items} />
 
                 <section>
                     <hr/>
