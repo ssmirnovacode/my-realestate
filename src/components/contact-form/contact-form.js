@@ -9,8 +9,6 @@ import validate from '../../services/validation';
 
 const reqService = new RequestService();
 
-
-
 const ContactForm = ({itemId='', formId}) => {
   
     const formik = useFormik({
@@ -48,7 +46,7 @@ const ContactForm = ({itemId='', formId}) => {
             })
             .finally(() => {
                 resetForm();  
-                setTimeout( (() => messageBlock.remove()), 4000);   
+                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);   
             })
         },
       });

@@ -50,7 +50,7 @@ const YourProperty = (props) => {
             })
             .finally(() => {
                 resetForm();  
-                setTimeout( (() => messageBlock.remove()), 4000);   
+                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);   
             })
         },
       });
