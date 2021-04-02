@@ -12,25 +12,28 @@ import DetailsPage from '../../pages/details-page/details-page';
 import PrivacyPage from '../../pages/privacy-page/privacy-page';
 import basePath from '../../assets/basePath';
 import DealSearch from '../deal-search/deal-search';
+import ScrollToTop from '../scrollToTop/scrollToTop';
 
 const App = (props) => {
     return(
         <>
             <BrowserRouter>
-                <Header />                  
-                <Route path={`${basePath}/`} exact component={Home} />
-                <Route path={`${basePath}/buy`} component={({history}) => <DealSearch additionalURL="sale-items" dealType = "sale" history={history}/>} />
-                <Route path={`${basePath}/search`} component={SearchPage}/>
-                <Route path={`${basePath}/sell`} component={SellPage} />
-                <Route path={`${basePath}/rent`} component={({history}) => <DealSearch additionalURL="rent-items" dealType = "rent" history={history}/>} />
-                <Route path={`${basePath}/about`} component={AboutPage} />
-                <Route path={`${basePath}/contact`} component={ContactPage} />
-                <Route path={`${basePath}/properties/:id`} render={ ({match}) => {
-                    const {id} = match.params;
-                    return <DetailsPage itemId={+id}/>
-                }}/>
-                <Route path={`${basePath}/privacy`} component={PrivacyPage} />
-                <Footer /> 
+                <ScrollToTop>
+                    <Header />                  
+                    <Route path={`${basePath}/`} exact component={Home} />
+                    <Route path={`${basePath}/buy`} component={({history}) => <DealSearch additionalURL="sale-items" dealType = "sale" history={history}/>} />
+                    <Route path={`${basePath}/search`} component={SearchPage}/>
+                    <Route path={`${basePath}/sell`} component={SellPage} />
+                    <Route path={`${basePath}/rent`} component={({history}) => <DealSearch additionalURL="rent-items" dealType = "rent" history={history}/>} />
+                    <Route path={`${basePath}/about`} component={AboutPage} />
+                    <Route path={`${basePath}/contact`} component={ContactPage} />
+                    <Route path={`${basePath}/properties/:id`} render={ ({match}) => {
+                        const {id} = match.params;
+                        return <DetailsPage itemId={+id}/>
+                    }}/>
+                    <Route path={`${basePath}/privacy`} component={PrivacyPage} />
+                    <Footer /> 
+                </ScrollToTop>
             </BrowserRouter>
         </>
     );
