@@ -4,6 +4,10 @@
     }
     &-img-top {
         max-width: 100%;
+        overflow: hidden;
+        /* &-wrapper {
+            max-height: 300px;
+        } */
     }
     &-subheader-top {
         display: flex;
