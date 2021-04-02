@@ -3,35 +3,47 @@ import './navigation.scss';
 import {Link} from 'react-router-dom';
 import basePath from '../../assets/basePath';
 
-const Navigation =() => {
+const Navigation = (props) => {
 
     const handleMenuItemClick = (e) => {
         if (e.target.tagName === 'A') {
             document.getElementById('menu-toggle-btn').click();
         }
-    }
+    };
+
+    //let navItemClass = 'nav-item';
+
+    const handleNavItemActiveChange = (e) => {
+        console.log(document.querySelectorAll('.mainnav'));
+        document.querySelectorAll('.mainnav').forEach( item => {
+            item.classList.remove('activeItem');
+        });
+        if (e.target.tagName === 'A' || e.target.tagName === 'LI') {
+            e.target.classList.add('activeItem');
+        }
+    } 
 
     return(
         <nav className="navbar navbar-dark bg-dark">
                 <Link className="nav-link" to={`${basePath}/`}><h1>My Real Estate</h1></Link>               
 
                 <ul className="nav nav-pills ml-auto">
-                    <li className="nav-item active">
+                    <li className="nav-item mainnav activeItem" onClick={(e) => handleNavItemActiveChange(e)}>
                         <Link className="nav-link" to={`${basePath}/`}>Home</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item mainnav" onClick={(e) => handleNavItemActiveChange(e)}>
                         <Link className="nav-link" to={`${basePath}/buy`} >Buy</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item mainnav" onClick={(e) => handleNavItemActiveChange(e)}>
                         <Link className="nav-link" to={`${basePath}/sell`} >Sell</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item mainnav" onClick={(e) => handleNavItemActiveChange(e)}>
                         <Link className="nav-link"  to={`${basePath}/rent`}>Rent</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item mainnav" onClick={(e) => handleNavItemActiveChange(e)}>
                         <Link className="nav-link" to={`${basePath}/about`} >About us</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item mainnav" onClick={(e) => handleNavItemActiveChange(e)}>
                         <Link className="nav-link" to={`${basePath}/contact`} >Contact us</Link>
                     </li>                   
                 </ul>
