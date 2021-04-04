@@ -11,16 +11,16 @@ const Navigation = (props) => {
         }
     };
 
-    //let navItemClass = 'nav-item';
-
     const handleNavItemActiveChange = (e) => {
-        console.log(document.querySelectorAll('.mainnav'));
-        document.querySelectorAll('.mainnav').forEach( item => {
-            item.classList.remove('activeItem');
-        });
-        if (e.target.tagName === 'A' || e.target.tagName === 'LI') {
-            e.target.classList.add('activeItem');
-        }
+       document.querySelectorAll('.mainnav').forEach(item => {
+           item.classList.remove('activeItem');
+       });
+       if (e.target.tagName === "A") {
+            e.target.parentNode.classList.add('activeItem');
+       }
+       else if (e.target.tagName === "LI") {
+           e.target.classList.add('activeItem');
+       }
     } 
 
     return(
