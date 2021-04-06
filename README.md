@@ -12,10 +12,14 @@ https://ssmirnovacode.github.io/my-realestate/
 ## Technologies and libraries used
  - SCSS
  - JavaScript
- - React
+ - ReactJS
  - Redux
- - json-server fake API + heroku
- - Formik
  - Bootstrap 4
- - React router
+ - REST api
+ - Google Maps API
+
+### Additional libraries
+ - Formik
+ - react-router-dom
+ - json-server API + heroku
 
