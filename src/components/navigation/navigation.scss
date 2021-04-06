@@ -12,6 +12,11 @@
             font-size: 1.9rem;
         }
     }
+    &.drawer {
+        text-align: right;
+        margin-right: 2rem;
+        //font-family: $text-font;
+    }
 }
 
 .navbar-toggler {

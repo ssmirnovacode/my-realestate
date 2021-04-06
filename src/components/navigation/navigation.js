@@ -55,22 +55,22 @@ const Navigation = (props) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav" onClick={(e) => handleMenuItemClick(e)}>
                         <li className="nav-item active">
-                            <Link className="nav-link"  to={`${basePath}/`}>Home <span className="sr-only">(current)</span></Link>
+                            <Link className="nav-link drawer"  to={`${basePath}/`}>Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link"  to={`${basePath}/buy`}>Buy</Link>
+                            <Link className="nav-link drawer"  to={`${basePath}/buy`}>Buy</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={`${basePath}/sell`} >Sell</Link>
+                            <Link className="nav-link drawer" to={`${basePath}/sell`} >Sell</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={`${basePath}/rent`} >Rent</Link>
+                            <Link className="nav-link drawer" to={`${basePath}/rent`} >Rent</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={`${basePath}/about`} >About us</Link>
+                            <Link className="nav-link drawer" to={`${basePath}/about`} >About us</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to={`${basePath}/contact`} >Contact us</Link>
+                            <Link className="nav-link drawer" to={`${basePath}/contact`} >Contact us</Link>
                         </li>                   
                     </ul>
                 </div>
