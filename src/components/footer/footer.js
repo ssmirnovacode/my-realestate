@@ -23,9 +23,9 @@ const Footer = () => {
             <div className="footer_col">
                 <div className="mb-2">Find us on social media:</div>
                 <div>
-                    <a href={'https://github.com/ssmirnovacode'} ><i className="fa fa-facebook-square"></i></a>
-                    <a href={'https://github.com/ssmirnovacode'} ><i className="fa fa-linkedin-square"></i></a>
-                    <a href={'https://github.com/ssmirnovacode'} ><i className="fa fa-github-square"></i></a>
+                    <a href={'https://github.com/ssmirnovacode/my-realestate'} target="blank"><i className="fa fa-facebook-square"></i></a>
+                    <a href={'https://github.com/ssmirnovacode/my-realestate'} target="blank"><i className="fa fa-linkedin-square"></i></a>
+                    <a href={'https://github.com/ssmirnovacode/my-realestate'} target="blank"><i className="fa fa-github-square"></i></a>
                 </div>
             </div>
         </footer>
