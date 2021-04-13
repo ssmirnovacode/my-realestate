@@ -11,6 +11,7 @@ const getCities = (arr, com) => {
 }
  
 const filterItems = (items, filters) => {
+    console.log(filters);
     return items.filter(item => (filters.apartment === true && item.type === 'apartment') || 
                         (filters.flat === true && item.type === 'flat') || (filters.house === true && item.type === 'house')
                         || (filters.duplex === true && item.type === 'duplex') )
@@ -20,7 +21,9 @@ const filterItems = (items, filters) => {
         .filter(item => +filters.priceFrom > 0 ? item.price >= +filters.priceFrom : item)
         .filter(item => +filters.priceTo < 100000000 ? item.price <= +filters.priceTo : item)
         .filter(item => +filters.sqmFrom > 0 ? item.surface >= +filters.sqmFrom : item)
-        .filter(item => +filters.sqmTo < 100000000 ? item.surface <= +filters.sqmTo : item);
+        .filter(item => +filters.sqmTo < 100000000 ? item.surface <= +filters.sqmTo : item)
+        .filter(item => filters.bedroomsMin !== null ? item.bedrooms >= +filters.bedroomsMin : item)
+        .filter(item => filters.bathroomsMin !== null ? item.bathrooms >= +filters.bathroomsMin : item);
 };
 
 const sortItems = (arr, sortType) => {
