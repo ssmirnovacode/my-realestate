@@ -35,9 +35,9 @@ class Home extends Component {
             sqmFrom: 0,
             sqmTo: 100000,
             bedroomsMin: null,
-            bathroomsMax: null
+            bathroomsMin: null
         };
-        console.log(filtersObj);
+        //console.log(filtersObj);
         filtersObj.province = provName;
         this.props.setFilters(filtersObj);
     }

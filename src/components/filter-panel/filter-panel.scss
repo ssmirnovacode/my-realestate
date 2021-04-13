@@ -19,9 +19,13 @@
         margin-bottom: 1px;
         border-radius: 2px;
         cursor: pointer;
-        &:hover, .chosen {
-            background-color: #6c757d;
-            color: white;
+        &:hover{
+            background-color: #d5dfe7;
+            //color: white;
         }
+    }
+    &.chosen {
+        background-color: #6c757d;
+            color: white;
     }
 }

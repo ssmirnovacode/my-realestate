@@ -17,7 +17,7 @@ const initialState = {
         sqmFrom: 0,
         sqmTo: 100000,
         bedroomsMin: null,
-        bathroomsMax: null,
+        bathroomsMin: null
     },
     sortBy:'newest'
 };

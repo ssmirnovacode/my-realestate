@@ -7,7 +7,7 @@ import {getCities, getComarcas} from '../../services/filterFunctions';
 const FilterPanel = (props) => {
 
     //console.log(props.deal);
-    console.log(props.activeFilters);
+    //console.log(props.activeFilters);
     const {items, setFilters, deal} = props;  //find a way to keep rendering on refresh
 
     const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
@@ -104,6 +104,17 @@ const FilterPanel = (props) => {
         //console.log(filtersObj);
     }  
 
+    const handleBrMin = (e, type) => {
+        const typeSelector = type === 'bedroomsMin'? 'bed' : 'bath';
+        document.querySelectorAll(`.filter-panel.${typeSelector}.qty`).forEach(el => {
+            el.classList.remove('chosen');
+        });
+        filtersObj[type] = e.target.id.slice(-1);
+        setFilters(filtersObj);
+        console.log(filtersObj);
+        e.target.classList.add('chosen');
+    }
+
     return(
         <div className="filter-panel">
 
@@ -176,21 +187,21 @@ const FilterPanel = (props) => {
                 </select>
             </div>
 
-            {/* <div className="filter-panel bed mt-3">
+            <div className="filter-panel bed mt-3">
                 <div className="filter-panel bed header mt-3 mb-2">Bedrooms</div>
-                <div className="filter-panel bed qty">0+</div>
-                <div className="filter-panel bed qty">1+</div>
-                <div className="filter-panel bed qty">2+</div>
-                <div className="filter-panel bed qty">3+</div>
-                <div className="filter-panel bed qty">4+</div>
+                <div className="filter-panel bed qty" id="bed-0" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>0+</div>
+                <div className="filter-panel bed qty" id="bed-1" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>1+</div>
+                <div className="filter-panel bed qty" id="bed-2" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>2+</div>
+                <div className="filter-panel bed qty" id="bed-3" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>3+</div>
+                <div className="filter-panel bed qty" id="bed-4" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>4+</div>
             </div>
 
             <div className="filter-panel bath mt-3">
                 <div className="filter-panel bath header mt-3 mb-2">Bathrooms</div>
-                <div className="filter-panel bath qty">1+</div>
-                <div className="filter-panel bath qty">2+</div>
-                <div className="filter-panel bath qty">3+</div>
-            </div> */}
+                <div className="filter-panel bath qty" id="bath-1" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>1+</div>
+                <div className="filter-panel bath qty" id="bath-2" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>2+</div>
+                <div className="filter-panel bath qty" id="bath-3" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>3+</div>
+            </div>
 
             <div className="filter-panel surface-range mt-3">
                 <div className="filter-panel surface-range-header mb-2">Surface</div>
