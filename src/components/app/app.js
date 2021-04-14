@@ -19,20 +19,24 @@ const App = (props) => {
         <>
             <BrowserRouter>
                 <ScrollToTop>
-                    <Header />                  
-                    <Route path={`${basePath}/`} exact component={Home} />
-                    <Route path={`${basePath}/buy`} component={({history}) => <DealSearch additionalURL="sale-items" dealType = "sale" history={history}/>} />
-                    <Route path={`${basePath}/search`} component={SearchPage}/>
-                    <Route path={`${basePath}/sell`} component={SellPage} />
-                    <Route path={`${basePath}/rent`} component={({history}) => <DealSearch additionalURL="rent-items" dealType = "rent" history={history}/>} />
-                    <Route path={`${basePath}/about`} component={AboutPage} />
-                    <Route path={`${basePath}/contact`} component={ContactPage} />
-                    <Route path={`${basePath}/properties/:id`} render={ ({match}) => {
-                        const {id} = match.params;
-                        return <DetailsPage itemId={+id}/>
-                    }}/>
-                    <Route path={`${basePath}/privacy`} component={PrivacyPage} />
-                    <Footer /> 
+                    <div className="app-wrapper">
+                        <div className="app-content">
+                            <Header />                  
+                            <Route path={`${basePath}/`} exact component={Home} />
+                            <Route path={`${basePath}/buy`} component={({history}) => <DealSearch additionalURL="sale-items" dealType = "sale" history={history}/>} />
+                            <Route path={`${basePath}/search`} component={SearchPage}/>
+                            <Route path={`${basePath}/sell`} component={SellPage} />
+                            <Route path={`${basePath}/rent`} component={({history}) => <DealSearch additionalURL="rent-items" dealType = "rent" history={history}/>} />
+                            <Route path={`${basePath}/about`} component={AboutPage} />
+                            <Route path={`${basePath}/contact`} component={ContactPage} />
+                            <Route path={`${basePath}/properties/:id`} render={ ({match}) => {
+                                const {id} = match.params;
+                                return <DetailsPage itemId={+id}/>
+                            }}/>
+                            <Route path={`${basePath}/privacy`} component={PrivacyPage} />
+                        </div>
+                        <Footer /> 
+                    </div>
                 </ScrollToTop>
             </BrowserRouter>
         </>

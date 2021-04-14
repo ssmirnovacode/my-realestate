@@ -1,0 +1,13 @@
+html, body{
+    height: 100%;
+}
+
+.app-wrapper {
+    min-height: 100%;
+    /* display: flex;
+    flex-direction: column; */
+}
+.app-content {
+    //flex: 1 0 auto;
+    min-height: 85vh;
+}

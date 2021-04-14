@@ -5,7 +5,7 @@ import basePath from '../../assets/basePath';
 
 const Footer = () => {
     return(
-        <footer className="footer jumbotron">
+        <footer className="footer jumbotron myfooter">
             <div className="footer_col navmenu">
                 <div className="footer headerlink"><Link to={`${basePath}/`} >My Real Estate</Link></div>
                 <ul className="footer_nav">
