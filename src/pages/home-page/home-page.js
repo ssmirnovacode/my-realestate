@@ -94,7 +94,7 @@ class Home extends Component {
 
                 <div className="row home aboutus">
                     <div className="col-12 col-md-6 mb-3">
-                        <img src="https://www.erco.com/projects/focus/report/real-estate-agency-engel-voelkers-metropolitan-market-center-madrid-6167/images/eur-erco-real-estate-agency-engel-voelkers-metropolitan-market-center-madrid-report-11-2.jpg" alt="my real estate" />
+                        <img src="https://b.radikal.ru/b09/2104/90/634af5092ea3.jpg" alt="my real estate" />
                     </div>
                     <div className="col-12 col-md-6">
                         <h4>myRealEstate</h4>
