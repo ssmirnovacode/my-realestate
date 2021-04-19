@@ -13,7 +13,7 @@ import PrivacyPage from '../../pages/privacy-page/privacy-page';
 import basePath from '../../assets/basePath';
 import DealSearch from '../deal-search/deal-search';
 import ScrollToTop from '../scrollToTop/scrollToTop';
-
+ 
 const App = (props) => {
     return(
         <>

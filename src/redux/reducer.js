@@ -58,7 +58,9 @@ const reducer = (state=initialState, action) => {
                 activeFilters: {
                     ...state.activeFilters,
                     priceFrom: 0,
-                    priceTo: 100000000
+                    priceTo: 100000000,
+                    bedroomsMin: null,
+                    bathroomsMin: null
                 }
             }
         case 'SET_SORT_TYPE':

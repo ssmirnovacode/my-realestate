@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, resetPriceFilters} from '../../redux/actions';
 import baseURL from '../../assets/baseURL';
 import ItemsView from '../../components/items-view/items-view';
+import firebase from '../../firebase.config';
 
 const reqService = new RequestService();
 
@@ -13,10 +14,19 @@ class ItemsPanel extends Component {
     componentDidMount() {
         this.props.itemsRequested();
         this.props.resetPriceFilters();
-        reqService.getItems(baseURL + (this.props.deal ? this.props.deal : 'sale') + '-items') 
+//RESET BED AND BATH FILTERS TOO
+        const itemsRef = firebase.database().ref((this.props.deal ? this.props.deal : 'sale') + '-items');
+        itemsRef.on('value', (snapshot) => {
+            const items = snapshot.val();
+            const itemList = [];
+            for (let id in items) {
+                itemList.push({ id, ...items[id] });
+            };
+            this.props.itemsLoaded(itemList);
+        }, (err) => {this.props.itemsError(err)});
+        /* reqService.getItems(baseURL + (this.props.deal ? this.props.deal : 'sale') + '-items') 
         .then(res => this.props.itemsLoaded(res))
-        .catch( () => this.props.itemsError());
-        //console.log(this.props.items)
+        .catch( () => this.props.itemsError()); */
     }
 
     componentDidUpdate(prevProps) {
@@ -34,10 +44,19 @@ class ItemsPanel extends Component {
             prevProps.activeFilters.bedroomsMin !== this.props.activeFilters.bedroomsMin || 
             prevProps.activeFilters.bathroomsMin !== this.props.activeFilters.bathroomsMin   ) {
 
-            //console.log(this.props.activeFilters);
-            reqService.getItems(baseURL + this.props.deal + '-items') //debug on refesh page
+            console.log(this.props.activeFilters);
+            const itemsRef = firebase.database().ref(this.props.deal + '-items');
+            itemsRef.on('value', (snapshot) => {
+                const items = snapshot.val();
+                const itemList = [];
+                for (let id in items) {
+                    itemList.push({ id, ...items[id] });
+                };
+                this.props.itemsLoaded(itemList);
+            }, (err) => {this.props.itemsError(err)});
+            /* reqService.getItems(baseURL + this.props.deal + '-items') 
             .then(res => this.props.itemsLoaded(res))
-            .catch( () => this.props.itemsError());
+            .catch( () => this.props.itemsError()); */
         }
     }
 

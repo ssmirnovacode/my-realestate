@@ -2,12 +2,9 @@ import React from 'react';
 import './contact-form.scss';
 import {Link} from 'react-router-dom';
 import { useFormik } from 'formik';
-import RequestService from '../../services/requests';
-import baseURL from '../../assets/baseURL';
 import basePath from '../../assets/basePath';
 import validate from '../../services/validation';
-
-const reqService = new RequestService();
+import firebase from '../../firebase.config';
 
 const ContactForm = ({itemId='', formId}) => {
   
@@ -31,23 +28,14 @@ const ContactForm = ({itemId='', formId}) => {
             messageBlock.style.fontSize = '.8rem';
             messageBlock.style.fontWeight = 'bold';
 
-            reqService.postItems(baseURL + 'requests', values) 
-            .then(res => {
-                console.log(res);
+            const requestRef = firebase.database().ref('requests');
+                requestRef.push(values);
+                console.log(values);
                 messageBlock.innerHTML = 'Thank you! We will contact you soon';
-                //messageBlock.classList.add = 'msg-success';
                 messageBlock.style.color = "green";
-            })
-            .catch( () => {
-                console.error('Could not POST data!');
-                messageBlock.innerHTML = 'You request was not sent. Please contact us by phone.';
-                //messageBlock.classList.add = 'msg-error';
-                messageBlock.style.color = "red";
-            })
-            .finally(() => {
-                resetForm();  
-                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);   
-            })
+
+                resetForm();
+                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);
         },
       });
 

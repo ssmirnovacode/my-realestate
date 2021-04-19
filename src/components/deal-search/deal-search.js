@@ -1,22 +1,31 @@
 import React, {Component} from 'react';
 import './deal-search.scss';
 import SearchForm from '../search-form/search-form';
-import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal} from '../../redux/actions';
-import baseURL from '../../assets/baseURL';
+import {itemsLoaded, itemsRequested, itemsError, setDeal, resetPriceFilters} from '../../redux/actions';
 import ItemsView from '../items-view/items-view';
-
-const reqService = new RequestService();
+import firebase from '../../firebase.config';
 
 class DealSearch extends Component {
 
     componentDidMount() {
         this.props.itemsRequested();
+        this.props.resetPriceFilters();
         this.props.setDeal(this.props.dealType);
+        const itemsRef = firebase.database().ref(this.props.additionalURL);
+        itemsRef.on('value', (snapshot) => {
+            const items = snapshot.val();
+            const itemList = [];
+            for (let id in items) {
+                itemList.push({ id, ...items[id] });
+            };
+            this.props.itemsLoaded(itemList);
+        }, (err) => {this.props.itemsError(err)});
+
+        /* 
         reqService.getItems(baseURL + this.props.additionalURL)
         .then(res => this.props.itemsLoaded(res))
-        .catch( () => this.props.itemsError());
+        .catch( () => this.props.itemsError()); */
     }
 
     render() {
@@ -88,7 +97,8 @@ const mapDispatchToProps = {
     itemsLoaded,
     itemsRequested,
     itemsError, 
-    setDeal
+    setDeal,
+    resetPriceFilters
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DealSearch);
