@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal} from '../../redux/actions';
 import baseURL from '../../assets/baseURL';
 import ItemsView from '../items-view/items-view';
+import firebase from '../../firebase.config';
 
 const reqService = new RequestService();
 
@@ -14,9 +15,20 @@ class DealSearch extends Component {
     componentDidMount() {
         this.props.itemsRequested();
         this.props.setDeal(this.props.dealType);
+        const itemsRef = firebase.database().ref(this.props.additionalURL);
+        itemsRef.on('value', (snapshot) => {
+            const items = snapshot.val();
+            const itemList = [];
+            for (let id in items) {
+                itemList.push({ id, ...items[id] });
+            };
+            this.props.itemsLoaded(itemList);
+        }, (err) => {this.props.itemsError(err)});
+
+        /* 
         reqService.getItems(baseURL + this.props.additionalURL)
         .then(res => this.props.itemsLoaded(res))
-        .catch( () => this.props.itemsError());
+        .catch( () => this.props.itemsError()); */
     }
 
     render() {

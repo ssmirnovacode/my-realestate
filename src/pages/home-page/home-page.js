@@ -7,6 +7,7 @@ import ItemsView from '../../components/items-view/items-view';
 import RequestService from '../../services/requests';
 import baseURL from '../../assets/baseURL';
 import basePath from '../../assets/basePath';
+import firebase from '../../firebase.config';
 
 const reqService = new RequestService();
 
@@ -15,10 +16,20 @@ class Home extends Component {
     componentDidMount() {
         this.props.itemsRequested();
         this.props.setDeal('sale');
-        reqService.getItems(baseURL + 'sale-items')
+        const itemsRef = firebase.database().ref('sale-items');
+        console.log(itemsRef);
+        itemsRef.on('value', (snapshot) => {
+            const items = snapshot.val();
+            console.log(items);
+            const itemList = [];
+            for (let id in items) {
+                itemList.push({ id, ...items[id] });
+            };
+            this.props.itemsLoaded(itemList);
+        }, (err) => {this.props.itemsError(err)});
+        /* reqService.getItems(baseURL + 'sale-items')
         .then(res => this.props.itemsLoaded(res))
-        /* .then(() => localStorage.setItem('items', this.props.items)) */
-        .catch( () => this.props.itemsError());
+        .catch( () => this.props.itemsError()); */
     }
 
     handleImgLinkClick = (provName) => {
