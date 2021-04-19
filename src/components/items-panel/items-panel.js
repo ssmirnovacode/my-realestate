@@ -14,7 +14,7 @@ class ItemsPanel extends Component {
     componentDidMount() {
         this.props.itemsRequested();
         this.props.resetPriceFilters();
-
+//RESET BED AND BATH FILTERS TOO
         const itemsRef = firebase.database().ref((this.props.deal ? this.props.deal : 'sale') + '-items');
         itemsRef.on('value', (snapshot) => {
             const items = snapshot.val();

@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
 import './deal-search.scss';
 import SearchForm from '../search-form/search-form';
-import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal} from '../../redux/actions';
-import baseURL from '../../assets/baseURL';
+import {itemsLoaded, itemsRequested, itemsError, setDeal, resetPriceFilters} from '../../redux/actions';
 import ItemsView from '../items-view/items-view';
 import firebase from '../../firebase.config';
-
-const reqService = new RequestService();
 
 class DealSearch extends Component {
 
     componentDidMount() {
         this.props.itemsRequested();
+        this.props.resetPriceFilters();
         this.props.setDeal(this.props.dealType);
         const itemsRef = firebase.database().ref(this.props.additionalURL);
         itemsRef.on('value', (snapshot) => {
@@ -100,7 +97,8 @@ const mapDispatchToProps = {
     itemsLoaded,
     itemsRequested,
     itemsError, 
-    setDeal
+    setDeal,
+    resetPriceFilters
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DealSearch);
