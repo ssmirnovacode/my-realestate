@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 import './items-panel.scss';
-import RequestService from '../../services/requests';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, resetPriceFilters} from '../../redux/actions';
-import baseURL from '../../assets/baseURL';
 import ItemsView from '../../components/items-view/items-view';
 import firebase from '../../firebase.config';
-
-const reqService = new RequestService();
 
 class ItemsPanel extends Component {
 

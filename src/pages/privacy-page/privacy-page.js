@@ -1,7 +1,9 @@
 import React from 'react';
 import './privacy-page.scss';
+import basePath from '../../assets/basePath';
+import {Link} from 'react-router-dom';
 
-const PrivacyPage = () => {
+const PrivacyPage = (props) => {
     return(
         <div className="container privacy">
             <div className="row">
@@ -19,6 +21,12 @@ const PrivacyPage = () => {
                 <p>No habrá privacidad para los datos enviados a través de los formularios de este sitio web.</p>
                 <p>Por favor, no comparte ningúna información privada aquí: no tiene ningún sentido y ningúna seguridad.</p>
                 <p>Muchas gracias por su colaboración</p>
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="col-12">
+                    <button className="btn btn-primary" onClick={() => props.history.goBack()}>Back</button>
                 </div>
             </div>
         </div>

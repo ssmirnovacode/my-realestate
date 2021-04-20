@@ -4,12 +4,8 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 import ItemsView from '../../components/items-view/items-view';
-import RequestService from '../../services/requests';
-import baseURL from '../../assets/baseURL';
 import basePath from '../../assets/basePath';
 import firebase from '../../firebase.config';
-
-const reqService = new RequestService();
 
 class Home extends Component {
 

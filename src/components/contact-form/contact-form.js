@@ -72,7 +72,7 @@ const ContactForm = ({itemId='', formId}) => {
                 </div>
                 <div className="form-check">
                     <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-                    <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to={`${basePath}/privacy`} target="blank">privacy policy</Link></label>
+                    <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to={`${basePath}/privacy`}>privacy policy</Link></label>
                 </div>
                 <button type="submit" className="btn btn-primary mt-3">Submit</button>
             </form><br/>
