@@ -13,7 +13,6 @@ class Home extends Component {
         this.props.itemsRequested();
         this.props.setDeal('sale');
         const itemsRef = firebase.database().ref('sale-items');
-        console.log(itemsRef);
         itemsRef.on('value', (snapshot) => {
             const items = snapshot.val();
             if (items) {
