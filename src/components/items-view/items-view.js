@@ -3,7 +3,7 @@ import PropertyCard from '../../components/property-card/property-card';
 import Loading from '../../components/loading/loading';
 import Error from '../../components/error/error';
 
-const ItemsView = ({loading, error, items, grid=null, classnames='', lastItem=10000}) => {
+const ItemsView = ({loading=false, error=false, items, grid=null, classnames='', lastItem=10000}) => {
 
     if (loading) {
         return <Loading />

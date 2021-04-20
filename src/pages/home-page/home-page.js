@@ -16,16 +16,17 @@ class Home extends Component {
         console.log(itemsRef);
         itemsRef.on('value', (snapshot) => {
             const items = snapshot.val();
-            console.log(items);
-            const itemList = [];
-            for (let id in items) {
-                itemList.push({ id, ...items[id] });
-            };
-            this.props.itemsLoaded(itemList);
-        }, (err) => {this.props.itemsError(err)});
-        /* reqService.getItems(baseURL + 'sale-items')
-        .then(res => this.props.itemsLoaded(res))
-        .catch( () => this.props.itemsError()); */
+            if (items) {
+                const itemList = [];
+                for (let id in items) {
+                    itemList.push({ id, ...items[id] });
+                };
+                this.props.itemsLoaded(itemList);
+            }
+            else {
+                this.props.itemsError();
+            }
+        });
     }
 
     handleImgLinkClick = (provName) => {

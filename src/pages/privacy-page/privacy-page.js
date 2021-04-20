@@ -1,7 +1,5 @@
 import React from 'react';
 import './privacy-page.scss';
-import basePath from '../../assets/basePath';
-import {Link} from 'react-router-dom';
 
 const PrivacyPage = (props) => {
     return(

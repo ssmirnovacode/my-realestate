@@ -12,14 +12,19 @@ class ItemsPanel extends Component {
         this.props.resetPriceFilters();
 //RESET BED AND BATH FILTERS TOO
         const itemsRef = firebase.database().ref((this.props.deal ? this.props.deal : 'sale') + '-items');
-        itemsRef.on('value', (snapshot) => {
-            const items = snapshot.val();
-            const itemList = [];
-            for (let id in items) {
-                itemList.push({ id, ...items[id] });
-            };
-            this.props.itemsLoaded(itemList);
-        }, (err) => {this.props.itemsError(err)});
+            itemsRef.on('value', (snapshot) => {
+                const items = snapshot.val();
+                if (items) {
+                    const itemList = [];
+                    for (let id in items) {
+                        itemList.push({ id, ...items[id] });
+                    };
+                    this.props.itemsLoaded(itemList);
+                }
+                else {
+                    this.props.itemsError();
+                }
+            });
         /* reqService.getItems(baseURL + (this.props.deal ? this.props.deal : 'sale') + '-items') 
         .then(res => this.props.itemsLoaded(res))
         .catch( () => this.props.itemsError()); */
