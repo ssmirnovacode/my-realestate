@@ -5,14 +5,14 @@ import './header.scss';
 const Header = () => {
 
     return(
-        <div className="header">
+        <header className="header">
             <div className="logo">
 
             </div>
 
             <Navigation />
 
-        </div>
+        </header>
     )
 }
 

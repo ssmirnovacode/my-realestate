@@ -11,7 +11,7 @@ const getCities = (arr, com) => {
 }
  
 const filterItems = (items, filters) => {
-    console.log(filters);
+    //console.log(filters);
     return items.filter(item => (filters.apartment === true && item.type === 'apartment') || 
                         (filters.flat === true && item.type === 'flat') || (filters.house === true && item.type === 'house')
                         || (filters.duplex === true && item.type === 'duplex') )
