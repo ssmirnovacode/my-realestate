@@ -1,13 +1,60 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 import {getCities, getComarcas} from '../../services/filterFunctions';
 
+const bedroomBtns = [
+    {
+        id: 'bed-0',
+        label: '0+',
+        classes: 'filter-panel bed qty'
+    },
+    {
+        id: 'bed-1',
+        label: '1+',
+        classes: 'filter-panel bed qty'
+    },
+    {
+        id: 'bed-2',
+        label: '2+',
+        classes: 'filter-panel bed qty'
+    },
+    {
+        id: 'bed-3',
+        label: '3+',
+        classes: 'filter-panel bed qty'
+    },
+    {
+        id: 'bed-4',
+        label: '4+',
+        classes: 'filter-panel bed qty'
+    }
+];
+
+const bathroomBtns = [
+    {
+        id: 'bath-1',
+        label: '1+',
+        classes: 'filter-panel bath qty'
+    },
+    {
+        id: 'bath-2',
+        label: '2+',
+        classes: 'filter-panel bath qty'
+    },
+    {
+        id: 'bath-3',
+        label: '3+',
+        classes: 'filter-panel bath qty'
+    }
+]
+
 const FilterPanel = (props) => {
 
-    //console.log(props.deal);
-    //console.log(props.activeFilters);
+    const [chosenBedOption, setChosenBedOption] = useState(0);
+    const [chosenBathOption, setChosenBathOption] = useState(1);
+
     const {items, setFilters, deal} = props;  //find a way to keep rendering on refresh
 
     const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
@@ -58,9 +105,9 @@ const FilterPanel = (props) => {
     
     const handlePropChange = (name) => {
         filtersObj[name]= !filtersObj[name];
-        console.log(filtersObj);
+        //console.log(filtersObj);
         props.setFilters(filtersObj);
-        console.log(props.activeFilters);
+        //console.log(props.activeFilters);
     }
 
     const handleProvinceChange = (value) => {
@@ -101,18 +148,17 @@ const FilterPanel = (props) => {
             filtersObj.sqmTo = e.target.value;
         }
         setFilters(filtersObj);
-        //console.log(filtersObj);
     }  
 
     const handleBrMin = (e, type) => {
-        const typeSelector = type === 'bedroomsMin'? 'bed' : 'bath';
-        document.querySelectorAll(`.filter-panel.${typeSelector}.qty`).forEach(el => {
+        //const typeSelector = type === 'bedroomsMin'? 'bed' : 'bath';
+        /* document.querySelectorAll(`.filter-panel.${typeSelector}.qty`).forEach(el => {
             el.classList.remove('chosen');
-        });
+        }); */
         filtersObj[type] = e.target.id.slice(-1);
         setFilters(filtersObj);
-        console.log(filtersObj);
-        e.target.classList.add('chosen');
+        type === 'bedroomsMin' ? setChosenBedOption(e.target.id.slice(-1)) : setChosenBathOption(e.target.id.slice(-1));
+        //e.target.classList.add('chosen');
     }
 
     return(
@@ -189,18 +235,32 @@ const FilterPanel = (props) => {
 
             <div className="filter-panel bed mt-3">
                 <div className="filter-panel bed header mt-3 mb-2">Bedrooms</div>
-                <div className="filter-panel bed qty" id="bed-0" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>0+</div>
+                {
+                    bedroomBtns.map(item => {
+                        return(
+                            <div key={item.id} className={chosenBedOption === item.id ? item.classes + 'chosen' : item.classes} id={item.id} onClick={(e) => handleBrMin(e, 'bedroomsMin')}>{item.label}</div>
+                        )
+                    })
+                }
+                {/* <div className="filter-panel bed qty" id="bed-0" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>0+</div>
                 <div className="filter-panel bed qty" id="bed-1" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>1+</div>
                 <div className="filter-panel bed qty" id="bed-2" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>2+</div>
                 <div className="filter-panel bed qty" id="bed-3" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>3+</div>
-                <div className="filter-panel bed qty" id="bed-4" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>4+</div>
+                <div className="filter-panel bed qty" id="bed-4" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>4+</div> */}
             </div>
 
             <div className="filter-panel bath mt-3">
                 <div className="filter-panel bath header mt-3 mb-2">Bathrooms</div>
-                <div className="filter-panel bath qty" id="bath-1" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>1+</div>
+                {
+                    bathroomBtns.map(item => {
+                        return(
+                            <div key={item.id} className={chosenBathOption === item.id ? item.classes + 'chosen' : item.classes} id={item.id} onClick={(e) => handleBrMin(e, 'bathroomsMin')}>{item.label}</div>
+                        )
+                    })
+                }
+                {/* <div className="filter-panel bath qty" id="bath-1" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>1+</div>
                 <div className="filter-panel bath qty" id="bath-2" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>2+</div>
-                <div className="filter-panel bath qty" id="bath-3" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>3+</div>
+                <div className="filter-panel bath qty" id="bath-3" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>3+</div> */}
             </div>
 
             <div className="filter-panel surface-range mt-3">
