@@ -55,6 +55,9 @@ const FilterPanel = (props) => {
     const [chosenBedOption, setChosenBedOption] = useState(0);
     const [chosenBathOption, setChosenBathOption] = useState(1);
 
+    console.log(`Beds: ${chosenBedOption}`);
+        console.log(`Baths: ${chosenBathOption}`);
+
     const {items, setFilters, deal} = props;  //find a way to keep rendering on refresh
 
     const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
@@ -151,14 +154,9 @@ const FilterPanel = (props) => {
     }  
 
     const handleBrMin = (e, type) => {
-        //const typeSelector = type === 'bedroomsMin'? 'bed' : 'bath';
-        /* document.querySelectorAll(`.filter-panel.${typeSelector}.qty`).forEach(el => {
-            el.classList.remove('chosen');
-        }); */
         filtersObj[type] = e.target.id.slice(-1);
         setFilters(filtersObj);
-        type === 'bedroomsMin' ? setChosenBedOption(e.target.id.slice(-1)) : setChosenBathOption(e.target.id.slice(-1));
-        //e.target.classList.add('chosen');
+        type === 'bedroomsMin' ? setChosenBedOption(e.target.id.slice(-1)) : setChosenBathOption(e.target.id.slice(-1));      
     }
 
     return(
@@ -238,15 +236,10 @@ const FilterPanel = (props) => {
                 {
                     bedroomBtns.map(item => {
                         return(
-                            <div key={item.id} className={chosenBedOption === item.id ? item.classes + 'chosen' : item.classes} id={item.id} onClick={(e) => handleBrMin(e, 'bedroomsMin')}>{item.label}</div>
+                            <div key={item.id} className={chosenBedOption === item.id.slice(-1) ? item.classes + ' chosen' : item.classes} id={item.id} onClick={(e) => handleBrMin(e, 'bedroomsMin')}>{item.label}</div>
                         )
                     })
                 }
-                {/* <div className="filter-panel bed qty" id="bed-0" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>0+</div>
-                <div className="filter-panel bed qty" id="bed-1" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>1+</div>
-                <div className="filter-panel bed qty" id="bed-2" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>2+</div>
-                <div className="filter-panel bed qty" id="bed-3" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>3+</div>
-                <div className="filter-panel bed qty" id="bed-4" onClick={(e) => handleBrMin(e, 'bedroomsMin')}>4+</div> */}
             </div>
 
             <div className="filter-panel bath mt-3">
@@ -254,13 +247,10 @@ const FilterPanel = (props) => {
                 {
                     bathroomBtns.map(item => {
                         return(
-                            <div key={item.id} className={chosenBathOption === item.id ? item.classes + 'chosen' : item.classes} id={item.id} onClick={(e) => handleBrMin(e, 'bathroomsMin')}>{item.label}</div>
+                            <div key={item.id} className={chosenBathOption === item.id.slice(-1) ? item.classes + ' chosen' : item.classes} id={item.id} onClick={(e) => handleBrMin(e, 'bathroomsMin')}>{item.label}</div>
                         )
                     })
                 }
-                {/* <div className="filter-panel bath qty" id="bath-1" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>1+</div>
-                <div className="filter-panel bath qty" id="bath-2" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>2+</div>
-                <div className="filter-panel bath qty" id="bath-3" onClick={(e) => handleBrMin(e, 'bathroomsMin')}>3+</div> */}
             </div>
 
             <div className="filter-panel surface-range mt-3">
