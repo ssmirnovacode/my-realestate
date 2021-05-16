@@ -171,7 +171,7 @@ const priceFromArr = [
         label: 'From 500 000'
     }
 ];
-
+ 
 const priceFromArrRent = [
     {
         value: 0,
@@ -194,8 +194,8 @@ const priceFromArrRent = [
         label: 'From 2000'
     },
     {
-        value: 300000,
-        label: 'From 300 000'
+        value: 3000,
+        label: 'From 3000'
     },
     {
         value: 5000,
@@ -277,4 +277,15 @@ const priceToArrRent = [
     }
 ];
 
-export {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, propertyTypes, priceFromArr, priceFromArrRent, priceToArr, priceToArrRent};
+const priceRangeByDealFrom = (deal) => deal === 'sale' ? <>
+            {priceFromArr.map(item => <option key={'priceFrom' + item.value} value={item.value}>{item.label}</option>)}
+        </> : <>
+            {priceFromArrRent.map(item => <option key={'priceFromRent' + item.value} value={item.value}>{item.label}</option>)}</> ;
+
+const priceRangeByDealTo = (deal) => deal === 'sale' ? <>
+        {priceToArr.map(item => <option key={'priceTo' + item.value} value={item.value}>{item.label}</option>)}
+    </> : <>
+        {priceToArrRent.map(item => <option key={'priceToRent' + item.value} value={item.value}>{item.label}</option>)} 
+        </> ;
+
+export {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, propertyTypes, priceRangeByDealFrom, priceRangeByDealTo};

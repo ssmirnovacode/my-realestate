@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import './filter-panel.scss';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
+import {setFilters} from '../../redux/actions';
 import {getCities, getComarcas} from '../../services/filterFunctions';
-import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, priceFromArr, priceFromArrRent, priceToArr, priceToArrRent} from '../../assets/filterArrays';
+import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, priceRangeByDealFrom, priceRangeByDealTo} from '../../assets/filterArrays';
 
 const FilterPanel = (props) => {
  
@@ -15,17 +15,6 @@ const FilterPanel = (props) => {
     const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
-
-    const priceRangeByDealFrom = deal === 'sale' ? <>
-            {priceFromArr.map(item => <option key={'priceFrom' + item.value} value={item.value}>{item.label}</option>)}
-        </> : <>
-            {priceFromArrRent.map(item => <option key={'priceFromRent' + item.value} value={item.value}>{item.label}</option>)}</> ;
-
-    const priceRangeByDealTo = deal === 'sale' ? <>
-            {priceToArr.map(item => <option key={'priceTo' + item.value} value={item.value}>{item.label}</option>)}
-        </> : <>
-            {priceToArrRent.map(item => <option key={'priceToRent' + item.value} value={item.value}>{item.label}</option>)} 
-            </> ;
 
     const comarcas = getComarcas(items, province); 
     const cities = getCities(items, comarca);
@@ -53,7 +42,6 @@ const FilterPanel = (props) => {
     const handleCityChange = (value) => {
         filtersObj.city = value;
         setFilters(filtersObj);
-        //console.log(filtersObj);
     }
 
     const handlePriceRangeChange = (e) => {
@@ -64,7 +52,6 @@ const FilterPanel = (props) => {
             filtersObj.priceTo = e.target.value;
         }
         setFilters(filtersObj);
-        //console.log(filtersObj);
     }   
 
     const handleSqmRangeChange = (e) => {
@@ -87,16 +74,6 @@ const FilterPanel = (props) => {
         <div className="filter-panel">
 
             <div className="filter-panel property-types mt-3 mb-3" onChange={(e) => handlePropChange(e)}>
-                {
-                    /* propertyTypes.map(type => {
-                        return(
-                            <div key={type.value} className="form-check mb-1">
-                                <input className="form-check-input" type="checkbox" checked={type.value} name={type.value} onChange={(e) => handlePropChange(e)} />
-                                <label className="form-check-label ml-1" htmlFor={type.value}>{type.label}</label>
-                            </div>
-                        )
-                    }) */
-                }
                 <div className="form-check mb-1">
                     <input className="form-check-input" type="checkbox" checked={apartment} name="apartment"  />
                     <label className="form-check-label ml-1" htmlFor="apartment">Studio</label>
@@ -127,7 +104,7 @@ const FilterPanel = (props) => {
                 <select value={comarca} className="custom-select mb-2" name="comarca"
                     onChange={(e) => handleComarcaChange(e.target.value)}>
                         <option value='all'>All</option>
-                    {
+                        {
                             comarcas.map( com => {
                                 return(
                                     <option key={com} value={com} >{com}</option>
@@ -153,11 +130,11 @@ const FilterPanel = (props) => {
                 <div className="filter-panel price-range-header mb-2">Price</div>
                 <select value={priceFrom} className="custom-select mb-2" name="priceFrom"
                     onChange={(e) => handlePriceRangeChange(e)}>
-                    {priceRangeByDealFrom}
+                    {priceRangeByDealFrom(deal)}
                 </select>
                 <select value={priceTo} className="custom-select mb-2" name="priceTo"
                  onChange={(e) => handlePriceRangeChange(e)}>
-                    {priceRangeByDealTo}
+                    {priceRangeByDealTo(deal)}
                 </select>
             </div>
 
@@ -197,7 +174,7 @@ const FilterPanel = (props) => {
                 </select>
                 <select value={sqmTo} className="custom-select mb-2" name="sqmTo"
                     onChange={(e) => handleSqmRangeChange(e)}>
-                    {
+                        {
                             sqmSortOptionsTo.map(opt => {
                                 return(
                                     <option key={`sqmSortOptionsTo${opt.value}`} value={opt.value} >{opt.label}</option>
@@ -213,17 +190,11 @@ const FilterPanel = (props) => {
 
 const mapStateToProps = (state) => ({
     items: state.items,
-    loading: state.loading,
-    error: state.error,
     deal: state.deal,
     activeFilters: state.activeFilters
 });
 
 const mapDispatchToProps = {
-    itemsLoaded,
-    itemsRequested,
-    itemsError, 
-    setDeal,
     setFilters
 };
 
