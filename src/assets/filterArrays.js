@@ -122,5 +122,159 @@ const sqmSortOptionsTo = [
     },
 ];
 
+const propertyTypes = [
+    {
+        value: 'apartment',
+        label: 'Studio'
+    },
+    {
+        value: 'flat',
+        label: 'Flat'
+    },
+    {
+        value: 'house',
+        label: 'House'
+    },
+    {
+        value: 'duplex',
+        label: 'Duplex'
+    }
+];
 
-export {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo,};
+const priceFromArr = [
+    {
+        value: 0,
+        label: 'From'
+    },
+    {
+        value: 50000,
+        label: 'From 50 000'
+    },
+    {
+        value: 100000,
+        label: 'From 100 000'
+    },
+    {
+        value: 150000,
+        label: 'From 150 000'
+    },
+    {
+        value: 200000,
+        label: 'From 200 000'
+    },
+    {
+        value: 300000,
+        label: 'From 300 000'
+    },
+    {
+        value: 500000,
+        label: 'From 500 000'
+    }
+];
+
+const priceFromArrRent = [
+    {
+        value: 0,
+        label: 'From'
+    },
+    {
+        value: 500,
+        label: 'From 500'
+    },
+    {
+        value: 1000,
+        label: 'From 1000'
+    },
+    {
+        value: 1500,
+        label: 'From 1500'
+    },
+    {
+        value: 2000,
+        label: 'From 2000'
+    },
+    {
+        value: 300000,
+        label: 'From 300 000'
+    },
+    {
+        value: 5000,
+        label: 'From 5000'
+    }
+];
+
+const priceToArr = [
+    {
+        value: 100000000,
+        label: 'To'
+    },
+    {
+        value: 50000,
+        label: 'To 50 000'
+    },
+    {
+        value: 100000,
+        label: 'To 100 000'
+    },
+    {
+        value: 150000,
+        label: 'To 150 000'
+    },
+    {
+        value: 200000,
+        label: 'To 200 000'
+    },
+    {
+        value: 300000,
+        label: 'To 300 000'
+    },
+    {
+        value: 500000,
+        label: 'To 500 000'
+    },
+    {
+        value: 1000000,
+        label: 'To 1 000 000'
+    },
+    {
+        value: 5000000,
+        label: 'To 5 000 000'
+    }
+];
+
+const priceToArrRent = [
+    {
+        value: 1000000,
+        label: 'To'
+    },
+    {
+        value: 500,
+        label: 'To 500'
+    },
+    {
+        value: 1000,
+        label: 'To 1000'
+    },
+    {
+        value: 1500,
+        label: 'To 1500'
+    },
+    {
+        value: 2000,
+        label: 'To 2000'
+    },
+    {
+        value: 3000,
+        label: 'To 3000'
+    },
+    {
+        value: 5000,
+        label: 'To 5000'
+    },
+    {
+        value: 10000,
+        label: 'To 10 000'
+    }
+];
+
+export {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, propertyTypes, priceFromArr, priceFromArrRent, priceToArr, priceToArrRent};

@@ -3,66 +3,38 @@ import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 import {getCities, getComarcas} from '../../services/filterFunctions';
-import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo} from '../../assets/filterArrays';
+import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, priceFromArr, priceFromArrRent, priceToArr, priceToArrRent} from '../../assets/filterArrays';
 
 const FilterPanel = (props) => {
  
     const [chosenBedOption, setChosenBedOption] = useState(0);
     const [chosenBathOption, setChosenBathOption] = useState(1);
 
-    const {items, setFilters, deal} = props;  //find a way to keep rendering on refresh
+    const {items, setFilters, deal} = props;  
 
     const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
 
     let filtersObj = {...props.activeFilters};
 
     const priceRangeByDealFrom = deal === 'sale' ? <>
-                                                <option value="0">From</option>
-                                                <option value="50000">From 50 000</option>
-                                                <option value="100000">From 100 000</option>
-                                                <option value="150000">From 150 000</option>
-                                                <option value="200000">From 200 000</option>
-                                                <option value="300000">From 300 000</option>
-                                                <option value="500000">From 500 000</option>
-                                            </> :
-                                                <>
-                                                <option value="0" >From</option>
-                                                <option value="500">From 500</option>
-                                                <option value="1000">From 1000</option>
-                                                <option value="1500">From 1500</option>
-                                                <option value="2000">From 2000</option>
-                                                <option value="3000">From 3000</option>
-                                            </> ;
+            {priceFromArr.map(item => <option key={'priceFrom' + item.value} value={item.value}>{item.label}</option>)}
+        </> : <>
+            {priceFromArrRent.map(item => <option key={'priceFromRent' + item.value} value={item.value}>{item.label}</option>)}</> ;
 
     const priceRangeByDealTo = deal === 'sale' ? <>
-                                                <option value="100000000">To</option>
-                                                <option value="50000">To 50 000</option>
-                                                <option value="100000">To 100 000</option>
-                                                <option value="150000">To 150 000</option>
-                                                <option value="200000">To 200 000</option>
-                                                <option value="300000">To 300 000</option>
-                                                <option value="500000">To 500 000</option>
-                                                <option value="1000000">To 1 000 000</option>
-                                                <option value="5000000">To 5 000 000</option>
-                                            </> :
-                                            <>
-                                                <option value="10000000" >To</option>
-                                                <option value="500">To 500</option>
-                                                <option value="1000">To 1000</option>
-                                                <option value="1500">From 1500</option>
-                                                <option value="2000">From 2000</option>
-                                                <option value="3000">From 3000</option>
-                                                <option value="5000">From 5000</option>
-                                            </> ;
+            {priceToArr.map(item => <option key={'priceTo' + item.value} value={item.value}>{item.label}</option>)}
+        </> : <>
+            {priceToArrRent.map(item => <option key={'priceToRent' + item.value} value={item.value}>{item.label}</option>)} 
+            </> ;
 
-    const comarcas = getComarcas(items, province); //add 2nd parameter if outsourced
+    const comarcas = getComarcas(items, province); 
     const cities = getCities(items, comarca);
     
-    const handlePropChange = (name) => {
-        filtersObj[name]= !filtersObj[name];
-        //console.log(filtersObj);
-        props.setFilters(filtersObj);
-        //console.log(props.activeFilters);
+    const handlePropChange = (e) => {
+        if (e.target.tagName === 'INPUT') {
+            filtersObj[e.target.name]= !filtersObj[e.target.name];
+            props.setFilters(filtersObj);
+        }  
     }
 
     const handleProvinceChange = (value) => {
@@ -114,25 +86,31 @@ const FilterPanel = (props) => {
     return(
         <div className="filter-panel">
 
-            <div className="filter-panel property-types mt-3 mb-3">
+            <div className="filter-panel property-types mt-3 mb-3" onChange={(e) => handlePropChange(e)}>
+                {
+                    /* propertyTypes.map(type => {
+                        return(
+                            <div key={type.value} className="form-check mb-1">
+                                <input className="form-check-input" type="checkbox" checked={type.value} name={type.value} onChange={(e) => handlePropChange(e)} />
+                                <label className="form-check-label ml-1" htmlFor={type.value}>{type.label}</label>
+                            </div>
+                        )
+                    }) */
+                }
                 <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={apartment} name="apartment" 
-                        onChange={(e) => handlePropChange(e.target.name)} />
+                    <input className="form-check-input" type="checkbox" checked={apartment} name="apartment"  />
                     <label className="form-check-label ml-1" htmlFor="apartment">Studio</label>
                 </div>
                 <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={flat} name="flat" 
-                    onChange={(e) => handlePropChange(e.target.name)}/>
+                    <input className="form-check-input" type="checkbox" checked={flat} name="flat"  />
                     <label className="form-check-label ml-1" htmlFor="flat">Flat</label>
                 </div>
                 <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={house} name="house" 
-                    onChange={(e) => handlePropChange(e.target.name)}/>
+                    <input className="form-check-input" type="checkbox" checked={house} name="house"  />
                     <label className="form-check-label ml-1" htmlFor="house">House</label>
                 </div>
                 <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={duplex} name="duplex" 
-                    onChange={(e) => handlePropChange(e.target.name)}/>
+                    <input className="form-check-input" type="checkbox" checked={duplex} name="duplex" />
                     <label className="form-check-label ml-1" htmlFor="duplex">Duplex</label>
                 </div>
             </div>
