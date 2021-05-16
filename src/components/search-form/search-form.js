@@ -6,7 +6,7 @@ import {getCities, getComarcas} from '../../services/filterFunctions';
 import basePath from '../../assets/basePath';
 
 const SearchForm = (props) => {
-    //console.log(props.activeFilters);
+    
     const {type, items, setFilters} = props;
     
     const {province, comarca, city} = props.activeFilters;
@@ -39,10 +39,8 @@ const SearchForm = (props) => {
     const handleCityChange = (value) => {
         filtersObj.city = value;
         setFilters(filtersObj);
-        //console.log(filtersObj);
     }
 
-    
     return(
         <div className="container mt-2 mb-2">
             <h2>Luxury homes for {type}</h2>

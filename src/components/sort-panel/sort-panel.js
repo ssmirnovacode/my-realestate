@@ -30,19 +30,10 @@ const SortPanel = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    /* items: state.items,
-    loading: state.loading,
-    error: state.error,
-    deal: state.deal,
-    activeFilters: state.activeFilters, */
     sortBy: state.sortBy
 });
 
 const mapDispatchToProps = {
-    /* itemsLoaded,
-    itemsRequested,
-    itemsError, 
-    setDeal, */
     setFilters,
     setSortType
 };
