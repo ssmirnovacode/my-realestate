@@ -3,60 +3,12 @@ import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 import {getCities, getComarcas} from '../../services/filterFunctions';
-
-const bedroomBtns = [
-    {
-        id: 'bed-0',
-        label: '0+',
-        classes: 'filter-panel bed qty'
-    },
-    {
-        id: 'bed-1',
-        label: '1+',
-        classes: 'filter-panel bed qty'
-    },
-    {
-        id: 'bed-2',
-        label: '2+',
-        classes: 'filter-panel bed qty'
-    },
-    {
-        id: 'bed-3',
-        label: '3+',
-        classes: 'filter-panel bed qty'
-    },
-    {
-        id: 'bed-4',
-        label: '4+',
-        classes: 'filter-panel bed qty'
-    }
-];
-
-const bathroomBtns = [
-    {
-        id: 'bath-1',
-        label: '1+',
-        classes: 'filter-panel bath qty'
-    },
-    {
-        id: 'bath-2',
-        label: '2+',
-        classes: 'filter-panel bath qty'
-    },
-    {
-        id: 'bath-3',
-        label: '3+',
-        classes: 'filter-panel bath qty'
-    }
-]
+import {bedroomBtns, bathroomBtns, sqmSortOptions} from '../../assets/filterArrays';
 
 const FilterPanel = (props) => {
-
+ 
     const [chosenBedOption, setChosenBedOption] = useState(0);
     const [chosenBathOption, setChosenBathOption] = useState(1);
-
-    console.log(`Beds: ${chosenBedOption}`);
-        console.log(`Baths: ${chosenBathOption}`);
 
     const {items, setFilters, deal} = props;  //find a way to keep rendering on refresh
 
@@ -257,14 +209,13 @@ const FilterPanel = (props) => {
                 <div className="filter-panel surface-range-header mb-2">Surface</div>
                 <select value={sqmFrom} className="custom-select mb-2" name="sqmFrom"
                     onChange={(e) => handleSqmRangeChange(e)}>
-                    <option value="0" >From</option>
-                    <option value="50">From 50</option>
-                    <option value="100">From 100</option>
-                    <option value="150">From 150</option>
-                    <option value="200">From 200</option>
-                    <option value="300">From 300</option>
-                    <option value="500">From 500</option>
-                    <option value="1000">From 1000</option>
+                        {
+                            sqmSortOptions.map(opt => {
+                                return(
+                                    <option key={`sqmSortOptions${opt.value}`} value={opt.value} >{opt.label}</option>
+                                )
+                            })
+                        }
                 </select>
                 <select value={sqmTo} className="custom-select mb-2" name="sqmTo"
                     onChange={(e) => handleSqmRangeChange(e)}>
