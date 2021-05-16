@@ -3,7 +3,7 @@ import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 import {getCities, getComarcas} from '../../services/filterFunctions';
-import {bedroomBtns, bathroomBtns, sqmSortOptions} from '../../assets/filterArrays';
+import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo} from '../../assets/filterArrays';
 
 const FilterPanel = (props) => {
  
@@ -210,47 +210,24 @@ const FilterPanel = (props) => {
                 <select value={sqmFrom} className="custom-select mb-2" name="sqmFrom"
                     onChange={(e) => handleSqmRangeChange(e)}>
                         {
-                            sqmSortOptions.map(opt => {
+                            sqmSortOptionsFrom.map(opt => {
                                 return(
-                                    <option key={`sqmSortOptions${opt.value}`} value={opt.value} >{opt.label}</option>
+                                    <option key={`sqmSortOptionsFrom${opt.value}`} value={opt.value} >{opt.label}</option>
                                 )
                             })
                         }
                 </select>
                 <select value={sqmTo} className="custom-select mb-2" name="sqmTo"
                     onChange={(e) => handleSqmRangeChange(e)}>
-                    <option value="100000" >To</option>
-                    <option value="50">To 50</option>
-                    <option value="100">To 100</option>
-                    <option value="150">To 150</option>
-                    <option value="200">To 200</option>
-                    <option value="300">To 300</option>
-                    <option value="500">To 500</option>
-                    <option value="1000">To 1000</option>
-                    <option value="5000">To 5000</option>
+                    {
+                            sqmSortOptionsTo.map(opt => {
+                                return(
+                                    <option key={`sqmSortOptionsTo${opt.value}`} value={opt.value} >{opt.label}</option>
+                                )
+                            })
+                        }
                 </select>
             </div>
-
-            {/* to be used when the db is further customised */}
-
-            {/* <div className="filter-panel extras mt-3 mb-3">
-                <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" value="" name="pool" />
-                    <label className="form-check-label ml-1" htmlFor="pool">Swimming-pool</label>
-                </div>
-                <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" value="" name="terrace" />
-                    <label className="form-check-label ml-1" htmlFor="terrace">Terrace</label>
-                </div>
-                <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" value="" name="lift" />
-                    <label className="form-check-label ml-1" htmlFor="lift">Lift</label>
-                </div>
-                <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" value="" name="parking" />
-                    <label className="form-check-label ml-1" htmlFor="parking">Parking</label>
-                </div>
-            </div> */}
 
         </div>
     )  

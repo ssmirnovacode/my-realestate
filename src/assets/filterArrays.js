@@ -44,7 +44,7 @@ const bathroomBtns = [
     }
 ];
 
-const sqmSortOptions = [
+const sqmSortOptionsFrom = [
     {
         value: 0, 
         label: 'From'
@@ -79,5 +79,48 @@ const sqmSortOptions = [
     }
 ];
 
+const sqmSortOptionsTo = [
+    {
+        value: 100000, 
+        label: 'To'
+    },
+    {
+        value: 50, 
+        label: 'To 50'
+    },
+    {
+        value: 100, 
+        label: 'To 100'
+    },
+    {
+        value: 150, 
+        label: 'To 150'
+    },
+    {
+        value: 200, 
+        label: 'To 200'
+    },
+    {
+        value: 300, 
+        label: 'To 300'
+    },
+    {
+        value: 400, 
+        label: 'To 400'
+    },
+    {
+        value: 500, 
+        label: 'To 500'
+    },
+    {
+        value: 1000, 
+        label: 'To 1000'
+    },
+    {
+        value: 5000, 
+        label: 'To 5000'
+    },
+];
 
-export {bedroomBtns, bathroomBtns, sqmSortOptions};
+
+export {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo,};
