@@ -1,5 +1,4 @@
 import React from 'react';
-import './sort-panel.scss';
 import {connect} from 'react-redux';
 import {setFilters, setSortType} from '../../redux/actions';
 

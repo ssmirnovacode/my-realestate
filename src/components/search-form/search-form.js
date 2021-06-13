@@ -1,5 +1,4 @@
 import React from 'react';
-import './search-form.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
 import {getCities, getComarcas} from '../../services/filterFunctions';

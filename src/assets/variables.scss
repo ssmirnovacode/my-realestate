@@ -6,10 +6,7 @@ $heading-font: 'Merriweather', Helvetica, Verdana, Arial, sans-serif;
 $text-font: 'Lato', Helvetica, Verdana, Arial, sans-serif;
 
 @mixin wrapper {
-    /* margin-top: 2rem;
-    margin-bottom: 2rem; */
     padding: 2rem 1rem;
-    //font-family: $heading-font;
 }
 
 h1, h2, h3, h4, h5 {
@@ -27,10 +24,6 @@ p, div {
 }
 
 .mapouter {
-    /* position:relative;
-    text-align:right; */
-    /* height:500px;
-    width:600px; */
     height: auto;
     width: auto;
     margin: 2rem 0;
@@ -40,8 +33,6 @@ p, div {
 .gmap_canvas {
     overflow:hidden;
     background:none!important;
-    /* height:500px;
-    width:600px; */
     height: auto;
     width: auto;
 }

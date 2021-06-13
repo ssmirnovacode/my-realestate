@@ -1,5 +1,4 @@
 import React from 'react';
-import './your-property.scss';
 import {Link} from 'react-router-dom';
 import {useFormik} from 'formik';
 import basePath from '../../assets/basePath';

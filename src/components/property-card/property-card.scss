@@ -5,9 +5,6 @@
     &-img-top {
         max-width: 100%;
         overflow: hidden;
-        /* &-wrapper {
-            max-height: 300px;
-        } */
     }
     &-subheader-top {
         display: flex;
@@ -31,7 +28,7 @@
         display: grid;
         align-items: center;
         grid-template-columns: 5fr 7fr;
-        @media only screen and (max-width: 767px) {
+        @media (max-width: 767px) {
             display: flex;
         }
     }

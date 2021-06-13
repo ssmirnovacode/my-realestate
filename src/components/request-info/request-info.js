@@ -1,5 +1,4 @@
 import React from 'react';
-import './request-info.scss';
 import ContactForm from  '../contact-form/contact-form';
 
 const RequestInfo = (props) => {

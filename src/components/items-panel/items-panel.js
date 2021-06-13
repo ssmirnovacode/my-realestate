@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './items-panel.scss';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError, setDeal, resetPriceFilters} from '../../redux/actions';
 import ItemsView from '../../components/items-view/items-view';

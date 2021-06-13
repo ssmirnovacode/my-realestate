@@ -8,33 +8,30 @@
         color: #343a40;
     }
     &>h1 {
-        @media only screen and (max-width: 470px) {
+        @media (max-width: 470px) {
             font-size: 1.9rem;
         }
     }
     &.drawer {
         text-align: right;
         margin-right: 2rem;
-        //font-family: $text-font;
     }
 }
 
 .navbar-toggler {
     display: none;
-    @media only screen and (max-width: 755px) {
+    @media (max-width: 755px) {
         display: inline-block;
     }
 }
 
 .nav.nav-pills {
     display: '';
-    @media only screen and (max-width: 755px) {
+    @media (max-width: 755px) {
         display: none;
     }
 }
 
 .activeItem {
-    /* background-color: $dark;
-    color: $white; */
     text-decoration: underline;
 }
