@@ -40,7 +40,7 @@ class ItemsPanel extends Component {
             prevProps.activeFilters.bedroomsMin !== this.props.activeFilters.bedroomsMin || 
             prevProps.activeFilters.bathroomsMin !== this.props.activeFilters.bathroomsMin   ) {
 
-            console.log(this.props.activeFilters);
+            //console.log(this.props.activeFilters);
             const itemsRef = firebase.database().ref(this.props.deal + '-items');
             itemsRef.on('value', (snapshot) => {
                 const items = snapshot.val();

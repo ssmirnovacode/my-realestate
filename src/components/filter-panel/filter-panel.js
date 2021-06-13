@@ -20,10 +20,8 @@ const FilterPanel = (props) => {
     const cities = getCities(items, comarca);
     
     const handlePropChange = (e) => {
-        if (e.target.tagName === 'INPUT') {
-            filtersObj[e.target.name]= !filtersObj[e.target.name];
-            props.setFilters(filtersObj);
-        }  
+        filtersObj[e.target.name]= !filtersObj[e.target.name];
+        props.setFilters(filtersObj);
     }
 
     const handleProvinceChange = (value) => {
@@ -73,21 +71,21 @@ const FilterPanel = (props) => {
     return(
         <div className="filter-panel">
 
-            <div className="filter-panel property-types mt-3 mb-3" onChange={(e) => handlePropChange(e)}>
+            <div className="filter-panel property-types mt-3 mb-3">
                 <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={apartment} name="apartment"  />
+                    <input className="form-check-input" type="checkbox" checked={apartment} name="apartment" onChange={(e) => handlePropChange(e)} />
                     <label className="form-check-label ml-1" htmlFor="apartment">Studio</label>
                 </div>
                 <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={flat} name="flat"  />
+                    <input className="form-check-input" type="checkbox" checked={flat} name="flat"  onChange={(e) => handlePropChange(e)} />
                     <label className="form-check-label ml-1" htmlFor="flat">Flat</label>
                 </div>
                 <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={house} name="house"  />
+                    <input className="form-check-input" type="checkbox" checked={house} name="house" onChange={(e) => handlePropChange(e)} />
                     <label className="form-check-label ml-1" htmlFor="house">House</label>
                 </div>
                 <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={duplex} name="duplex" />
+                    <input className="form-check-input" type="checkbox" checked={duplex} name="duplex" onChange={(e) => handlePropChange(e)} />
                     <label className="form-check-label ml-1" htmlFor="duplex">Duplex</label>
                 </div>
             </div>
