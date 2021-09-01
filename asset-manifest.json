@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/my-realestate/static/css/main.1741b2e5.chunk.css",
-    "main.js": "/my-realestate/static/js/main.f45d56a9.chunk.js",
-    "main.js.map": "/my-realestate/static/js/main.f45d56a9.chunk.js.map",
+    "main.css": "/my-realestate/static/css/main.92ac7a3e.chunk.css",
+    "main.js": "/my-realestate/static/js/main.5cfb6e8a.chunk.js",
+    "main.js.map": "/my-realestate/static/js/main.5cfb6e8a.chunk.js.map",
     "runtime-main.js": "/my-realestate/static/js/runtime-main.286b68c1.js",
     "runtime-main.js.map": "/my-realestate/static/js/runtime-main.286b68c1.js.map",
-    "static/js/2.2bda447e.chunk.js": "/my-realestate/static/js/2.2bda447e.chunk.js",
-    "static/js/2.2bda447e.chunk.js.map": "/my-realestate/static/js/2.2bda447e.chunk.js.map",
+    "static/js/2.3cf04aa3.chunk.js": "/my-realestate/static/js/2.3cf04aa3.chunk.js",
+    "static/js/2.3cf04aa3.chunk.js.map": "/my-realestate/static/js/2.3cf04aa3.chunk.js.map",
     "index.html": "/my-realestate/index.html",
-    "static/css/main.1741b2e5.chunk.css.map": "/my-realestate/static/css/main.1741b2e5.chunk.css.map",
-    "static/js/2.2bda447e.chunk.js.LICENSE.txt": "/my-realestate/static/js/2.2bda447e.chunk.js.LICENSE.txt"
+    "static/css/main.92ac7a3e.chunk.css.map": "/my-realestate/static/css/main.92ac7a3e.chunk.css.map",
+    "static/js/2.3cf04aa3.chunk.js.LICENSE.txt": "/my-realestate/static/js/2.3cf04aa3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.286b68c1.js",
-    "static/js/2.2bda447e.chunk.js",
-    "static/css/main.1741b2e5.chunk.css",
-    "static/js/main.f45d56a9.chunk.js"
+    "static/js/2.3cf04aa3.chunk.js",
+    "static/css/main.92ac7a3e.chunk.css",
+    "static/js/main.5cfb6e8a.chunk.js"
   ]
 }
