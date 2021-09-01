@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './details-page.scss';
 import PropertyCard from '../../components/property-card/property-card';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal} from '../../redux/actions';
+import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
+import { setDeal } from '../../redux/actions/filtersAC';
 import RequestInfo from '../../components/request-info/request-info';
 
 class DetailsPage extends Component {
@@ -52,9 +53,9 @@ class DetailsPage extends Component {
 /* "https://maps.google.com/maps?q=tarragona&t=&z=13&ie=UTF8&iwloc=&output=embed" */
 
 const mapStateToProps = (state) => ({
-    items: state.items,
-    loading: state.loading,
-    error: state.error,
+    items: state.properties.items,
+    loading: state.properties.loading,
+    error: state.properties.error,
     deal: state.deal
 });
 

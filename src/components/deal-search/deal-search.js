@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './deal-search.scss';
 import SearchForm from '../search-form/search-form';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal, resetPriceFilters} from '../../redux/actions';
+import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
+import { setDeal, resetPriceFilters } from '../../redux/actions/filtersAC';
 import ItemsView from '../items-view/items-view';
 import firebase from '../../firebase.config';
 
@@ -88,9 +89,9 @@ class DealSearch extends Component {
 };
 
 const mapStateToProps = (state) => ({
-    items: state.items,
-    loading: state.loading,
-    error: state.error,
+    items: state.properties.items,
+    loading: state.properties.loading,
+    error: state.properties.error,
     deal: state.deal
 });
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
+import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
+import { setDeal, setFilters } from '../../redux/actions/filtersAC';
 import {getCities, getComarcas} from '../../services/filterFunctions';
 import basePath from '../../assets/basePath';
 
@@ -94,9 +95,9 @@ const SearchForm = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    items: state.items,
-    loading: state.loading,
-    error: state.error,
+    items: state.properties.items,
+    loading: state.properties.loading,
+    error: state.properties.error,
     deal: state.deal,
     activeFilters: state.activeFilters
 });

@@ -49,9 +49,9 @@ const SearchPage = (props) => {
 
 const mapStateToProps = state => ({
     deal: state.deal,
-    items: state.items,
+    items: state.properties.items,
     activeFilters: state.activeFilters,
     sortBy: state.sortBy
 });
 
-export default connect(mapStateToProps/* , mapDispatchToProps */)(SearchPage);
+export default connect(mapStateToProps)(SearchPage);

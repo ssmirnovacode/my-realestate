@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal, resetPriceFilters} from '../../redux/actions';
+import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
+import { setDeal, resetPriceFilters } from '../../redux/actions/filtersAC';
 import ItemsView from '../../components/items-view/items-view';
 import firebase from '../../firebase.config';
 
@@ -64,9 +65,9 @@ class ItemsPanel extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    items: state.items,
-    loading: state.loading,
-    error: state.error,
+    items: state.properties.items,
+    loading: state.properties.loading,
+    error: state.properties.error,
     deal: state.deal,
     activeFilters: state.activeFilters
 });

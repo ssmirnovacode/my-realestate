@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {setFilters, setSortType} from '../../redux/actions';
+import {setFilters, setSortType} from '../../redux/actions/filtersAC';
 
 const SortPanel = (props) => {
 
