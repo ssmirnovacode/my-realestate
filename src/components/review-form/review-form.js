@@ -1,7 +1,7 @@
 import React from 'react';
 import './review-form.scss';
 import {useFormik} from 'formik';
-import {validateReview} from '../../services/validation';
+import {validateReview as validate} from '../../services/validation';
 import firebase from '../../firebase.config';
 
 const ReviewForm = () => {
@@ -11,9 +11,9 @@ const ReviewForm = () => {
             author: '',
             text: ''
         },
-        validateReview,
+        validate,
         onSubmit: (values, { resetForm }, e) => {
-            values.id = Math.random().toString();
+            //values.id = Math.random().toString();
             const requestRef = firebase.database().ref('reviews');
             requestRef.push(values);
             console.log(values);
@@ -30,7 +30,7 @@ const ReviewForm = () => {
                     {formik.errors.author ? <div className="errMess">{formik.errors.author}</div> : null}
             </div>
             <div className="form-group">
-                <textarea className="form-control" name="text" placeholder="Your feedback"
+                <textarea className="form-control" name="text" placeholder="Your feedback" required
                     onChange={formik.handleChange} value={formik.values.text} />
                     {formik.errors.text ? <div className="errMess">{formik.errors.text}</div> : null}
             </div>

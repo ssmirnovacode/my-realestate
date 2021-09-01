@@ -15,13 +15,14 @@ class Reviews extends Component {
         const itemsRef = firebase.database().ref('reviews');
         itemsRef.on('value', (snapshot) => {
             const items = snapshot.val();
+            console.log(items);
             if (items) {
-                /* const itemList = [];
+                const itemList = [];
                 for (let id in items) {
                     itemList.push({ id, ...items[id] });
                 };
-                console.log() */
-                this.props.reviewsLoaded(items);
+                console.log(itemList)
+                this.props.reviewsLoaded(itemList);
             }
             else {
                 this.props.reviewsError();
