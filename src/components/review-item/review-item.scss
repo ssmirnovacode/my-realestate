@@ -1,0 +1,14 @@
+@import '../../assets/variables.scss';
+
+
+.review_item {
+    border: 1px solid $dark;
+    border-radius: 0 15px 15px 15px;
+    box-shadow: 2px 2px 4px $dark;
+    margin: 1rem;
+    padding: 1rem;
+    &__author {
+        font-weight: bold;
+        margin-bottom: .7rem;
+    }
+}
