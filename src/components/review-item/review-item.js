@@ -5,7 +5,7 @@ const ReviewItem = ({ item }) => {
 
     return(
         <li className="review_item">
-            <div className="review_item__author">{item.author}</div>
+            <div className="review_item__author">{item.author}</div><hr/>
             <div className="review_item__text">{item.text}</div>
         </li>
     )

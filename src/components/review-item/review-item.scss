@@ -2,10 +2,10 @@
 
 
 .review_item {
-    border: 1px solid $dark;
+    border: 1px solid $light-grey;
     border-radius: 0 15px 15px 15px;
-    box-shadow: 2px 2px 4px $dark;
-    margin: 1rem;
+    box-shadow: 2px 2px 4px $light-grey;
+    margin: 1rem 0;
     padding: 1rem;
     &__author {
         font-weight: bold;

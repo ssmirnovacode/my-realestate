@@ -40,20 +40,27 @@ class Reviews extends Component {
         }
 
         else return(
-            <div className="reviews__wrapper">
-                <h3>Our clients about us:</h3>
-                <ul className="reviews__list">
-                {
-                    items.length === 0 ? <div>No reviews found</div> : 
-                        items.map(item => {
-                            return(
-                                <ReviewItem key={item.id} item={item} />
-                            )
-                        })
-                }
-                </ul>
-
-                <ReviewForm />
+            <div className="reviews__wrapper container">
+                <h3>Our clients about us:</h3><hr/>
+                <div className="row">
+                
+                    <div className="col-12 col-md-6">
+                        
+                        <ul className="reviews__list">
+                        {
+                            items.length === 0 ? <div>No reviews found</div> : 
+                                items.map(item => {
+                                    return(
+                                        <ReviewItem key={item.id} item={item} />
+                                    )
+                                })
+                        }
+                        </ul>
+                    </div>
+                    <div className="col-12 col-md-6">
+                        <ReviewForm />
+                    </div>
+                </div>
             </div>
         )
     }
