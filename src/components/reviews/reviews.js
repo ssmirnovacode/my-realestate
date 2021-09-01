@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import { reviewsRequested, reviewsLoaded, reviewsError } from '../../redux/actions/reviewsAC';
 import firebase from '../../firebase.config';
 import ReviewItem from '../review-item/review-item';
+import ReviewForm from '../review-form/review-form';
+import Loading from '../../components/loading/loading';
+import Error from '../../components/error/error';
 
 class Reviews extends Component {
 
@@ -27,8 +30,16 @@ class Reviews extends Component {
     }
 
     render() {
-        const { items } = this.props.reviews;
-        return(
+        const { items, loading, error } = this.props.reviews;
+
+        if (loading) {
+            return <Loading />
+        }
+        else if (error) {
+            return <Error />
+        }
+
+        else return(
             <div className="reviews__wrapper">
                 <h3>Our clients about us:</h3>
                 <ul className="reviews__list">
@@ -41,6 +52,8 @@ class Reviews extends Component {
                         })
                 }
                 </ul>
+
+                <ReviewForm />
             </div>
         )
     }
