@@ -1,4 +1,5 @@
 import React from 'react';
+import Reviews from '../../components/reviews/reviews';
 
 const AboutPage = () => {
 
@@ -16,6 +17,8 @@ const AboutPage = () => {
 
             With its broad portfolio of properties in the main Business Center Districts in Barcelona, MyRealEstate Offices and its specialized and highly qualified agents have extensive experience in this sector.
             </p>
+
+            <Reviews />
 
         </div>
     )

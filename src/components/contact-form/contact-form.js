@@ -36,7 +36,7 @@ const ContactForm = ({itemId='', formId}) => {
 
                 resetForm();
                 const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);
-        },
+        }
       });
 
     return(

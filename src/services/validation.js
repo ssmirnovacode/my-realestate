@@ -22,4 +22,23 @@ const validate = (values) => {
     return errors;
   };
 
+  export const validateReview = (values) => {
+    const errors = {};
+  
+    if (values.author.length > 0 && !/^[A-Za-z]+$/ig.test(values.author)) {
+        errors.author = 'Name can only contain letters';
+      }
+    
+    if (values.text.length < 5 ) {
+      errors.text = 'Your feedback must be at least 5 charactes long';
+    }
+
+    if (values.text.length > 1000 ) {
+      errors.text = 'Your feedback must be less than 1000 charactes long';
+    }
+  
+    return errors;
+  };
+
+
   export default validate;

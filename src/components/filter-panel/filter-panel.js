@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './filter-panel.scss';
 import {connect} from 'react-redux';
-import {setFilters} from '../../redux/actions';
+import {setFilters} from '../../redux/actions/filtersAC';
 import {getCities, getComarcas} from '../../services/filterFunctions';
 import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, priceRangeByDealFrom, priceRangeByDealTo} from '../../assets/filterArrays';
 
@@ -187,7 +187,7 @@ const FilterPanel = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    items: state.items,
+    items: state.properties.items,
     deal: state.deal,
     activeFilters: state.activeFilters
 });

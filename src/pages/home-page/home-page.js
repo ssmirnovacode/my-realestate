@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './home-page.scss';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {itemsLoaded, itemsRequested, itemsError, setDeal, setFilters} from '../../redux/actions';
+import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
+import { setDeal, setFilters } from '../../redux/actions/filtersAC';
 import ItemsView from '../../components/items-view/items-view';
 import basePath from '../../assets/basePath';
 import firebase from '../../firebase.config';
@@ -129,9 +130,9 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    items: state.items,
-    loading: state.loading,
-    error: state.error,
+    items: state.properties.items,
+    loading: state.properties.loading,
+    error: state.properties.error,
     deal: state.deal
 });
 
