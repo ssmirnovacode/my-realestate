@@ -4,6 +4,7 @@ import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/item
 import { setDeal, resetPriceFilters } from '../../redux/actions/filtersAC';
 import ItemsView from '../../components/items-view/items-view';
 import firebase from '../../firebase.config';
+import {filterItems, sortItems} from '../../services/filterFunctions';
 
 class ItemsPanel extends Component {
 
@@ -41,7 +42,6 @@ class ItemsPanel extends Component {
             prevProps.activeFilters.bedroomsMin !== this.props.activeFilters.bedroomsMin || 
             prevProps.activeFilters.bathroomsMin !== this.props.activeFilters.bathroomsMin   ) {
 
-            //console.log(this.props.activeFilters);
             const itemsRef = firebase.database().ref(this.props.deal + '-items');
             itemsRef.on('value', (snapshot) => {
                 const items = snapshot.val();
@@ -56,10 +56,18 @@ class ItemsPanel extends Component {
 
     render() {
 
-        const {loading, error} = this.props;
+        const {items, loading, error, activeFilters, sortBy} = this.props;
+
+        const filteredItems = filterItems(items, activeFilters);
+        const itemsToRender = sortItems(filteredItems, sortBy);
+
+        const count = filteredItems.length;
 
         return(
-            <ItemsView items={this.props.filteredItems} loading={loading} error={error} grid="" classnames="horizontal"/>
+            <>
+                <div className="mb-2"> {count} options found </div>
+                <ItemsView items={itemsToRender} loading={loading} error={error} grid="" classnames="horizontal"/>
+            </>
         )
     }
 }
@@ -69,7 +77,8 @@ const mapStateToProps = (state) => ({
     loading: state.properties.loading,
     error: state.properties.error,
     deal: state.deal,
-    activeFilters: state.activeFilters
+    activeFilters: state.activeFilters,
+    sortBy: state.sortBy
 });
 
 const mapDispatchToProps = {

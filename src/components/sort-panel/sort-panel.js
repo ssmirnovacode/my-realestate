@@ -8,7 +8,6 @@ const SortPanel = (props) => {
 
     const handleSort = (e) => {
         setSortType(e.target.value);
-        console.log(sortBy);
     }
 
     return(
