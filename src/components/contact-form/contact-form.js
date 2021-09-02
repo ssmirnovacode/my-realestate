@@ -3,7 +3,7 @@ import './contact-form.scss';
 import {Link} from 'react-router-dom';
 import { useFormik } from 'formik';
 import basePath from '../../assets/basePath';
-import validate from '../../services/validation';
+import validate from '../../utils/validation';
 import firebase from '../../firebase.config';
 
 const ContactForm = ({itemId='', formId}) => {

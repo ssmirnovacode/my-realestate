@@ -2,9 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useFormik} from 'formik';
 import basePath from '../../assets/basePath';
-import validate from '../../services/validation';
+import validate from '../../utils/validation';
 import firebase from '../../firebase.config';
-import { provinces } from '../../assets/filterArrays';
+import { provinces } from '../../utils/filterArrays';
 
 const YourProperty = (props) => {
 

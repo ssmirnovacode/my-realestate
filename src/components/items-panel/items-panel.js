@@ -4,7 +4,7 @@ import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/item
 import { setDeal, resetPriceFilters } from '../../redux/actions/filtersAC';
 import ItemsView from '../../components/items-view/items-view';
 import firebase from '../../firebase.config';
-import {filterItems, sortItems} from '../../services/filterFunctions';
+import {filterItems, sortItems} from '../../utils/filterFunctions';
 
 class ItemsPanel extends Component {
 

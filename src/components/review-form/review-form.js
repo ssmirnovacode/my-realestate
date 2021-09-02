@@ -1,7 +1,7 @@
 import React from 'react';
 import './review-form.scss';
 import {useFormik} from 'formik';
-import {validateReview as validate} from '../../services/validation';
+import {validateReview as validate} from '../../utils/validation';
 import firebase from '../../firebase.config';
 
 const ReviewForm = () => {

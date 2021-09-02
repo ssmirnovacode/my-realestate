@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
 import { setDeal, setFilters } from '../../redux/actions/filtersAC';
-import {getCities, getComarcas} from '../../services/filterFunctions';
-import { provinces } from '../../assets/filterArrays';
+import {getCities, getComarcas} from '../../utils/filterFunctions';
+import { provinces } from '../../utils/filterArrays';
 import basePath from '../../assets/basePath';
 
 const SearchForm = (props) => {

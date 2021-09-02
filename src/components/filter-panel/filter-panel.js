@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {setFilters} from '../../redux/actions/filtersAC';
-import {getCities, getComarcas} from '../../services/filterFunctions';
-import { propertyTypes, provinces } from '../../assets/filterArrays';
-import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, priceRangeByDealFrom, priceRangeByDealTo} from '../../assets/filterArrays';
+import {getCities, getComarcas} from '../../utils/filterFunctions';
+import { propertyTypes, provinces } from '../../utils/filterArrays';
+import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, priceRangeByDealFrom, priceRangeByDealTo} from '../../utils/filterArrays';
 
 const FilterPanel = (props) => {
  

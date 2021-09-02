@@ -16,7 +16,7 @@ class DetailsPage extends Component {
         const itemsRef = firebase.database().ref((this.props.deal ? this.props.deal : 'sale') + '-items/' + this.props.itemId);
             itemsRef.on('value', (snapshot) => {
                 const item = snapshot.val();
-                //console.log(item);
+                console.log(item);
                 item ? this.props.itemLoaded(item) : this.props.itemError();
             });
     }
