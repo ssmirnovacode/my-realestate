@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './details-page.scss';
 import PropertyCard from '../../components/property-card/property-card';
 import {connect} from 'react-redux';
-import {itemLoaded, itemRequested, itemError } from '../../redux/actions/itemDetailAC';
+import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
 import { setDeal } from '../../redux/actions/filtersAC';
 import RequestInfo from '../../components/request-info/request-info';
 import firebase from '../../firebase.config';
@@ -12,17 +12,41 @@ import Error from '../../components/error/error';
 class DetailsPage extends Component {
 
     componentDidMount() {
-        this.props.itemRequested();
-        const itemsRef = firebase.database().ref((this.props.deal ? this.props.deal : 'sale') + '-items/' + this.props.itemId);
-            itemsRef.on('value', (snapshot) => {
-                const item = snapshot.val();
-                console.log(item);
-                item ? this.props.itemLoaded(item) : this.props.itemError();
-            });
+        this.props.itemsRequested();
+        const allItems = [];
+        //const itemsRef = firebase.database().ref((this.props.deal ? this.props.deal : 'sale') + '-items');
+        const saleItemsRef = firebase.database().ref('sale-items');
+        const rentItemsRef = firebase.database().ref('rent-items');
+        saleItemsRef.on('value', (snapshot) => {
+            const items = snapshot.val();
+            if (items) {
+                //const itemList = [];
+                for (let id in items) {
+                    allItems.push({ id, ...items[id] });
+                };
+                //this.props.itemsLoaded(allItems);
+            }
+            else {
+                this.props.itemsError();
+            }
+        });
+        rentItemsRef.on('value', (snapshot) => {
+            const items = snapshot.val();
+            if (items) {
+                //const itemList = [];
+                for (let id in items) {
+                    allItems.push({ id, ...items[id] });
+                };
+                this.props.itemsLoaded(allItems);
+            }
+            else {
+                this.props.itemsError();
+            }
+        });
     }
 
     render() {
-        const { itemId, item, loading, error } = this.props;
+        const { itemId, items, loading, error } = this.props;
 
         if (loading) {
             return <Loading />
@@ -31,6 +55,7 @@ class DetailsPage extends Component {
             return <Error />
         }
 
+        const item = items.find(el => el.id === itemId);
         const {...itemProps} = item;
 
         return(
@@ -69,16 +94,16 @@ class DetailsPage extends Component {
 /* "https://maps.google.com/maps?q=tarragona&t=&z=13&ie=UTF8&iwloc=&output=embed" */
 
 const mapStateToProps = (state) => ({
-    item: state.itemDetail.item,
-    loading: state.itemDetail.loading,
-    error: state.itemDetail.error,
+    items: state.properties.items,
+    loading: state.properties.loading,
+    error: state.properties.error,
     deal: state.deal
 });
 
 const mapDispatchToProps = {
-    itemLoaded,
-    itemRequested,
-    itemError, 
+    itemsLoaded,
+    itemsRequested,
+    itemsError, 
     setDeal
 };
 

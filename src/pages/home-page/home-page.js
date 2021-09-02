@@ -53,6 +53,7 @@ class Home extends Component {
     render() {
         const {items, loading, error} = this.props;
 
+
         return(
             <div className="container">
                 
