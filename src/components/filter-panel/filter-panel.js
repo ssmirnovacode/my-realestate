@@ -12,12 +12,13 @@ const FilterPanel = (props) => {
 
     const {items, setFilters, deal} = props;  
 
-    const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
+    const {province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
 
     const propertyTypes = ['apartment', 'flat', 'house', 'duplex']
 
     let filtersObj = {...props.activeFilters};
 
+    const provinces = ['Barcelona', 'Tarragona', 'Lleida', 'Girona'];
     const comarcas = getComarcas(items, province); 
     const cities = getCities(items, comarca);
     
@@ -90,10 +91,13 @@ const FilterPanel = (props) => {
                 <select value={province} className="custom-select mb-2" name="province"
                     onChange={(e) => handleProvinceChange(e.target.value)}>
                     <option value='all'>All</option>
-                    <option value="Barcelona">Barcelona</option>
-                    <option value="Tarragona">Tarragona</option>
-                    <option value="Lleida">Lleida</option>
-                    <option value="Girona">Girona</option>
+                    {
+                        provinces.map((p,i) => {
+                            return(
+                                <option key={p+i} value={p}>{p}</option>
+                            )
+                        })
+                    }
                 </select>
                 <select value={comarca} className="custom-select mb-2" name="comarca"
                     onChange={(e) => handleComarcaChange(e.target.value)}>
