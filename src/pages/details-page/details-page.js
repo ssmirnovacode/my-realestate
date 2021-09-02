@@ -9,10 +9,9 @@ import RequestInfo from '../../components/request-info/request-info';
 class DetailsPage extends Component {
 
     render() {
-        //console.log(this.props.itemId);
         const {itemId, items} = this.props;
         const targetItem = items.length > 0 ? items.filter(item => item.id === itemId)[0] : JSON.parse(localStorage.getItem(itemId));
-        //console.log(targetItem);
+        
         localStorage.setItem(itemId, JSON.stringify(targetItem));
 
         const {...itemProps} = targetItem;

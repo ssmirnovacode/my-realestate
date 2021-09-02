@@ -4,6 +4,7 @@ import {useFormik} from 'formik';
 import basePath from '../../assets/basePath';
 import validate from '../../services/validation';
 import firebase from '../../firebase.config';
+import { provinces } from '../../assets/filterArrays';
 
 const YourProperty = (props) => {
 
@@ -60,10 +61,13 @@ const YourProperty = (props) => {
                                     onChange={formik.handleChange} value={formik.values.zipcode}/>                       
                                 <select className="custom-select" name="province"
                                         onChange={formik.handleChange} value={formik.values.province}>
-                                    <option value="Barcelona">Barcelona</option>
-                                    <option value="Tarragona">Tarragona</option>
-                                    <option value="Lleida">Lleida</option>
-                                    <option value="Girona">Girona</option>
+                                    {
+                                        provinces.map((p,i) => {
+                                            return(
+                                                <option key={p+i} value={p}>{p}</option>
+                                            )
+                                        })
+                                    }
                                 </select>
                             </div>
                             <div className="input-group mb-3">
