@@ -14,6 +14,8 @@ const FilterPanel = (props) => {
 
     const {apartment, flat, house, duplex, province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
 
+    const propertyTypes = ['apartment', 'flat', 'house', 'duplex']
+
     let filtersObj = {...props.activeFilters};
 
     const comarcas = getComarcas(items, province); 
@@ -70,24 +72,18 @@ const FilterPanel = (props) => {
 
     return(
         <div className="filter-panel">
-
             <div className="filter-panel property-types mt-3 mb-3">
-                <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={apartment} name="apartment" onChange={(e) => handlePropChange(e)} />
-                    <label className="form-check-label ml-1" htmlFor="apartment">Studio</label>
-                </div>
-                <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={flat} name="flat"  onChange={(e) => handlePropChange(e)} />
-                    <label className="form-check-label ml-1" htmlFor="flat">Flat</label>
-                </div>
-                <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={house} name="house" onChange={(e) => handlePropChange(e)} />
-                    <label className="form-check-label ml-1" htmlFor="house">House</label>
-                </div>
-                <div className="form-check mb-1">
-                    <input className="form-check-input" type="checkbox" checked={duplex} name="duplex" onChange={(e) => handlePropChange(e)} />
-                    <label className="form-check-label ml-1" htmlFor="duplex">Duplex</label>
-                </div>
+                {
+                    propertyTypes.map(item => {
+                        return(
+                            <div className="form-check mb-1">
+                                <input className="form-check-input" type="checkbox" checked={props.activeFilters[item]} 
+                                name={item}  onChange={(e) => handlePropChange(e)} />
+                                <label className="form-check-label ml-1" htmlFor={item}>{item.slice(0,1).toUpperCase() + item.slice(1)}</label>
+                            </div> 
+                        )
+                    })
+                }
             </div>
 
             <div className="filter-panel zone mt-2">
