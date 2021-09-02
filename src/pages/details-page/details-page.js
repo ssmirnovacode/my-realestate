@@ -9,13 +9,43 @@ import firebase from '../../firebase.config';
 import Loading from '../../components/loading/loading';
 import Error from '../../components/error/error';
 
+const fetchItems = (dealType, allItemsArr) => {
+
+    const itemsRef = firebase.database().ref(`${dealType}-items`);
+        itemsRef.on('value', (snapshot) => {
+            const items = snapshot.val();
+            if (items) {
+                //const itemList = [];
+                for (let id in items) {
+                    allItemsArr.push({ id, ...items[id] });
+                };
+                //console.log(allItemsArr)
+                
+            }
+            console.log(allItemsArr)
+            return allItemsArr;
+        });
+}
+
 class DetailsPage extends Component {
 
     componentDidMount() {
         this.props.itemsRequested();
-        const allItems = [];
+        const arr = [];
+        let allItems;
+        if (this.props.deal) {
+            console.log(fetchItems('sale', arr));
+            //console.log(fetchItems(this.props.deal, arr));
+            allItems = fetchItems(this.props.deal, arr);
+            //console.log(allItems);
+        }
+        else {
+            allItems = [...fetchItems('sale', arr), ...fetchItems('rent', arr)];
+        }
+        allItems ? this.props.itemsLoaded(allItems) : this.props.itemsError();
+
         //const itemsRef = firebase.database().ref((this.props.deal ? this.props.deal : 'sale') + '-items');
-        const saleItemsRef = firebase.database().ref('sale-items');
+        /* const saleItemsRef = firebase.database().ref('sale-items');
         const rentItemsRef = firebase.database().ref('rent-items');
         saleItemsRef.on('value', (snapshot) => {
             const items = snapshot.val();
@@ -42,7 +72,7 @@ class DetailsPage extends Component {
             else {
                 this.props.itemsError();
             }
-        });
+        }); */
     }
 
     render() {
