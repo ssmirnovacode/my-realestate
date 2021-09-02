@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
 import { setDeal, setFilters } from '../../redux/actions/filtersAC';
 import {getCities, getComarcas} from '../../services/filterFunctions';
+import { provinces } from '../../assets/filterArrays';
 import basePath from '../../assets/basePath';
 
 const SearchForm = (props) => {
@@ -16,7 +17,6 @@ const SearchForm = (props) => {
     const comarcas = getComarcas(items, province); 
     const cities = getCities(items, comarca); 
 
-//Event handlers
     const handleSubmit = (e) => {
         e.preventDefault();
         props.history.push(`${basePath}/search`);
@@ -50,10 +50,13 @@ const SearchForm = (props) => {
                     <select value={province} className="custom-select" name="province"
                     onChange={(e) => handleProvinceChange(e.target.value)}>
                         <option value='all'>All</option>
-                        <option value="Barcelona">Barcelona</option>
-                        <option value="Tarragona">Tarragona</option>
-                        <option value="Lleida">Lleida</option>
-                        <option value="Girona">Girona</option>
+                        {
+                            provinces.map((p,i) => {
+                                return(
+                                    <option key={p+i} value={p}>{p}</option>
+                                )
+                            })
+                        }
                     </select>
                     </div>
                     

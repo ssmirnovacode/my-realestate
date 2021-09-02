@@ -288,4 +288,6 @@ const priceRangeByDealTo = (deal) => deal === 'sale' ? <>
         {priceToArrRent.map(item => <option key={'priceToRent' + item.value} value={item.value}>{item.label}</option>)} 
         </> ;
 
-export {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, propertyTypes, priceRangeByDealFrom, priceRangeByDealTo};
+const provinces = ['Barcelona', 'Tarragona', 'Lleida', 'Girona'];
+
+export {provinces, bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, propertyTypes, priceRangeByDealFrom, priceRangeByDealTo};

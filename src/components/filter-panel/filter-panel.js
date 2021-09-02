@@ -3,7 +3,7 @@ import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {setFilters} from '../../redux/actions/filtersAC';
 import {getCities, getComarcas} from '../../services/filterFunctions';
-import { propertyTypes } from '../../assets/filterArrays';
+import { propertyTypes, provinces } from '../../assets/filterArrays';
 import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, priceRangeByDealFrom, priceRangeByDealTo} from '../../assets/filterArrays';
 
 const FilterPanel = (props) => {
@@ -14,10 +14,9 @@ const FilterPanel = (props) => {
     const {items, setFilters, deal} = props;  
 
     const {province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
-    
+
     let filtersObj = {...props.activeFilters};
 
-    const provinces = ['Barcelona', 'Tarragona', 'Lleida', 'Girona'];
     const comarcas = getComarcas(items, province); 
     const cities = getCities(items, comarca);
     
@@ -102,9 +101,9 @@ const FilterPanel = (props) => {
                     onChange={(e) => handleComarcaChange(e.target.value)}>
                         <option value='all'>All</option>
                         {
-                            comarcas.map( com => {
+                            comarcas.map( (com, i) => {
                                 return(
-                                    <option key={com} value={com} >{com}</option>
+                                    <option key={com+i} value={com} >{com}</option>
                                 )
                             })
                         }
@@ -113,9 +112,9 @@ const FilterPanel = (props) => {
                     onChange={(e) => handleCityChange(e.target.value)}>
                         <option value='all'>All</option>
                     {
-                            cities.map( item => {
+                            cities.map( (item, i) => {
                                 return(
-                                    <option key={item} value={item} >{item}</option>
+                                    <option key={item+i} value={item} >{item}</option>
                                 )
                             })
                         }

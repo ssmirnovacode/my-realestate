@@ -12,11 +12,9 @@ const ReviewForm = () => {
             text: ''
         },
         validate,
-        onSubmit: (values, { resetForm }, e) => {
-            //values.id = Math.random().toString();
+        onSubmit: (values, { resetForm }) => {
             const requestRef = firebase.database().ref('reviews');
             requestRef.push(values);
-            console.log(values);
             resetForm();
         }
       });

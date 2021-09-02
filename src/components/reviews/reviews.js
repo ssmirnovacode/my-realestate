@@ -15,13 +15,11 @@ class Reviews extends Component {
         const itemsRef = firebase.database().ref('reviews');
         itemsRef.on('value', (snapshot) => {
             const items = snapshot.val();
-            console.log(items);
             if (items) {
                 const itemList = [];
                 for (let id in items) {
                     itemList.push({ id, ...items[id] });
                 };
-                console.log(itemList)
                 this.props.reviewsLoaded(itemList);
             }
             else {
@@ -43,10 +41,8 @@ class Reviews extends Component {
         else return(
             <div className="reviews__wrapper container">
                 <h3>Our clients about us:</h3><hr/>
-                <div className="row">
-                
+                <div className="row">               
                     <div className="col-12 col-md-6">
-                        
                         <ul className="reviews__list">
                         {
                             items.length === 0 ? <div>No reviews found</div> : 
