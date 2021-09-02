@@ -125,7 +125,7 @@ const sqmSortOptionsTo = [
 const propertyTypes = [
     {
         value: 'apartment',
-        label: 'Studio'
+        label: 'Apartment'
     },
     {
         value: 'flat',

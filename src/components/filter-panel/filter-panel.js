@@ -3,6 +3,7 @@ import './filter-panel.scss';
 import {connect} from 'react-redux';
 import {setFilters} from '../../redux/actions/filtersAC';
 import {getCities, getComarcas} from '../../services/filterFunctions';
+import { propertyTypes } from '../../assets/filterArrays';
 import {bedroomBtns, bathroomBtns, sqmSortOptionsFrom, sqmSortOptionsTo, priceRangeByDealFrom, priceRangeByDealTo} from '../../assets/filterArrays';
 
 const FilterPanel = (props) => {
@@ -13,9 +14,7 @@ const FilterPanel = (props) => {
     const {items, setFilters, deal} = props;  
 
     const {province, comarca, city, priceFrom, priceTo, sqmFrom, sqmTo} = props.activeFilters;
-
-    const propertyTypes = ['apartment', 'flat', 'house', 'duplex']
-
+    
     let filtersObj = {...props.activeFilters};
 
     const provinces = ['Barcelona', 'Tarragona', 'Lleida', 'Girona'];
@@ -78,9 +77,9 @@ const FilterPanel = (props) => {
                     propertyTypes.map(item => {
                         return(
                             <div className="form-check mb-1">
-                                <input className="form-check-input" type="checkbox" checked={props.activeFilters[item]} 
-                                name={item}  onChange={(e) => handlePropChange(e)} />
-                                <label className="form-check-label ml-1" htmlFor={item}>{item.slice(0,1).toUpperCase() + item.slice(1)}</label>
+                                <input className="form-check-input" type="checkbox" checked={props.activeFilters[item.value]} 
+                                name={item.value}  onChange={(e) => handlePropChange(e)} />
+                                <label className="form-check-label ml-1" htmlFor={item.value}>{item.label}</label>
                             </div> 
                         )
                     })
