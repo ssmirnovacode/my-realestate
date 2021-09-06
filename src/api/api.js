@@ -15,3 +15,11 @@ export const getItemById = async (id) => {
     }
     return await res.json();
 }
+
+export const getFeedback = async () => {
+    const res = await fetch(baseUrl + 'feedback/');
+    if (!res.ok) {
+        throw new Error('Could not fetch reviews');
+    }
+    return await res.json();
+}

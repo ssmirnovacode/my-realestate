@@ -35,6 +35,7 @@ class ItemsPanel extends Component {
 
             getItems(this.props.deal)
             .then(res => {
+                console.log(res.items);
                 res.items.length > 0 ? this.props.itemsLoaded(res.items) : this.props.itemsError()
             })
             .catch(err => console.log(err));
@@ -42,12 +43,10 @@ class ItemsPanel extends Component {
     }
 
     render() {
-
         const {items, loading, error, activeFilters, sortBy} = this.props;
 
-        const filteredItems = filterItems(items, activeFilters);
+        const filteredItems = filterItems(items, activeFilters); 
         const itemsToRender = sortItems(filteredItems, sortBy);
-
         const count = filteredItems.length;
 
         return(

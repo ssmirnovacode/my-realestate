@@ -6,15 +6,15 @@ import ReviewItem from '../review-item/review-item';
 import ReviewForm from '../review-form/review-form';
 import Loading from '../../components/loading/loading';
 import Error from '../../components/error/error';
-import { getItems } from '../../api/api';
+import { getFeedback } from '../../api/api';
 
 class Reviews extends Component {
 
     componentDidMount() {
         this.props.reviewsRequested();
-        getItems('feedback')
+        getFeedback()
         .then(res => {
-            res.length > 0 ? this.props.reviewsLoaded(res) : this.props.reviewsError()
+            res.reviews.length > 0 ? this.props.reviewsLoaded(res.reviews) : this.props.reviewsError()
         })
     }
 
