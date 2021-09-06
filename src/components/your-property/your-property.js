@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useFormik} from 'formik';
 import basePath from '../../assets/basePath';
 import validate from '../../utils/validation';
 import { provinces } from '../../utils/filterArrays';
 import { postRequest } from '../../api/api';
+import './your-property.scss';
 
-const YourProperty = (props) => {
+const YourProperty = () => {
 
-    //const {formId} = props;
+    const [message, setMessage] = useState({
+        type: '',
+        text: ''
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -21,27 +25,32 @@ const YourProperty = (props) => {
             lastname: '',
             phone: '',
             email: '',
-            comments: ''/* ,
-            privacy: '' */
+            comments: ''
         },
         validate,
         onSubmit: (values, { resetForm }, e) => {
 
-            const messageBlock = document.createElement('div');
-            document.getElementById('your-property-form').parentNode.appendChild(messageBlock);
-            messageBlock.style.fontSize = '.8rem';
-            messageBlock.style.fontWeight = 'bold';
-
             postRequest(values, 'send-request')
             .then(res => {
-                messageBlock.innerHTML = res.message;
-                messageBlock.style.color = "green";
+                setMessage({
+                    type: 'success',
+                    text: res.message 
+                })
                 resetForm();
-                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);
+                const timerId = setTimeout( (() => {setMessage({
+                    type: '',
+                    text: null
+                }); clearInterval(timerId)}), 4000);
             })
             .catch(err => {
-                messageBlock.innerHTML = err.message;
-                messageBlock.style.color = "red";
+                setMessage({
+                    type: 'error',
+                    text: err.message
+                })
+                const timerId = setTimeout( (() => {setMessage({
+                    type: '',
+                    text: null
+                }); clearInterval(timerId)}), 4000);
             })
         },
       });
@@ -112,6 +121,7 @@ const YourProperty = (props) => {
                     </div>
 
                     <button type="submit" className="btn btn-primary mt-3 mb-3">Submit</button>
+                    <div className={message.type === 'success' ? "message message_success" : "message message_error" }>{message.text}</div>
                 </form>
             </section>
     )
