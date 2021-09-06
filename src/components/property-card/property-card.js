@@ -8,7 +8,7 @@ const PropertyCard = (props) => {
     const {_id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms, classnames, slider, images} = props;
 
 
-    const imgBlock = slider ? {/* <Carousel images={images} title={title} /> */} : <Link to={`properties/${_id}`}><div className="card-img-top-wrapper"><img className="card-img-top" src={img} alt={title} /></div></Link>;
+    const imgBlock = slider ?  <Carousel images={images} title={title} />  : <Link to={`properties/${_id}`}><div className="card-img-top-wrapper"><img className="card-img-top" src={img} alt={title} /></div></Link>;
     
     return(
         <div className={"card mb-5 " + classnames} >
