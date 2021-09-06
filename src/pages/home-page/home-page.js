@@ -15,7 +15,7 @@ class Home extends Component {
         this.props.setDeal('sale');
         getItems(this.props.deal)
         .then(res => {
-            console.log(res.items);
+            //console.log(res.items);
             res? this.props.itemsLoaded(res.items) : this.props.itemsError()
         })
         .catch(err => console.log(err));

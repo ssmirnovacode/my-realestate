@@ -5,8 +5,6 @@ import Error from '../../components/error/error';
 
 const ItemsView = ({loading=false, error=false, items, grid=null, classnames='', lastItem=10000}) => {
 
-    console.log('view' + items);
-
     if (loading) {
         return <Loading />
     }

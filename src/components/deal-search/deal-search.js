@@ -15,7 +15,7 @@ class DealSearch extends Component {
         this.props.setDeal(this.props.dealType);
         getItems(this.props.dealType)
         .then(res => {
-            res.length > 0 ? this.props.itemsLoaded(res) : this.props.itemsError()
+            res.items.length > 0 ? this.props.itemsLoaded(res.items) : this.props.itemsError()
         })
         .catch(err => console.log(err));
     }

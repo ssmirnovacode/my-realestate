@@ -13,7 +13,7 @@ class ItemsPanel extends Component {
         this.props.resetPriceFilters();
         getItems(this.props.deal ? this.props.deal : 'sale')
         .then(res => {
-            res.length > 0 ? this.props.itemsLoaded(res) : this.props.itemsError()
+            res.items.length > 0 ? this.props.itemsLoaded(res.items) : this.props.itemsError()
         })
         .catch(err => console.log(err));
     }
@@ -35,7 +35,7 @@ class ItemsPanel extends Component {
 
             getItems(this.props.deal)
             .then(res => {
-                res.length > 0 ? this.props.itemsLoaded(res) : this.props.itemsError()
+                res.items.length > 0 ? this.props.itemsLoaded(res.items) : this.props.itemsError()
             })
             .catch(err => console.log(err));
         }

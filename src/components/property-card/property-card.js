@@ -6,10 +6,9 @@ import Carousel from '../carousel/carousel';
 const PropertyCard = (props) => {
 
     const {_id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms, classnames, slider, images} = props;
-   //console.log(typeof _id);
-    const id = _id.toString();
 
-    const imgBlock = slider ? {/* <Carousel images={images} title={title} /> */} : <Link to={`properties/${id}`}><div className="card-img-top-wrapper"><img className="card-img-top" src={img} alt={title} /></div></Link>;
+
+    const imgBlock = slider ? {/* <Carousel images={images} title={title} /> */} : <Link to={`properties/${_id}`}><div className="card-img-top-wrapper"><img className="card-img-top" src={img} alt={title} /></div></Link>;
     
     return(
         <div className={"card mb-5 " + classnames} >
@@ -27,7 +26,7 @@ const PropertyCard = (props) => {
                     classnames ? <div className="card-text mb-2 mt-2">{text}</div> : null
                 }
                 <div className="card-space">{surface} m<sup>2</sup> | {bedrooms} bedrooms | {bathrooms} bathrooms</div>
-                <Link to={`properties/${id}`} className="btn btn-primary mt-2">Request information</Link>
+                <Link to={`properties/${_id}`} className="btn btn-primary mt-2">Request information</Link>
             </div>
         </div>
     )
