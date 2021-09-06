@@ -35,3 +35,15 @@ export const postFeedback = async (data) => {
     }
     return await res.json();
 }
+
+export const postRequest = async (data, endpoint) => {
+    const res = await fetch(baseUrl + endpoint, {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json'},
+        body: JSON.stringify(data)
+    });
+    if (!res.ok) {
+        throw new Error('Could not fetch reviews');
+    }
+    return await res.json();
+}

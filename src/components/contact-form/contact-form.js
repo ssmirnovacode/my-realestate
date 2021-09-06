@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import { useFormik } from 'formik';
 import basePath from '../../assets/basePath';
 import validate from '../../utils/validation';
+import { postRequest } from '../../api/api';
 
 const ContactForm = ({itemId='', formId}) => {
   
@@ -26,15 +27,18 @@ const ContactForm = ({itemId='', formId}) => {
             document.getElementById(formId).parentNode.appendChild(messageBlock);
             messageBlock.style.fontSize = '.8rem';
             messageBlock.style.fontWeight = 'bold';
-/* 
-            const requestRef = firebase.database().ref('requests');
-                requestRef.push(values);
-                console.log(values);
-                messageBlock.innerHTML = 'Thank you! We will contact you soon';
-                messageBlock.style.color = "green";
 
+            postRequest(values, 'contact')
+            .then(res => {
+                messageBlock.innerHTML = res.message;
+                messageBlock.style.color = "green";
                 resetForm();
-                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000); */
+                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);
+            })
+            .catch(err => {
+                messageBlock.innerHTML = err.message;
+                messageBlock.style.color = "red";
+            })
         }
       });
 
