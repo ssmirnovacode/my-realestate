@@ -4,6 +4,7 @@ import {useFormik} from 'formik';
 import basePath from '../../assets/basePath';
 import validate from '../../utils/validation';
 import { provinces } from '../../utils/filterArrays';
+import { postRequest } from '../../api/api';
 
 const YourProperty = (props) => {
 
@@ -31,14 +32,17 @@ const YourProperty = (props) => {
             messageBlock.style.fontSize = '.8rem';
             messageBlock.style.fontWeight = 'bold';
 
-           /*  const requestRef = firebase.database().ref('requests');
-                requestRef.push(values);
-                console.log(values);
-                messageBlock.innerHTML = 'Thank you! We will contact you soon';
-                messageBlock.style.color = "green"; */
-
+            postRequest(values, 'send-request')
+            .then(res => {
+                messageBlock.innerHTML = res.message;
+                messageBlock.style.color = "green";
                 resetForm();
                 const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);
+            })
+            .catch(err => {
+                messageBlock.innerHTML = err.message;
+                messageBlock.style.color = "red";
+            })
         },
       });
 
