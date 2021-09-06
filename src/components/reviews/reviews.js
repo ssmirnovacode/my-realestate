@@ -18,6 +18,16 @@ class Reviews extends Component {
         })
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.reviews.length !== this.props.reviews.length) {
+            this.props.reviewsRequested();
+            getFeedback()
+            .then(res => {
+                res.reviews.length > 0 ? this.props.reviewsLoaded(res.reviews) : this.props.reviewsError()
+            })
+        }
+    }
+
     render() {
         const { items, loading, error } = this.props.reviews;
 
@@ -38,7 +48,7 @@ class Reviews extends Component {
                             items.length === 0 ? <div>No reviews found</div> : 
                                 items.map(item => {
                                     return(
-                                        <ReviewItem key={item.id} item={item} />
+                                        <ReviewItem key={item._id} item={item} />
                                     )
                                 })
                         }

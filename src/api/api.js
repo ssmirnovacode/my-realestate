@@ -17,7 +17,19 @@ export const getItemById = async (id) => {
 }
 
 export const getFeedback = async () => {
-    const res = await fetch(baseUrl + 'feedback/');
+    const res = await fetch(baseUrl + 'feedback');
+    if (!res.ok) {
+        throw new Error('Could not fetch reviews');
+    }
+    return await res.json();
+}
+
+export const postFeedback = async (data) => {
+    const res = await fetch(baseUrl + 'feedback', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json'},
+        body: JSON.stringify(data)
+    });
     if (!res.ok) {
         throw new Error('Could not fetch reviews');
     }

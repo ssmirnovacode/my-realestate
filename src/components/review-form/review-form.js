@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './review-form.scss';
 import {useFormik} from 'formik';
 import {validateReview as validate} from '../../utils/validation';
+import { postFeedback } from '../../api/api';
 
 const ReviewForm = () => {
+
+    const [message, setMessage] = useState(null);
 
     const formik = useFormik({
         initialValues: {
@@ -12,9 +15,15 @@ const ReviewForm = () => {
         },
         validate,
         onSubmit: (values, { resetForm }) => {
+            postFeedback(values)
+            .then(res => {
+                setMessage(res.message);
+                resetForm();
+            })
+            .catch(err => console.log(err));
             /* const requestRef = firebase.database().ref('reviews');
             requestRef.push(values);
-            resetForm(); */
+             */
         }
       });
 
@@ -32,6 +41,7 @@ const ReviewForm = () => {
                     {formik.errors.text ? <div className="errMess">{formik.errors.text}</div> : null}
             </div>
             <button type="submit" className="btn btn-primary mt-3">Submit</button>
+            <div className="message">{message}</div>
         </form>
     )
 };
