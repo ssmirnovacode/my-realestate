@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {useFormik} from 'formik';
 import basePath from '../../assets/basePath';
 import validate from '../../utils/validation';
-import firebase from '../../firebase.config';
 import { provinces } from '../../utils/filterArrays';
 
 const YourProperty = (props) => {
@@ -32,11 +31,11 @@ const YourProperty = (props) => {
             messageBlock.style.fontSize = '.8rem';
             messageBlock.style.fontWeight = 'bold';
 
-            const requestRef = firebase.database().ref('requests');
+           /*  const requestRef = firebase.database().ref('requests');
                 requestRef.push(values);
                 console.log(values);
                 messageBlock.innerHTML = 'Thank you! We will contact you soon';
-                messageBlock.style.color = "green";
+                messageBlock.style.color = "green"; */
 
                 resetForm();
                 const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);

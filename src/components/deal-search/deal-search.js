@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/itemsAC';
 import { setDeal, resetPriceFilters } from '../../redux/actions/filtersAC';
 import ItemsView from '../items-view/items-view';
-import firebase from '../../firebase.config';
+import { getItems } from '../../api/api';
 
 class DealSearch extends Component {
 
@@ -13,20 +13,11 @@ class DealSearch extends Component {
         this.props.itemsRequested();
         this.props.resetPriceFilters();
         this.props.setDeal(this.props.dealType);
-        const itemsRef = firebase.database().ref(this.props.additionalURL);
-        itemsRef.on('value', (snapshot) => {
-            const items = snapshot.val();
-            if (items) {
-                const itemList = [];
-                for (let id in items) {
-                    itemList.push({ id, ...items[id] });
-                };
-                this.props.itemsLoaded(itemList);
-            }
-            else {
-                this.props.itemsError();
-            }
-        });
+        getItems(this.props.dealType)
+        .then(res => {
+            res.length > 0 ? this.props.itemsLoaded(res) : this.props.itemsError()
+        })
+        .catch(err => console.log(err));
     }
 
     render() {

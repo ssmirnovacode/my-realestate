@@ -2,7 +2,6 @@ import React from 'react';
 import './review-form.scss';
 import {useFormik} from 'formik';
 import {validateReview as validate} from '../../utils/validation';
-import firebase from '../../firebase.config';
 
 const ReviewForm = () => {
 
@@ -13,9 +12,9 @@ const ReviewForm = () => {
         },
         validate,
         onSubmit: (values, { resetForm }) => {
-            const requestRef = firebase.database().ref('reviews');
+            /* const requestRef = firebase.database().ref('reviews');
             requestRef.push(values);
-            resetForm();
+            resetForm(); */
         }
       });
 

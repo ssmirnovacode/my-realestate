@@ -31,7 +31,7 @@ const App = (props) => {
                             <Route path={`${basePath}/contact`} component={ContactPage} />
                             <Route path={`${basePath}/properties/:id`} render={ ({match}) => {
                                 const {id} = match.params;
-                                return <DetailsPage itemId={+id}/>
+                                return <DetailsPage itemId={id}/>
                             }}/>
                             <Route path={`${basePath}/privacy`} component={PrivacyPage} />
                         </div>

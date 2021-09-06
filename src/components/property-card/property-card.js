@@ -5,16 +5,18 @@ import Carousel from '../carousel/carousel';
 
 const PropertyCard = (props) => {
 
-    const {id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms, classnames, slider, images} = props;
+    const {_id, img, title, text, province, comarca, city, type, surface, price, bedrooms, bathrooms, classnames, slider, images} = props;
+   //console.log(typeof _id);
+    const id = _id.toString();
 
-    const imgBlock = slider ? <Carousel images={images} title={title} /> : <Link to={`properties/${id}`}><div className="card-img-top-wrapper"><img className="card-img-top" src={img} alt={title} /></div></Link>;
+    const imgBlock = slider ? {/* <Carousel images={images} title={title} /> */} : <Link to={`properties/${id}`}><div className="card-img-top-wrapper"><img className="card-img-top" src={img} alt={title} /></div></Link>;
     
     return(
         <div className={"card mb-5 " + classnames} >
             {imgBlock}
             <div className="card-body">
                 <div className="card-subheader-top">
-                    <div className="card-id">{id}</div>
+                    <div className="card-id">{_id}</div>
                     <div className="card-price">{price} &#8364; </div>
                 </div>
                 

@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import { useFormik } from 'formik';
 import basePath from '../../assets/basePath';
 import validate from '../../utils/validation';
-import firebase from '../../firebase.config';
 
 const ContactForm = ({itemId='', formId}) => {
   
@@ -27,7 +26,7 @@ const ContactForm = ({itemId='', formId}) => {
             document.getElementById(formId).parentNode.appendChild(messageBlock);
             messageBlock.style.fontSize = '.8rem';
             messageBlock.style.fontWeight = 'bold';
-
+/* 
             const requestRef = firebase.database().ref('requests');
                 requestRef.push(values);
                 console.log(values);
@@ -35,7 +34,7 @@ const ContactForm = ({itemId='', formId}) => {
                 messageBlock.style.color = "green";
 
                 resetForm();
-                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);
+                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000); */
         }
       });
 

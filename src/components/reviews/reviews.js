@@ -2,30 +2,20 @@ import React, { Component } from 'react';
 import './reviews.scss';
 import {connect} from 'react-redux';
 import { reviewsRequested, reviewsLoaded, reviewsError } from '../../redux/actions/reviewsAC';
-import firebase from '../../firebase.config';
 import ReviewItem from '../review-item/review-item';
 import ReviewForm from '../review-form/review-form';
 import Loading from '../../components/loading/loading';
 import Error from '../../components/error/error';
+import { getItems } from '../../api/api';
 
 class Reviews extends Component {
 
     componentDidMount() {
         this.props.reviewsRequested();
-        const itemsRef = firebase.database().ref('reviews');
-        itemsRef.on('value', (snapshot) => {
-            const items = snapshot.val();
-            if (items) {
-                const itemList = [];
-                for (let id in items) {
-                    itemList.push({ id, ...items[id] });
-                };
-                this.props.reviewsLoaded(itemList);
-            }
-            else {
-                this.props.reviewsError();
-            }
-        });
+        getItems('feedback')
+        .then(res => {
+            res.length > 0 ? this.props.reviewsLoaded(res) : this.props.reviewsError()
+        })
     }
 
     render() {

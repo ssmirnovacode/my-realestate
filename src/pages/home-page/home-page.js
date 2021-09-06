@@ -6,27 +6,19 @@ import {itemsLoaded, itemsRequested, itemsError } from '../../redux/actions/item
 import { setDeal, setFilters } from '../../redux/actions/filtersAC';
 import ItemsView from '../../components/items-view/items-view';
 import basePath from '../../assets/basePath';
-import firebase from '../../firebase.config';
+import { getItems } from '../../api/api';
 
 class Home extends Component {
 
     componentDidMount() {
         this.props.itemsRequested();
         this.props.setDeal('sale');
-        const itemsRef = firebase.database().ref('sale-items');
-        itemsRef.on('value', (snapshot) => {
-            const items = snapshot.val();
-            if (items) {
-                const itemList = [];
-                for (let id in items) {
-                    itemList.push({ id, ...items[id] });
-                };
-                this.props.itemsLoaded(itemList);
-            }
-            else {
-                this.props.itemsError();
-            }
-        });
+        getItems(this.props.deal)
+        .then(res => {
+            console.log(res.items);
+            res? this.props.itemsLoaded(res.items) : this.props.itemsError()
+        })
+        .catch(err => console.log(err));
     }
 
     handleImgLinkClick = (provName) => {
