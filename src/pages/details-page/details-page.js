@@ -15,7 +15,8 @@ class DetailsPage extends Component {
         this.props.itemRequested();
         getItemById(this.props.itemId)
         .then(res => {
-            res ? this.props.itemLoaded(res.item) : this.props.itemError()
+            res.item ? this.props.itemLoaded(res.item) : this.props.itemError();
+            console.log(this.props.item);
         })
         .catch(err => console.log(err))
     }
@@ -26,11 +27,12 @@ class DetailsPage extends Component {
         if (loading) {
             return <Loading />
         }
+
         if (error) {
             return <Error />
         }
 
-        console.log(item);
+        //console.log(item);
         const {...itemProps} = item;
 
         return(

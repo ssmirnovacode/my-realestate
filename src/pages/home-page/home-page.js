@@ -27,7 +27,7 @@ class Home extends Component {
             flat: true,
             house: true,
             duplex: true,
-            province: 'all',
+            province: provName,
             comarca: 'all',
             city: 'all',
             priceFrom: 0,
@@ -38,7 +38,6 @@ class Home extends Component {
             bathroomsMin: null
         };
         //console.log(filtersObj);
-        filtersObj.province = provName;
         this.props.setFilters(filtersObj);
     }
 

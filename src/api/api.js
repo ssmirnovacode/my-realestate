@@ -1,4 +1,5 @@
 const baseUrl = 'http://localhost:3001/';
+//const baseUrl = 'http://ssmirnovacode.github.io/my-realestate/';
 
 // Properties
 export const getItems = async (endpoint) => {
