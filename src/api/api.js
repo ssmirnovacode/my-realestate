@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3001/';
-//const baseUrl = 'http://ssmirnovacode.github.io/my-realestate/';
+//const baseUrl = 'http://localhost:3001/';
+const baseUrl = 'https://myrealestate-api.herokuapp.com/';
 
 // Properties
 export const getItems = async (endpoint) => {
