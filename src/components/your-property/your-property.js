@@ -1,45 +1,65 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useFormik} from 'formik';
 import basePath from '../../assets/basePath';
 import validate from '../../utils/validation';
-import firebase from '../../firebase.config';
 import { provinces } from '../../utils/filterArrays';
+import { postRequest } from '../../api/api';
+import './your-property.scss';
 
-const YourProperty = (props) => {
+const YourProperty = () => {
 
-    //const {formId} = props;
+    const [message, setMessage] = useState({
+        loading: false,
+        type: '',
+        text: ''
+    });
 
     const formik = useFormik({
         initialValues: {
             streetnum: '',
             door: '',
             zipcode: '',
-            province: '',
+            province: 'Barcelona',
             deal: 'sale',
             name: '',
             lastname: '',
             phone: '',
             email: '',
-            comments: ''/* ,
-            privacy: '' */
+            comments: ''
         },
         validate,
         onSubmit: (values, { resetForm }, e) => {
-
-            const messageBlock = document.createElement('div');
-            document.getElementById('your-property-form').parentNode.appendChild(messageBlock);
-            messageBlock.style.fontSize = '.8rem';
-            messageBlock.style.fontWeight = 'bold';
-
-            const requestRef = firebase.database().ref('requests');
-                requestRef.push(values);
-                console.log(values);
-                messageBlock.innerHTML = 'Thank you! We will contact you soon';
-                messageBlock.style.color = "green";
-
+            setMessage(message => ({
+                ...message,
+                loading: true
+            }));
+            postRequest(values, 'send-request')
+            .then(res => {
+                setMessage({
+                    loading: false,
+                    type: 'success',
+                    text: res.message 
+                })
                 resetForm();
-                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);
+                const timerId = setTimeout( (() => {setMessage({
+                    loading: false,
+                    type: '',
+                    text: null
+                }); clearInterval(timerId)}), 4000);
+            })
+            .catch(err => {
+                setMessage({
+                    loading: false,
+                    type: 'error',
+                    text: 'Server is not available. Try again later'
+                })
+                const timerId = setTimeout( (() => {setMessage({
+                    loading: false,
+                    type: '',
+                    text: null
+                }); clearInterval(timerId)}), 4000);
+            })
         },
       });
 
@@ -108,7 +128,11 @@ const YourProperty = (props) => {
                             </div>
                     </div>
 
-                    <button type="submit" className="btn btn-primary mt-3 mb-3">Submit</button>
+                    <div className="submit_box">
+                        <button type="submit" className="btn btn-primary mt-3">Submit</button><span className="message_loading">{ message.loading && <i className="fa fa-spinner fa-spin" aria-hidden="true"></i> }</span>
+                    </div>
+                    <div className={message.type === 'success' ? "message message_success" : "message message_error" }>
+                      {message.text}</div>
                 </form>
             </section>
     )

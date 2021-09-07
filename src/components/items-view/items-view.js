@@ -16,7 +16,7 @@ const ItemsView = ({loading=false, error=false, items, grid=null, classnames='',
             const {...itemProps} = item;
             if (i <= lastItem) {
                 return(
-                    <div key={item.id} className={grid}>
+                    <div key={item._id} className={grid}>
                         <PropertyCard {...itemProps} classnames={classnames}/>
                     </div>
                 )   
