@@ -31,7 +31,7 @@ export const postFeedback = async (data) => {
         body: JSON.stringify(data)
     });
     if (!res.ok) {
-        throw new Error('Could not fetch reviews');
+        throw new Error('Server is not available. Try again later');
     }
     return await res.json();
 }
@@ -43,7 +43,7 @@ export const postRequest = async (data, endpoint) => {
         body: JSON.stringify(data)
     });
     if (!res.ok) {
-        throw new Error('Could not fetch reviews');
+        throw new Error('Server is not available. Try again later');
     }
     return await res.json();
 }
