@@ -46,7 +46,9 @@ export const postRequest = async (data, endpoint) => {
         body: JSON.stringify(data)
     });
     if (!res.ok) {
-        throw new Error('Server is not available. Try again later');
+        console.log('Server is not available. Try again later');
+        return;
+        //throw new Error('Server is not available. Try again later');
     }
     return await res.json();
 }

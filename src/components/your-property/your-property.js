@@ -10,6 +10,7 @@ import './your-property.scss';
 const YourProperty = () => {
 
     const [message, setMessage] = useState({
+        loading: false,
         type: '',
         text: ''
     });
@@ -19,7 +20,7 @@ const YourProperty = () => {
             streetnum: '',
             door: '',
             zipcode: '',
-            province: '',
+            province: 'Barcelona',
             deal: 'sale',
             name: '',
             lastname: '',
@@ -29,25 +30,32 @@ const YourProperty = () => {
         },
         validate,
         onSubmit: (values, { resetForm }, e) => {
-
+            setMessage(message => ({
+                ...message,
+                loading: true
+            }))
             postRequest(values, 'send-request')
             .then(res => {
                 setMessage({
+                    loading: false,
                     type: 'success',
                     text: res.message 
                 })
                 resetForm();
                 const timerId = setTimeout( (() => {setMessage({
+                    loading: false,
                     type: '',
                     text: null
                 }); clearInterval(timerId)}), 4000);
             })
             .catch(err => {
                 setMessage({
+                    loading: false,
                     type: 'error',
-                    text: err.message
+                    text: 'Server is not available. Try again later'
                 })
                 const timerId = setTimeout( (() => {setMessage({
+                    loading: false,
                     type: '',
                     text: null
                 }); clearInterval(timerId)}), 4000);
@@ -120,8 +128,9 @@ const YourProperty = () => {
                             </div>
                     </div>
 
-                    <button type="submit" className="btn btn-primary mt-3 mb-3">Submit</button>
-                    <div className={message.type === 'success' ? "message message_success" : "message message_error" }>{message.text}</div>
+                    <button type="submit" className="btn btn-primary mt-3 mb-3">Submit</button><span className="message_loading">{ message.loading && <i className="fa fa-spinner fa-spin" aria-hidden="true"></i> }</span>
+                    <div className={message.type === 'success' ? "message message_success" : "message message_error" }>
+                      {message.text}</div>
                 </form>
             </section>
     )
