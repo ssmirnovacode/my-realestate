@@ -67,8 +67,8 @@ const ReviewForm = () => {
             </div>
             <div className="submit_box">
                 <button type="submit" className="btn btn-primary mt-3">Submit</button><span className="message_loading">{ message.loading && <i className="fa fa-spinner fa-spin" aria-hidden="true"></i> }</span>
-                </div>
-            <div className="message">{message}</div>
+            </div>
+            <div className={message.type === 'success' ? "message message_success" : "message message_error" }>{message.text}</div>
         </form>
     )
 };
