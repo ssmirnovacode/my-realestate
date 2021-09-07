@@ -1,5 +1,6 @@
 const baseUrl = 'http://localhost:3001/';
 
+// Properties
 export const getItems = async (endpoint) => {
     const res = await fetch(baseUrl + 'properties/' + endpoint);
     if (!res.ok) {
@@ -16,6 +17,7 @@ export const getItemById = async (id) => {
     return await res.json();
 }
 
+// Reviews
 export const getFeedback = async () => {
     const res = await fetch(baseUrl + 'feedback');
     if (!res.ok) {
@@ -36,6 +38,7 @@ export const postFeedback = async (data) => {
     return await res.json();
 }
 
+// Requests and contacts
 export const postRequest = async (data, endpoint) => {
     const res = await fetch(baseUrl + endpoint, {
         method: 'POST',

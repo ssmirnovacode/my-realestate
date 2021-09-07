@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './contact-form.scss';
 import {Link} from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -6,7 +6,12 @@ import basePath from '../../assets/basePath';
 import validate from '../../utils/validation';
 import { postRequest } from '../../api/api';
 
-const ContactForm = ({itemId='', formId}) => {
+const ContactForm = ({ itemId='', formId }) => {
+
+    const [message, setMessage] = useState({
+        type: '',
+        text: ''
+    });
   
     const formik = useFormik({
         initialValues: {
@@ -23,21 +28,27 @@ const ContactForm = ({itemId='', formId}) => {
                 values.itemId = itemId;
             }
 
-            const messageBlock = document.createElement('div');
-            document.getElementById(formId).parentNode.appendChild(messageBlock);
-            messageBlock.style.fontSize = '.8rem';
-            messageBlock.style.fontWeight = 'bold';
-
             postRequest(values, 'contact')
             .then(res => {
-                messageBlock.innerHTML = res.message;
-                messageBlock.style.color = "green";
+                setMessage({
+                    type: 'success',
+                    text: res.message 
+                })
                 resetForm();
-                const timerId = setTimeout( (() => {messageBlock.remove(); clearInterval(timerId)}), 4000);
+                const timerId = setTimeout( (() => {setMessage({
+                    type: '',
+                    text: null
+                }); clearInterval(timerId)}), 4000);
             })
             .catch(err => {
-                messageBlock.innerHTML = err.message;
-                messageBlock.style.color = "red";
+                setMessage({
+                    type: 'error',
+                    text: err.message
+                })
+                const timerId = setTimeout( (() => {setMessage({
+                    type: '',
+                    text: null
+                }); clearInterval(timerId)}), 4000);
             })
         }
       });
@@ -78,6 +89,7 @@ const ContactForm = ({itemId='', formId}) => {
                     <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to={`${basePath}/privacy`}>privacy policy</Link></label>
                 </div>
                 <button type="submit" className="btn btn-primary mt-3">Submit</button>
+                <div className={message.type === 'success' ? "message message_success" : "message message_error" }>{message.text}</div>
             </form><br/>
 
         </section>

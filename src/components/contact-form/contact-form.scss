@@ -1,9 +1,13 @@
-.msg-success {
-    color: success;
-}
-
-.msg-error {
-    color: danger;
+.message {
+    margin-top: 1rem;
+    font-size: .8rem;
+    font-weight: bold;
+    &_success {
+        color: green;
+    }
+    &_error {
+        color: red;
+    }
 }
 
 .form-title {
