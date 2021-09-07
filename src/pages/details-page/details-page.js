@@ -16,7 +16,6 @@ class DetailsPage extends Component {
         getItemById(this.props.itemId)
         .then(res => {
             res.item ? this.props.itemLoaded(res.item) : this.props.itemError();
-            console.log(this.props.item);
         })
         .catch(err => console.log(err))
     }
@@ -32,7 +31,6 @@ class DetailsPage extends Component {
             return <Error />
         }
 
-        //console.log(item);
         const {...itemProps} = item;
 
         return(
