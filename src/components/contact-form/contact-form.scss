@@ -8,6 +8,17 @@
     &_error {
         color: red;
     }
+    &_loading {
+        margin-top: 1rem;
+        color: #007bff;
+        opacity: 1;
+        font-size: 1.5rem;
+    }
+}
+
+.submit_box {
+    display: flex;
+    align-items: center;
 }
 
 .form-title {

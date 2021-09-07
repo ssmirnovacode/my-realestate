@@ -33,7 +33,7 @@ const YourProperty = () => {
             setMessage(message => ({
                 ...message,
                 loading: true
-            }))
+            }));
             postRequest(values, 'send-request')
             .then(res => {
                 setMessage({
