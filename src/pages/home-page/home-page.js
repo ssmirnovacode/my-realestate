@@ -62,25 +62,25 @@ class Home extends Component {
 
                 <div className="row home">
                     <div className="col-12 col-md-6 col-xl-3 home provinces-block_item ">
-                        <Link to={`${basePath}/search`} onClick={() => this.handleImgLinkClick("Barcelona")}>
+                        <Link to={`/search`} onClick={() => this.handleImgLinkClick("Barcelona")}>
                             <img src="https://b.radikal.ru/b31/2103/5a/394765249676.jpg" alt="Barcelona"/>
                             <div className="home provinces-block_item_title">Barcelona</div>
                         </Link>
                     </div>
                     <div className="col-12 col-md-6 col-xl-3 home provinces-block_item ">
-                        <Link to={`${basePath}/search`} onClick={() => this.handleImgLinkClick("Tarragona")}>
+                        <Link to={`/search`} onClick={() => this.handleImgLinkClick("Tarragona")}>
                             <img src="https://b.radikal.ru/b38/2103/09/a5d19f76b108.jpg" alt="Tarragona" />
                             <div className="home provinces-block_item_title">Tarragona</div>
                         </Link>
                     </div>
                     <div className="col-12 col-md-6 col-xl-3 home provinces-block_item">
-                        <Link to={`${basePath}/search`} onClick={() => this.handleImgLinkClick("Lleida")}>
+                        <Link to={`/search`} onClick={() => this.handleImgLinkClick("Lleida")}>
                             <img src="https://b.radikal.ru/b28/2103/7b/11338d0bf154.jpg" alt="Lleida" />
                             <div className="home provinces-block_item_title">Lleida</div>
                         </Link>
                     </div>
                     <div className="col-12 col-md-6 col-xl-3 home provinces-block_item">
-                        <Link to={`${basePath}/search`} onClick={() => this.handleImgLinkClick("Girona")}>
+                        <Link to={`/search`} onClick={() => this.handleImgLinkClick("Girona")}>
                             <img src="https://b.radikal.ru/b00/2103/56/7d9ffb5a917e.jpg" alt="Girona" />
                             <div className="home provinces-block_item_title">Girona</div>
                         </Link>

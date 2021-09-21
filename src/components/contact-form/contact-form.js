@@ -94,7 +94,7 @@ const ContactForm = ({ itemId='', formId }) => {
                 </div>
                 <div className="form-check">
                     <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-                    <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to={`${basePath}/privacy`}>privacy policy</Link></label>
+                    <label className="form-check-label ml-1" htmlFor="privpolicy">I have read and accept the <Link to={`/privacy`}>privacy policy</Link></label>
                 </div>
                 <div className="submit_box">
                 <button type="submit" className="btn btn-primary mt-3">Submit</button><span className="message_loading">{ message.loading && <i className="fa fa-spinner fa-spin" aria-hidden="true"></i> }</span>

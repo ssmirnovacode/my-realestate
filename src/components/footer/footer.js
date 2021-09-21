@@ -7,13 +7,13 @@ const Footer = () => {
     return(
         <footer className="footer jumbotron myfooter">
             <div className="footer_col navmenu">
-                <div className="footer headerlink"><Link to={`${basePath}/`} >My Real Estate</Link></div>
+                <div className="footer headerlink"><Link to={`/`} >My Real Estate</Link></div>
                 <ul className="footer_nav">
-                    <li><Link className="footer nav-link" to={`${basePath}/buy`} >Buy</Link></li>
-                    <li><Link className="footer nav-link" to={`${basePath}/sell`} >Sell</Link></li>
-                    <li><Link className="footer nav-link" to={`${basePath}/rent`}>Rent</Link></li>
-                    <li><Link className="footer nav-link" to={`${basePath}/about`} >About us</Link></li>
-                    <li><Link className="footer nav-link" to={`${basePath}/contact`} >Contact us</Link></li>
+                    <li><Link className="footer nav-link" to={`/buy`} >Buy</Link></li>
+                    <li><Link className="footer nav-link" to={`/sell`} >Sell</Link></li>
+                    <li><Link className="footer nav-link" to={`/rent`}>Rent</Link></li>
+                    <li><Link className="footer nav-link" to={`/about`} >About us</Link></li>
+                    <li><Link className="footer nav-link" to={`/contact`} >Contact us</Link></li>
                 </ul>
             </div>
             <div className="footer_col">

@@ -52,14 +52,14 @@ const Navigation = (props) => {
 
     return(
         <nav className="navbar navbar-dark bg-dark">
-                <Link className="nav-link" to={`${basePath}/`}><h1>My Real Estate</h1></Link>               
+                <Link className="nav-link" to={`/`}><h1>My Real Estate</h1></Link>               
 
                 <ul className="nav nav-pills ml-auto">
                     {
                         menuItems.map(item => {
                             return(
                                 <li key={item.id} id={item.id} className={activeItem === item.id ? "nav-item mainnav activeItem" : "nav-item mainnav"} onClick={() => handleNavItemActiveChange(item.id)}>
-                                    <Link className="nav-link" to={`${basePath}/${item.link}`}>{item.label}</Link>
+                                    <Link className="nav-link" to={`/${item.link}`}>{item.label}</Link>
                                 </li>
                             )
                         })
@@ -76,7 +76,7 @@ const Navigation = (props) => {
                             menuItems.map(item => {
                                 return(
                                     <li key={item.id} id={item.id} className={activeItem === item.id ? "nav-item active" : "nav-item"} >
-                                        <Link className="nav-link drawer" to={`${basePath}/${item.link}`}  onClick={() => handleNavItemActiveChange(item.id)}>{item.label} 
+                                        <Link className="nav-link drawer" to={`/${item.link}`}  onClick={() => handleNavItemActiveChange(item.id)}>{item.label} 
                                         {activeItem === item.id ? <span className="sr-only">(current)</span> : null}   </Link>
                                     </li>
                                 )

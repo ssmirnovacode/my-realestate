@@ -19,7 +19,7 @@ const SearchForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.history.push(`${basePath}/search`);
+        props.history.push(`/search`);
         setFilters(filtersObj);
     }
 
