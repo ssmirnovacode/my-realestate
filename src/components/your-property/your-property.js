@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useFormik} from 'formik';
 import basePath from '../../assets/basePath';
-import validate from '../../utils/validation';
+import {validateProperty as validate} from '../../utils/validation';
 import { provinces } from '../../utils/filterArrays';
 import { postRequest } from '../../api/api';
 import './your-property.scss';
@@ -75,6 +75,8 @@ const YourProperty = () => {
                                 <input className="door form-control" type="text" name="door" placeholder="Building, apartment, door"  
                                     onChange={formik.handleChange} value={formik.values.door}/>
                             </div>
+                                {formik.errors.streetnum ? <div className="errMess">{formik.errors.streetnum}</div> : null}
+                                {formik.errors.door ? <div className="errMess">{formik.errors.door}</div> : null}
 
                             <div className="input-group mb-3">
                                 <input className="mr-2 form-control" type="text" name="zipcode" placeholder="Postal code"
@@ -90,6 +92,7 @@ const YourProperty = () => {
                                     }
                                 </select>
                             </div>
+                            {formik.errors.zipcode ? <div className="errMess">{formik.errors.zipcode}</div> : null}
                             <div className="input-group mb-3">
                                 <select className="custom-select" name="deal"
                                          onChange={formik.handleChange} value={formik.values.deal}>
@@ -120,6 +123,7 @@ const YourProperty = () => {
                             <div className="input-group mb-3">
                                 <textarea className="form-control" name="comments" placeholder="Comments "  onChange={formik.handleChange} value={formik.values.comments}/>
                             </div>
+                            {formik.errors.comments ? <div className="errMess">{formik.errors.comments}</div> : null}
 
                             <div className="form-check">
                                 <input className="form-check-input" type="checkbox" name="privacy" required 

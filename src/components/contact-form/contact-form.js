@@ -3,7 +3,7 @@ import './contact-form.scss';
 import {Link} from 'react-router-dom';
 import { useFormik } from 'formik';
 import basePath from '../../assets/basePath';
-import validate from '../../utils/validation';
+import { validateContact as validate} from '../../utils/validation';
 import { postRequest } from '../../api/api';
 
 const ContactForm = ({ itemId='', formId }) => {
