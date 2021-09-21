@@ -20,7 +20,7 @@ const PropertyCard = (props) => {
             {imgBlock}
             <div className="card-body">
                 <div className="card-subheader-top">
-                    <div className="card-id">{_id}</div>
+                    <div className="card-id">{_id.slice(-12)}</div>
                     <div className="card-price">{price} &#8364; </div>
                 </div>
                 

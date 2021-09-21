@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3001/';
-//const baseUrl = 'https://realestate-rest.herokuapp.com/'; // https://myrealestate-api.herokuapp.com/
+//const baseUrl = 'http://localhost:3001/';
+const baseUrl = 'https://realestate-rest.herokuapp.com/'; // https://myrealestate-api.herokuapp.com/
 
 // Properties
 export const getItems = async (endpoint) => {
